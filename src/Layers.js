@@ -15,6 +15,7 @@ export default {
         '#5AAE61',
         'grey',
       ],
+      'fill-opacity': 0.7,
     },
     paintLine: {
       'line-color': 'lightgrey',

@@ -6,7 +6,8 @@ import Papa from 'papaparse';
 import {useMVTLayer} from '../hooks/useMVTLayer';
 import {useGeoJSONLayer} from '../hooks/useGeoJSONLayer';
 import useBoundaryLayers from '../hooks/useBoundaryLayers';
-import useFacilities from '../hooks/useFacilities';
+import useFacilitiesLayer from '../hooks/useFacilitiesLayer';
+import {useCensusTractFacilities} from '../hooks/useFacilities';
 import Layers from '../Layers';
 
 export default function MainPage() {
@@ -44,12 +45,23 @@ export default function MainPage() {
   // BoundaryLayers().forEach(layer => {
   const boundaryLayers = useBoundaryLayers(map, selectedBoundary);
 
-  const facilities = useFacilities();
+  const facilities = useFacilitiesLayer(map);
+  console.log('sf ', selectedFeature);
+  console.log(
+    'selected id ',
+    selectedFeature ? selectedFeature.properties.GEOID : null,
+  );
+  console.log(facilities);
+  const tractFacilities = useCensusTractFacilities(
+    selectedFeature ? selectedFeature.properties.GEOID : null,
+    facilities,
+  );
+  console.log('tract facilities ', tractFacilities);
   return (
     <div className="main-page">
       <div className="map" ref={mapDiv} />
       <div className="details">
-        <Details feature={selectedFeature} />{' '}
+        <Details facilities={tractFacilities} feature={selectedFeature} />{' '}
       </div>
       <Legend
         boundaries={boundaryLayers}

@@ -60,6 +60,7 @@ h4 {
   box-sizing: border-box;
   padding: 0px 0px 20px 20px;
   text-align: left;
+  z-index: 1;
   min-width: 100%;
   -webkit-box-shadow: 0px -4px 16px 3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px -4px 16px 3px rgba(0, 0, 0, 0.75);
@@ -76,7 +77,16 @@ h4 {
   height: 40vmin;
   pointer-events: none;
 }
-
+.details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  box-sizing: border-box;
+  span {
+    cursor: pointer;
+  }
+}
 .Legend {
   position: absolute;
   z-index: 100;
@@ -85,6 +95,7 @@ h4 {
   background-color: white;
   box-sizing: border-box;
   padding: 20px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
