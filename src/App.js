@@ -6,7 +6,7 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Route path="/" component={MainPage} />
       </Router>
     </div>
