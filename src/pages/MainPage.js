@@ -15,6 +15,7 @@ export default function MainPage() {
   const [selectedBoundary, setSelectedBoundary] = useState('cd');
   const [selectedFeature, setSelectedFeature] = useState(null);
   const [hardToCountStats, setHardToCountStats] = useState([]);
+  const [showFacilities, setShowFacilities] = useState(true);
 
   useEffect(() => {
     Papa.parse('/hard_to_count_NY.csv', {
@@ -38,25 +39,18 @@ export default function MainPage() {
 
   //  const HTCLayer = useMVTLayer(map, Layers.HTCLayer);
   const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
-    ...Layers.geojsonLayer,
+    ...Layers.HTCLayer,
     onClick: feature => setSelectedFeature(feature),
   });
 
   // BoundaryLayers().forEach(layer => {
   const boundaryLayers = useBoundaryLayers(map, selectedBoundary);
 
-  const facilities = useFacilitiesLayer(map);
-  console.log('sf ', selectedFeature);
-  console.log(
-    'selected id ',
-    selectedFeature ? selectedFeature.properties.GEOID : null,
-  );
-  console.log(facilities);
+  const facilities = useFacilitiesLayer(map, showFacilities);
   const tractFacilities = useCensusTractFacilities(
     selectedFeature ? selectedFeature.properties.GEOID : null,
     facilities,
   );
-  console.log('tract facilities ', tractFacilities);
   return (
     <div className="main-page">
       <div className="map" ref={mapDiv} />
@@ -67,6 +61,8 @@ export default function MainPage() {
         boundaries={boundaryLayers}
         selectedBoundary={selectedBoundary}
         onSelectBoundary={setSelectedBoundary}
+        showFacilities={showFacilities}
+        onShowFacilitiesChange={setShowFacilities}
       />
     </div>
   );
