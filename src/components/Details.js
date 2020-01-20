@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {RadialChart} from 'react-vis';
 import FacilityCard from './FacilityCard';
 
-export default function Details({feature, facilities}) {
+export default function Details({feature, facilities, onSelectFacility}) {
   console.log(feature);
 
   const [showFacilities, setShowFacilities] = useState(false);
@@ -76,6 +76,30 @@ export default function Details({feature, facilities}) {
                 </div>
                 <div className="card demographics">
                   <h3>Demographics</h3>
+                  <p>
+                    White :{' '}
+                    {feature.properties.WhiteAloneOrCombo /
+                      feature.properties.TotPopACS17}{' '}
+                    %
+                  </p>
+                  <p>
+                    Black:{' '}
+                    {feature.properties.BlackAloneOrCombo /
+                      feature.properties.TotPopACS17}{' '}
+                    %
+                  </p>
+                  <p>
+                    Asian:{' '}
+                    {feature.properties.AsianAloneOrCombo /
+                      feature.properties.TotPopACS17}{' '}
+                    %
+                  </p>
+                  <p>
+                    Hispanic:{' '}
+                    {feature.properties.Hispanic /
+                      feature.properties.TotPopACS17}{' '}
+                    %
+                  </p>
                 </div>
                 <div className="card english_proficency">
                   <h3>English Proficency</h3>
@@ -100,10 +124,9 @@ export default function Details({feature, facilities}) {
                     data={makeInternetData(feature)}
                     showLabels
                     labelsRadiusMultiplier={1.1}
-                    innerRadius={80}
-                    radius={100}
                     labelsStyle={{
                       fontSize: 12,
+                      color: 'white',
                     }}
                   />
                 </div>
