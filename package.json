@@ -21,7 +21,7 @@
     "react-scripts": "3.3.0",
     "react-vis": "^1.11.7"
   },
-  "homepage": "stuartlynn.github.io/NYCCensusCountMap",
+  "homepage": "https://stuartlynn.github.io/NYCCensusCountMap/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
