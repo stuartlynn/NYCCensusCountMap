@@ -1,5 +1,5 @@
 export default {
-  geojsonLayer: {
+  HTCLayer: {
     url: `${process.env.PUBLIC_URL}/CensusTractsAllVariables.geojson`,
     paintFill: {
       'fill-color': [
@@ -18,44 +18,7 @@ export default {
       'fill-opacity': 0.7,
     },
     paintLine: {
-      'line-color': 'lightgrey',
-    },
-  },
-  censusStrategyLayer: {
-    url:
-      'https://gis-server.data.census.gov/arcgis/rest/services/Hosted/Mail_Strategy_VectorTile/VectorTileServer/tile/{z}/{y}/{x}.pbf',
-    sourceLayer: 'Mail Strategy',
-    paintFill: {
-      'fill-color': [
-        'match',
-        ['get', '_symbol'],
-        0,
-        '#C2A5CF',
-        1,
-        '#9970AB',
-        2,
-        '#A6DBA0',
-        3,
-        '#5AAE61',
-        'grey',
-      ],
-    },
-    paintLine: {
-      'line-color': 'lightgrey',
-      'line-width': 0.2,
-    },
-  },
-
-  HTCLayer: {
-    url:
-      'https://b.tiles.mapbox.com/v4/cunycur.9zkm964v/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiY3VueWN1ciIsImEiOiJfQmNSMF9NIn0.uRgbcFeJbw2xyTUZY8gYeA',
-    sourceLayer: 'Tract2017wgs84_HTConly-c1gvdq',
-    paintFill: {
-      'fill-color': 'red',
-    },
-    paintLine: {
-      'line-color': 'lightgrey',
-      'line-width': 0.2,
+      'line-color': 'white',
     },
   },
 };
