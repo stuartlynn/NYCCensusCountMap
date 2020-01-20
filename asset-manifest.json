@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "stuartlynn.github.io/NYCCensusCountMap/static/css/main.1a021df8.chunk.css",
+    "main.js": "stuartlynn.github.io/NYCCensusCountMap/static/js/main.2ffbe54a.chunk.js",
+    "main.js.map": "stuartlynn.github.io/NYCCensusCountMap/static/js/main.2ffbe54a.chunk.js.map",
+    "runtime-main.js": "stuartlynn.github.io/NYCCensusCountMap/static/js/runtime-main.605e1a50.js",
+    "runtime-main.js.map": "stuartlynn.github.io/NYCCensusCountMap/static/js/runtime-main.605e1a50.js.map",
+    "static/css/2.e8fdfe18.chunk.css": "stuartlynn.github.io/NYCCensusCountMap/static/css/2.e8fdfe18.chunk.css",
+    "static/js/2.37ae33cb.chunk.js": "stuartlynn.github.io/NYCCensusCountMap/static/js/2.37ae33cb.chunk.js",
+    "static/js/2.37ae33cb.chunk.js.map": "stuartlynn.github.io/NYCCensusCountMap/static/js/2.37ae33cb.chunk.js.map",
+    "index.html": "stuartlynn.github.io/NYCCensusCountMap/index.html",
+    "precache-manifest.f001f9c6956022387fc00c70e7ae04d0.js": "stuartlynn.github.io/NYCCensusCountMap/precache-manifest.f001f9c6956022387fc00c70e7ae04d0.js",
+    "service-worker.js": "stuartlynn.github.io/NYCCensusCountMap/service-worker.js",
+    "static/css/2.e8fdfe18.chunk.css.map": "stuartlynn.github.io/NYCCensusCountMap/static/css/2.e8fdfe18.chunk.css.map",
+    "static/css/main.1a021df8.chunk.css.map": "stuartlynn.github.io/NYCCensusCountMap/static/css/main.1a021df8.chunk.css.map",
+    "static/js/2.37ae33cb.chunk.js.LICENSE": "stuartlynn.github.io/NYCCensusCountMap/static/js/2.37ae33cb.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.605e1a50.js",
+    "static/css/2.e8fdfe18.chunk.css",
+    "static/js/2.37ae33cb.chunk.js",
+    "static/css/main.1a021df8.chunk.css",
+    "static/js/main.2ffbe54a.chunk.js"
+  ]
+}
