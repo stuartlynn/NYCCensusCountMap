@@ -1,6 +1,6 @@
 export default {
   geojsonLayer: {
-    url: '/CensusTractsAllVariables.geojson',
+    url: `${process.env.PUBLIC_URL}/CensusTractsAllVariables.geojson`,
     paintFill: {
       'fill-color': [
         'match',

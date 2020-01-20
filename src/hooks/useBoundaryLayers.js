@@ -17,7 +17,7 @@ export default function useBoundaryLayers(map, selectedLayer) {
           console.log('adding source ', sourceName);
           layerDeets.source = map.current.addSource(sourceName, {
             type: 'geojson',
-            data: `/boundaries/${layer.id}.geojson`,
+            data: `${process.env.PUBLIC_URL}/boundaries/${layer.id}.geojson`,
           });
 
           if (layer.paintFill) {
