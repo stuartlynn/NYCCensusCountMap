@@ -38,7 +38,7 @@ export default function useFacilitiesLayer(map, visible) {
   }, [map, facilities]);
 
   useEffect(() => {
-    if (map.current && map.current.isStyleLoaded()) {
+    if (map.current && map.current.loaded()) {
       map.current.setLayoutProperty(
         `facilities`,
         'visibility',

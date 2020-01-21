@@ -50,7 +50,7 @@ export function useGeoJSONLayer(
   }, [map]);
 
   useEffect(() => {
-    if (map.current && map.current.isStyleLoaded()) {
+    if (map.current && map.current.loaded()) {
       console.log(
         'setting fill color to be ',
         paintFill['fill-color'],
