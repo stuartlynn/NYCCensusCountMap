@@ -73,6 +73,22 @@ h4 {
     flex-direction: column;
   }
 }
+
+.range-legend {
+  display: flex;
+  flex-direction: column;
+}
+.range-legend-bar {
+  height: 15px;
+  width: 100%;
+}
+
+.range-legend-labels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

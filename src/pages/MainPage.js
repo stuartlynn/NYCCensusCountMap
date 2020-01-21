@@ -8,7 +8,7 @@ import {useGeoJSONLayer} from '../hooks/useGeoJSONLayer';
 import useBoundaryLayers from '../hooks/useBoundaryLayers';
 import useFacilitiesLayer from '../hooks/useFacilitiesLayer';
 import {useCensusTractFacilities} from '../hooks/useFacilities';
-import Layers from '../Layers';
+import Layers, {fillStyles} from '../Layers';
 
 export default function MainPage() {
   const mapDiv = useRef(null);
@@ -16,6 +16,7 @@ export default function MainPage() {
   const [selectedFeature, setSelectedFeature] = useState(null);
   const [hardToCountStats, setHardToCountStats] = useState([]);
   const [showFacilities, setShowFacilities] = useState(true);
+  const [metric, setMetric] = useState('strategy');
 
   useEffect(() => {
     Papa.parse('/hard_to_count_NY.csv', {
@@ -38,8 +39,14 @@ export default function MainPage() {
   //  const stategyLayer = useMVTLayer(map, Layers.censusStrategyLayer);
 
   //  const HTCLayer = useMVTLayer(map, Layers.HTCLayer);
-  const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
+  const style = {
     ...Layers.HTCLayer,
+    ...{paintFill: {'fill-color': fillStyles[metric]}},
+  };
+
+  console.log('style is ', style);
+  const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
+    ...style,
     onClick: feature => setSelectedFeature(feature),
   });
 
@@ -63,6 +70,8 @@ export default function MainPage() {
         onSelectBoundary={setSelectedBoundary}
         showFacilities={showFacilities}
         onShowFacilitiesChange={setShowFacilities}
+        metric={metric}
+        onSelectMetric={setMetric}
       />
     </div>
   );

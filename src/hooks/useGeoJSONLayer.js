@@ -48,5 +48,20 @@ export function useGeoJSONLayer(
       });
     }
   }, [map]);
+
+  useEffect(() => {
+    if (map.current && map.current.isStyleLoaded()) {
+      console.log(
+        'setting fill color to be ',
+        paintFill['fill-color'],
+        paintFill,
+      );
+      map.current.setPaintProperty(
+        `${name}-fill`,
+        'fill-color',
+        paintFill['fill-color'],
+      );
+    }
+  }, [paintFill]);
   return {fillLayer, source};
 }

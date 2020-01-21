@@ -1,20 +1,33 @@
+export const fillStyles = {
+  strategy: [
+    'match',
+    ['get', 'strategy_code'],
+    0,
+    '#C2A5CF',
+    1,
+    '#9970AB',
+    2,
+    '#A6DBA0',
+    3,
+    '#5AAE61',
+    'grey',
+  ],
+  returnCount: [
+    'interpolate',
+    ['linear'],
+    ['get', 'MRR2010'],
+    0,
+    '#309dae',
+    100,
+    '#ebf7f9',
+  ],
+};
+
 export default {
   HTCLayer: {
     url: `${process.env.PUBLIC_URL}/CensusTractsAllVariables.geojson`,
     paintFill: {
-      'fill-color': [
-        'match',
-        ['get', 'strategy_code'],
-        0,
-        '#C2A5CF',
-        1,
-        '#9970AB',
-        2,
-        '#A6DBA0',
-        3,
-        '#5AAE61',
-        'grey',
-      ],
+      'fill-color': 'grey',
       'fill-opacity': 0.7,
     },
     paintLine: {
