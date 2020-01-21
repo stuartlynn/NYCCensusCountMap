@@ -3,12 +3,13 @@ import {useEffect, useRef} from 'react';
 export function useGeoJSONLayer(
   map,
   name,
-  {url, paintFill, paintLine, sourceLayer, onClick},
+  {url, paintFill, paintLine, sourceLayer, onClick, selection},
 ) {
   const fillLayer = useRef(null);
   const lineLayer = useRef(null);
   const source = useRef(null);
   const source_name = `${name}_source`;
+  const oldSelectionID = useRef(null);
   useEffect(() => {
     if (map.current) {
       map.current.on('load', () => {
@@ -48,6 +49,23 @@ export function useGeoJSONLayer(
       });
     }
   }, [map]);
+
+  useEffect(() => {
+    if (map.current && selection) {
+      if (oldSelectionID.current) {
+        map.current.setFeatureState(
+          {source: source_name, id: oldSelectionID.current},
+          {selected: false},
+        );
+      }
+
+      map.current.setFeatureState(
+        {source: source_name, id: selection.id},
+        {selected: true},
+      );
+      oldSelectionID.current = selection.id;
+    }
+  }, [selection]);
 
   useEffect(() => {
     if (map.current && map.current.loaded()) {

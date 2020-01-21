@@ -44,10 +44,10 @@ export default function MainPage() {
     ...{paintFill: {'fill-color': fillStyles[metric]}},
   };
 
-  console.log('style is ', style);
   const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
     ...style,
     onClick: feature => setSelectedFeature(feature),
+    selection: selectedFeature,
   });
 
   // BoundaryLayers().forEach(layer => {

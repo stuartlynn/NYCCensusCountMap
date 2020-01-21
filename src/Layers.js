@@ -31,7 +31,18 @@ export default {
       'fill-opacity': 0.7,
     },
     paintLine: {
-      'line-color': 'white',
+      'line-color': [
+        'case',
+        ['boolean', ['coalesce', ['feature-state', 'selected'], false], true],
+        'red',
+        'white',
+      ],
+      'line-width': [
+        'case',
+        ['boolean', ['coalesce', ['feature-state', 'selected'], false], true],
+        3,
+        1,
+      ],
     },
   },
 };
