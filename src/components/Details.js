@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {RadialChart} from 'react-vis';
 import FacilityCard from './FacilityCard';
+import SimpleBarChart from './SimpleBarChart';
 
 export default function Details({feature, facilities, onSelectFacility}) {
   console.log(feature);
@@ -23,10 +24,22 @@ export default function Details({feature, facilities, onSelectFacility}) {
       'OtherOnly',
     ];
     const data = cols.map(col => ({
-      angle: feature.properties[col],
+      value: feature.properties[col],
       label: col,
     }));
     return data;
+  };
+  const contactStrategy = feature => {
+    switch (feature.strategy_code) {
+      case 0:
+        return 'Internet First, English';
+      case 1:
+        return 'Internet First, Bilingual';
+      case 2:
+        return 'Internet Choice, English';
+      case 3:
+        return 'Internet Choice, Bilingual';
+    }
   };
 
   const makeLEP = feature => {
@@ -38,7 +51,7 @@ export default function Details({feature, facilities, onSelectFacility}) {
       'LEPotherHHs',
     ];
     const data = cols.map(col => ({
-      angle: feature.properties[col],
+      value: feature.properties[col],
       label: col,
     }));
     return data;
@@ -71,63 +84,62 @@ export default function Details({feature, facilities, onSelectFacility}) {
               <React.Fragment>
                 <div className="card basic">
                   <h3>Basic Info</h3>
-                  <p>Population {feature.properties.TotPopACS17}</p>
-                  <p>Mail return rate 2010 :{feature.properties.MRR2010}%</p>
+                  <p>
+                    Population: <span>{feature.properties.TotPopACS17}</span>
+                  </p>
+                  <p>
+                    Mail return rate 2010:{' '}
+                    <span>{feature.properties.MRR2010}%</span>
+                  </p>
+                  <p>
+                    Inital Contact Strategy:
+                    <span>{contactStrategy(feature.properties)}</span>
+                  </p>
                 </div>
                 <div className="card demographics">
-                  <h3>Demographics</h3>
-                  <p>
-                    White :{' '}
-                    {feature.properties.WhiteAloneOrCombo /
-                      feature.properties.TotPopACS17}{' '}
-                    %
-                  </p>
-                  <p>
-                    Black:{' '}
-                    {feature.properties.BlackAloneOrCombo /
-                      feature.properties.TotPopACS17}{' '}
-                    %
-                  </p>
-                  <p>
-                    Asian:{' '}
-                    {feature.properties.AsianAloneOrCombo /
-                      feature.properties.TotPopACS17}{' '}
-                    %
-                  </p>
-                  <p>
-                    Hispanic:{' '}
-                    {feature.properties.Hispanic /
-                      feature.properties.TotPopACS17}{' '}
-                    %
-                  </p>
+                  <SimpleBarChart
+                    title="Demographics"
+                    data={[
+                      {
+                        label: 'white',
+                        value:
+                          feature.properties.WhiteAloneOrCombo /
+                          feature.properties.TotPopACS17,
+                      },
+                      {
+                        label: 'black',
+                        value:
+                          feature.properties.BlackAloneOrCombo /
+                          feature.properties.TotPopACS17,
+                      },
+                      {
+                        label: 'asian',
+                        value:
+                          feature.properties.AsianAloneOrCombo /
+                          feature.properties.TotPopACS17,
+                      },
+                      {
+                        label: 'hispanic',
+                        value:
+                          feature.properties.Hispanic /
+                          feature.properties.TotPopACS17,
+                      },
+                    ]}
+                  />
                 </div>
                 <div className="card english_proficency">
-                  <h3>English Proficency</h3>
-                  <RadialChart
-                    width={200}
-                    height={200}
+                  <SimpleBarChart
+                    title="English Proficency"
                     data={makeLEP(feature)}
-                    showLabels
-                    labelsRadiusMultiplier={1.1}
-                    labelsStyle={{
-                      fontSize: 12,
-                    }}
-                    innerRadius={80}
-                    radius={100}
+                    norm={true}
                   />
                 </div>
                 <div className="card internet">
-                  <h3>Internet</h3>
-                  <RadialChart
-                    width={200}
-                    height={200}
+                  <SimpleBarChart
+                    title="Internet Access"
                     data={makeInternetData(feature)}
-                    showLabels
-                    labelsRadiusMultiplier={1.1}
-                    labelsStyle={{
-                      fontSize: 12,
-                      color: 'white',
-                    }}
+                    norm={true}
+                    style={{width: '500px'}}
                   />
                 </div>
               </React.Fragment>
@@ -135,7 +147,9 @@ export default function Details({feature, facilities, onSelectFacility}) {
           </div>
         </React.Fragment>
       ) : (
-        <h2>Click to see details of feature</h2>
+        <div className="placeholder">
+          <h2>Click tract for details</h2>
+        </div>
       )}
     </div>
   );

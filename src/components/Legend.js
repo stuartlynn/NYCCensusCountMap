@@ -18,6 +18,7 @@ export default function Legend({
   return (
     <div className="Legend">
       <section className="thematic-layer">
+        <h3>Metric</h3>
         <Dropdown
           options={[
             {value: 'strategy', label: 'Mail Strategy'},

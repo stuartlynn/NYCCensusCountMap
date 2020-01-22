@@ -9,7 +9,7 @@ export default function BoundarySelector({
 }) {
   return (
     <section className="boundary-selector">
-      <h4>Boundaries</h4>
+      <h3>Boundaries</h3>
 
       {boundaries && (
         <Dropdown

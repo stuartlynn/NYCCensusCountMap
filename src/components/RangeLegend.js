@@ -6,7 +6,6 @@ export default function RangeLegend({name, min, max, colStart, colEnd}) {
   console.log('gradient is ', gradient);
   return (
     <div className="range-legend">
-      <h4 className="range-legend-title">{name}</h4>
       <div
         className="range-legend-bar"
         style={{
