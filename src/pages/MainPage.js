@@ -61,7 +61,16 @@ export default function MainPage() {
   return (
     <div className="main-page">
       <div className="map" ref={mapDiv} />
-      <div className="details">
+      <div className="info overlay">
+        <h2>NYC CENSUS 2020 INTERACTIVE MAP</h2>
+        <h3>Created by Stuart Lynn: Hosted/designed Hester Street</h3>
+        <p>
+          This interactive map serves the purpose for any organization to learn
+          more about the people they serve. This map is fully interactive and
+          will remain avaliable after the Census effort
+        </p>
+      </div>
+      <div className="details overlay">
         <Details facilities={tractFacilities} feature={selectedFeature} />{' '}
       </div>
       <Legend

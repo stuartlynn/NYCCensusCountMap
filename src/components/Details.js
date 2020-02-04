@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import {RadialChart} from 'react-vis';
 import FacilityCard from './FacilityCard';
 import SimpleBarChart from './SimpleBarChart';
+import PieCard from './PieCard';
+import AssetCategoryCard from './AssetCategoryCard';
 
 export default function Details({feature, facilities, onSelectFacility}) {
   console.log(feature);
+
+  console.log(facilities);
 
   const [showFacilities, setShowFacilities] = useState(false);
 
@@ -25,7 +29,7 @@ export default function Details({feature, facilities, onSelectFacility}) {
     ];
     const data = cols.map(col => ({
       value: feature.properties[col],
-      label: col,
+      title: col,
     }));
     return data;
   };
@@ -52,7 +56,7 @@ export default function Details({feature, facilities, onSelectFacility}) {
     ];
     const data = cols.map(col => ({
       value: feature.properties[col],
-      label: col,
+      title: col,
     }));
     return data;
   };
@@ -61,89 +65,68 @@ export default function Details({feature, facilities, onSelectFacility}) {
     <div className="feature">
       {feature ? (
         <React.Fragment>
-          <div className="details-header">
+          <div className="overview">
             <h2>Census Tract: {feature.properties.GEOID}</h2>
+            <h2>General Info</h2>
             <p>
-              <span
-                onClick={() => setShowFacilities(false)}
-                className={!showFacilities ? 'selected' : ''}>
-                Stats
-              </span>{' '}
-              /{' '}
-              <span
-                onClick={() => setShowFacilities(true)}
-                className={showFacilities ? 'selected' : ''}>
-                Facilities
-              </span>
+              Population: <span>{feature.properties.TotPopACS17}</span>
+            </p>
+            <p>
+              Mail return rate 2010: <span>{feature.properties.MRR2010}%</span>
+            </p>
+            <p>
+              Inital Contact Strategy:
+              <span>{contactStrategy(feature.properties)}</span>
             </p>
           </div>
           <div className="cards">
-            {showFacilities ? (
-              facilities.map(f => <FacilityCard facility={f} />)
-            ) : (
-              <React.Fragment>
-                <div className="card basic">
-                  <h3>Basic Info</h3>
-                  <p>
-                    Population: <span>{feature.properties.TotPopACS17}</span>
-                  </p>
-                  <p>
-                    Mail return rate 2010:{' '}
-                    <span>{feature.properties.MRR2010}%</span>
-                  </p>
-                  <p>
-                    Inital Contact Strategy:
-                    <span>{contactStrategy(feature.properties)}</span>
-                  </p>
-                </div>
-                <div className="card demographics">
-                  <SimpleBarChart
-                    title="Demographics"
-                    data={[
-                      {
-                        label: 'white',
-                        value:
-                          feature.properties.WhiteAloneOrCombo /
-                          feature.properties.TotPopACS17,
-                      },
-                      {
-                        label: 'black',
-                        value:
-                          feature.properties.BlackAloneOrCombo /
-                          feature.properties.TotPopACS17,
-                      },
-                      {
-                        label: 'asian',
-                        value:
-                          feature.properties.AsianAloneOrCombo /
-                          feature.properties.TotPopACS17,
-                      },
-                      {
-                        label: 'hispanic',
-                        value:
-                          feature.properties.Hispanic /
-                          feature.properties.TotPopACS17,
-                      },
-                    ]}
-                  />
-                </div>
-                <div className="card english_proficency">
-                  <SimpleBarChart
-                    title="English Proficency"
-                    data={makeLEP(feature)}
-                    norm={true}
-                  />
-                </div>
-                <div className="card internet">
-                  <SimpleBarChart
-                    title="Internet Access"
-                    data={makeInternetData(feature)}
-                    norm={true}
-                    style={{width: '500px'}}
-                  />
-                </div>
-              </React.Fragment>
-            )}
+            <div className="card demographics">
+              <PieCard
+                title="Demographics"
+                data={[
+                  {
+                    title: 'white',
+                    value:
+                      feature.properties.WhiteAloneOrCombo /
+                      feature.properties.TotPopACS17,
+                  },
+                  {
+                    title: 'black',
+                    value:
+                      feature.properties.BlackAloneOrCombo /
+                      feature.properties.TotPopACS17,
+                  },
+                  {
+                    title: 'asian',
+                    value:
+                      feature.properties.AsianAloneOrCombo /
+                      feature.properties.TotPopACS17,
+                  },
+                  {
+                    title: 'hispanic',
+                    value:
+                      feature.properties.Hispanic /
+                      feature.properties.TotPopACS17,
+                  },
+                ]}
+              />
+            </div>
+            <div className="card english_proficency">
+              <PieCard
+                title="English Proficency"
+                data={makeLEP(feature)}
+                norm={true}
+              />
+            </div>
+            <div className="card internet">
+              <PieCard
+                title="Internet Access"
+                data={makeInternetData(feature)}
+                norm={true}
+                style={{width: '500px'}}
+              />
+            </div>
+            <AssetCategoryCard title={'Medical'} assets={facilities} />
           </div>
         </React.Fragment>
       ) : (

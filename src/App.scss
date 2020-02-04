@@ -1,9 +1,27 @@
+$sidebar-width: 300px;
+$sidebar-vgap: 20px;
+
+@font-face {
+  font-family: 'GTAmerican';
+  src: url(./fonts/GT-America-Standard-Regular.otf) format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'GTAmerican';
+  font-weight: bold;
+  src: url(./fonts/GT-America-Standard-Bold.otf) format('opentype');
+}
+
 html,
 body {
   width: 100vw;
   height: 100vh;
   margin: 0px;
   padding: 0px;
+  font-size: 11px;
+  color: #919496;
+  font-family: GTAmerican;
 }
 #root {
   width: 100vw;
@@ -16,6 +34,14 @@ body {
   height: 100vh;
 }
 
+h2 {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+h3 {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
 h1,
 h2,
 h3,
@@ -24,12 +50,20 @@ h4 {
   padding: 0px;
 }
 
+p {
+  font-size: 0.9rem;
+}
+.help-tab {
+  text-align: left;
+  overflow-y: auto;
+}
+
 .cards {
   display: flex;
   flex-direction: row;
   height: 100%;
   overflow-x: auto;
-  min-width: 100%;
+  flex: 1;
   .card {
     min-width: 300px;
     height: 100%;
@@ -48,25 +82,24 @@ h4 {
 .main-page {
   width: 100vw;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 300px;
-  grid-template-areas: 'Map' 'Details';
 }
 .map {
-  grid-area: Map;
+  width: 100%;
+  height: 100%;
 }
 .selected {
   font-weight: bold;
 }
 .details {
-  grid-area: Details;
-  background-color: white;
-  box-sizing: border-box;
-  padding: 0px 0px 20px 20px;
   text-align: left;
   z-index: 1;
-  min-width: 100%;
+  left: 20px;
+  z-index: 1;
+  bottom: 20px;
+  height: 25vh;
+  min-width: $sidebar-width;
+  max-width: 97vw;
+
   -webkit-box-shadow: 0px -4px 16px 3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px -4px 16px 3px rgba(0, 0, 0, 0.75);
   box-shadow: 0px -4px 16px 3px rgba(0, 0, 0, 0.75);
@@ -74,17 +107,14 @@ h4 {
   flex-direction: column;
   .feature {
     height: 100%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
 }
-.Legend {
-  h3 {
-    margin: 10px 0px 5px 0px;
-  }
-  ul {
-    margin-top: 10px;
-  }
+
+.overview {
+  width: 240px;
 }
 .range-legend {
   display: flex;
@@ -101,6 +131,27 @@ h4 {
   justify-content: space-between;
 }
 
+.tabs {
+  display: flex;
+  background-color: #919496;
+  font-size: 2rem;
+  color: white;
+  justify-content: space-around;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  cursor: pointer;
+  div {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 10px;
+  }
+  .selected {
+    background-color: white;
+    color: #919496;
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -111,19 +162,45 @@ h4 {
   justify-content: space-evenly;
   padding: 0px 20px;
   box-sizing: border-box;
+  max-width: calc(100vw -20px);
   span {
     cursor: pointer;
   }
 }
+.overlay {
+  box-sizing: border-box;
+  padding: 15px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  background-color: white;
+  border-radius: 2px;
+  left: 2vw;
+  z-index: 1;
+}
+.info {
+  position: absolute;
+  top: 20px;
+  height: 15vh;
+  text-align: left;
+  width: $sidebar-width;
+}
+.Legend .content {
+  padding: 20px;
+}
 .Legend {
+  padding: 0px;
   position: absolute;
   z-index: 100;
-  top: 10px;
-  right: 10px;
+  top: 20vh;
   background-color: white;
-  box-sizing: border-box;
-  padding: 20px;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+  height: 50vh;
+  width: $sidebar-width;
+  h3 {
+    margin: 10px 0px 5px 0px;
+  }
+  ul {
+    margin-top: 10px;
+  }
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -191,5 +268,64 @@ ul {
   align-content: center;
   h2 {
     font-size: 2rem;
+  }
+}
+
+.pie-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h2 {
+    margin-bottom: 20px;
+  }
+  .pie-card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .labels {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+  }
+  .label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bar {
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+  }
+}
+
+.asset-card {
+  display: flex;
+  flex-direction: column;
+  ul {
+    box-sizing: border-box;
+    padding: 20px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    grid-template-rows: repeat(auto-fit, minmax(20px, 1fr));
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
+  h3 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  p {
+    font-size: 0.6rem;
+    padding: 0px;
+    margin: 0px;
   }
 }
