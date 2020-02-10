@@ -28,7 +28,7 @@ export default function useFacilitiesLayer(map, visible) {
                 'text-offset': [0, 0.6],
                 'text-size': 10,
                 'text-anchor': 'top',
-                visibility: visible ? 'visible' : 'none',
+                visibility: false, // visible ? 'visible' : 'none',
               },
             });
           },

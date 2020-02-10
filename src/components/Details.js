@@ -4,33 +4,91 @@ import FacilityCard from './FacilityCard';
 import SimpleBarChart from './SimpleBarChart';
 import PieCard from './PieCard';
 import AssetCategoryCard from './AssetCategoryCard';
+import DetailsSelector from './DetailsSelector';
 
-export default function Details({feature, facilities, onSelectFacility}) {
-  console.log(feature);
-
-  console.log(facilities);
-
+export default function Details({
+  feature,
+  facilities,
+  onSelectFacility,
+  layer,
+}) {
   const [showFacilities, setShowFacilities] = useState(false);
 
-  const makeInternetData = feature => {
-    const cols = [
-      'NoInternet',
-      'Internet_NoSub',
-      'Internet',
-      'DialUpOnly',
-      'Broadband_Any',
-      'Cellular',
-      'CellularOnly',
-      'Broadband_CableFiberOpticDSL',
-      'Broadband_CableFiberOpticDSLOnly',
-      'Satellite',
-      'SatelliteOnly',
-      'OtherOnly',
+  const [selectedDetails, setSelectedDetails] = useState('barriers');
+
+  const makeRenting = feature => {
+    const properties = feature.properties;
+    return [
+      {name: 'Reting', value: properties.own_vs_rent_rent},
+      {name: 'Owned', value: properties.own_vs_rent_owner},
     ];
-    const data = cols.map(col => ({
-      value: feature.properties[col],
-      title: col,
-    }));
+  };
+
+  const featureNames = {
+    tracts: 'Census Tract',
+    cd: 'Community District',
+    sd: 'School District',
+    cc: 'City Council District',
+    nat: 'Neighborhood Tablulation Area',
+  };
+  const featureName = featureNames[layer];
+
+  console.log('layer:  ', layer, ' feature name  ', featureName);
+
+  const makeAgeData = feature => {
+    const properties = feature.properties;
+    const data = [
+      {
+        name: '5 years or younger',
+        value: properties.age_less_5,
+      },
+      {
+        name: '6 yrs - 15 yrs',
+        value: properties.age_6_15,
+      },
+      {
+        name: '16 yrs - 64 yrs',
+        value: properties.age_16_64,
+      },
+      {
+        name: '65 yrs or older',
+        value: properties.age_64_over,
+      },
+    ];
+    return data;
+  };
+  const makeForeignData = feature => {
+    const properties = feature.properties;
+    return [
+      {name: 'Native Born', value: properties.foreign_born_native},
+      {name: 'Foreign Born', value: properties.foreign_born_foreign},
+    ];
+  };
+  const makeEnglishData = feature => {
+    const properties = feature.properties;
+
+    return [
+      {name: 'English', value: properties.english_english},
+      {name: 'Asian Languages', value: properties.english_asian},
+      {name: 'Spanish', value: properties.english_spanish},
+      {name: 'European Languages', value: properties.english_european},
+      {name: 'Other', value: properties.english_other},
+    ];
+  };
+  const makeInternetData = feature => {
+    const properties = feature.properties;
+    const data = [
+      {name: 'No Internet', value: properties.internet_no_access},
+      {
+        name: 'Full Subscription',
+        value: properties.internet_subscription,
+      },
+      {
+        name: 'Limited Subscription',
+        value: properties.internet_no_subscription,
+      },
+    ];
+    console.log(properties);
     return data;
   };
   const contactStrategy = feature => {
@@ -44,6 +102,30 @@ export default function Details({feature, facilities, onSelectFacility}) {
       case 3:
         return 'Internet Choice, Bilingual';
     }
+  };
+  const makeDemographicData = feature => {
+    return [
+      {
+        name: 'white',
+        value: feature.properties.race_white / feature.properties.race_total,
+      },
+      {
+        name: 'black',
+        value: feature.properties.race_black / feature.properties.race_total,
+      },
+      {
+        name: 'asian',
+        value: feature.properties.race_asian / feature.properties.race_total,
+      },
+      {
+        name: 'latinx',
+        value: feature.properties.race_hispanic / feature.properties.race_total,
+      },
+      {
+        name: 'other',
+        value: feature.properties.race_other / feature.properties.race_total,
+      },
+    ];
   };
 
   const makeLEP = feature => {
@@ -66,72 +148,91 @@ export default function Details({feature, facilities, onSelectFacility}) {
       {feature ? (
         <React.Fragment>
           <div className="overview">
-            <h2>Census Tract: {feature.properties.GEOID}</h2>
-            <h2>General Info</h2>
+            <h2>
+              {featureName}:{' '}
+              {layer === 'tracts'
+                ? feature.properties.GEOID
+                : feature.properties.geoid}
+            </h2>
             <p>
-              Population: <span>{feature.properties.TotPopACS17}</span>
+              Population:{' '}
+              <span style={{color: 'red'}}>
+                {feature.properties.total_population}
+              </span>
             </p>
             <p>
-              Mail return rate 2010: <span>{feature.properties.MRR2010}%</span>
+              Mail return rate 2010:{' '}
+              <span style={{color: 'red'}}>{feature.properties.MRR2010}%</span>
             </p>
             <p>
               Inital Contact Strategy:
-              <span>{contactStrategy(feature.properties)}</span>
+              <span style={{color: 'red'}}>
+                {contactStrategy(feature.properties)}
+              </span>
             </p>
           </div>
-          <div className="cards">
-            <div className="card demographics">
-              <PieCard
-                title="Demographics"
-                data={[
-                  {
-                    title: 'white',
-                    value:
-                      feature.properties.WhiteAloneOrCombo /
-                      feature.properties.TotPopACS17,
-                  },
-                  {
-                    title: 'black',
-                    value:
-                      feature.properties.BlackAloneOrCombo /
-                      feature.properties.TotPopACS17,
-                  },
-                  {
-                    title: 'asian',
-                    value:
-                      feature.properties.AsianAloneOrCombo /
-                      feature.properties.TotPopACS17,
-                  },
-                  {
-                    title: 'hispanic',
-                    value:
-                      feature.properties.Hispanic /
-                      feature.properties.TotPopACS17,
-                  },
-                ]}
-              />
+          <div className="selector-cards">
+            <DetailsSelector
+              selected={selectedDetails}
+              onSelect={detail => setSelectedDetails(detail)}
+            />
+            <div className="cards">
+              {selectedDetails == 'barriers' && (
+                <>
+                  <div className="card internet">
+                    <PieCard
+                      title="Internet Access"
+                      data={makeInternetData(feature)}
+                      norm={true}
+                      style={{width: '500px'}}
+                    />
+                  </div>
+                  <div className="card english_proficency">
+                    <PieCard
+                      title="English Proficency"
+                      data={makeEnglishData(feature)}
+                      norm={true}
+                    />
+                  </div>
+                  <div className="card age">
+                    <PieCard
+                      title="Age"
+                      data={makeAgeData(feature)}
+                      norm={true}
+                    />
+                  </div>
+                </>
+              )}
+              {selectedDetails === 'demographics' && (
+                <>
+                  <div className="card demographics">
+                    <PieCard
+                      title="Demographics"
+                      data={makeDemographicData(feature)}
+                    />
+                  </div>
+                  <div className="card foreign">
+                    <PieCard
+                      title="Foreign Born"
+                      data={makeForeignData(feature)}
+                    />
+                  </div>
+                  <div className="card housing">
+                    <PieCard title="Renting" data={makeRenting(feature)} />
+                  </div>
+                </>
+              )}
+              {selectedDetails === 'assets' && (
+                <>
+                  <AssetCategoryCard title={'Medical'} assets={facilities} />
+                </>
+              )}
             </div>
-            <div className="card english_proficency">
-              <PieCard
-                title="English Proficency"
-                data={makeLEP(feature)}
-                norm={true}
-              />
-            </div>
-            <div className="card internet">
-              <PieCard
-                title="Internet Access"
-                data={makeInternetData(feature)}
-                norm={true}
-                style={{width: '500px'}}
-              />
-            </div>
-            <AssetCategoryCard title={'Medical'} assets={facilities} />
           </div>
         </React.Fragment>
       ) : (
         <div className="placeholder">
-          <h2>Click tract for details</h2>
+          <h2>Click {featureName} for details</h2>
         </div>
       )}
     </div>

@@ -36,22 +36,33 @@ export default function MainPage() {
       'pk.eyJ1Ijoic3R1YXJ0LWx5bm4iLCJhIjoiM2Q4ODllNmRkZDQ4Yzc3NTBhN2UyNDE0MWY2OTRiZWIifQ.8OEKvgZBCCtDFUXkjt66Pw',
   });
 
+  useEffect(() => {
+    setSelectedFeature(null);
+  }, [selectedBoundary]);
   //  const stategyLayer = useMVTLayer(map, Layers.censusStrategyLayer);
 
   //  const HTCLayer = useMVTLayer(map, Layers.HTCLayer);
   const style = {
     ...Layers.HTCLayer,
-    ...{paintFill: {'fill-color': fillStyles[metric]}},
+    ...{paintFill: {'fill-color': fillStyles[metric], 'fill-opacity': 0.7}},
   };
 
   const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
     ...style,
     onClick: feature => setSelectedFeature(feature),
     selection: selectedFeature,
+    visible: selectedBoundary === 'tracts',
   });
 
   // BoundaryLayers().forEach(layer => {
-  const boundaryLayers = useBoundaryLayers(map, selectedBoundary);
+  const boundaryLayers = useBoundaryLayers(
+    map,
+    selectedBoundary,
+    null,
+    null,
+    null,
+    boundary => setSelectedFeature(boundary),
+  );
 
   const facilities = useFacilitiesLayer(map, showFacilities);
   const tractFacilities = useCensusTractFacilities(
@@ -71,7 +82,11 @@ export default function MainPage() {
         </p>
       </div>
       <div className="details overlay">
-        <Details facilities={tractFacilities} feature={selectedFeature} />{' '}
+        <Details
+          facilities={tractFacilities}
+          feature={selectedFeature}
+          layer={selectedBoundary}
+        />{' '}
       </div>
       <Legend
         boundaries={boundaryLayers}

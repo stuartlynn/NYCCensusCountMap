@@ -25,7 +25,8 @@ export const fillStyles = {
 
 export default {
   HTCLayer: {
-    url: `${process.env.PUBLIC_URL}/CensusTractsAllVariables.geojson`,
+    //url: `${process.env.PUBLIC_URL}/CensusTractsAllVariables.geojson`,
+    url: `${process.env.PUBLIC_URL}/census_tracts.geojson`,
     paintFill: {
       'fill-color': 'grey',
       'fill-opacity': 0.7,
@@ -52,12 +53,44 @@ export function BoundaryLayers() {
     {
       id: 'cd',
       datasetName: 'Community Districts',
+      polygons: 'community_districts_vars.geojson',
+      labels: 'communty_district_labels.geojson',
       url:
         'http://data.cityofnewyork.us/api/geospatial/yfnk-k7r4?method=export&format=Shapefile',
       nameCol: 'boro_cd',
       nameAlt: null,
     },
     {
+      id: 'sd',
+      datasetName: 'School Districts',
+      polygons: 'school_districts_with_vars.geojson',
+      labels: 'school_district_labels.geojson',
+      url:
+        'http://data.cityofnewyork.us/api/geospatial/r8nu-ymqj?method=export&format=Shapefile',
+      nameCol: 'district',
+      nameAlt: 'districtco',
+    },
+    {
+      id: 'cc',
+      datasetName: 'City Council Districts',
+      polygons: 'city_council_district_with_vars.geojson',
+      labels: 'city_council_district_labels.geojson',
+      url:
+        'http://data.cityofnewyork.us/api/geospatial/yusd-j4xi?method=export&format=Shapefile',
+      nameCol: 'coun_dist',
+      nameAlt: null,
+    },
+    {
+      id: 'nta',
+      datasetName: 'Neighborhood Tabulation Area',
+      polygons: 'ntas_with_vars.geojson',
+      labels: 'nta_labels.geojson',
+      url:
+        'http://data.cityofnewyork.us/api/geospatial/cpf4-rkhq?method=export&format=Shapefile',
+      nameCol: 'ntaname',
+      nameAlt: 'ntacode',
+    },
+    /*{
       id: 'pp',
       datasetName: 'Police Precincts',
       url:
@@ -66,27 +99,11 @@ export function BoundaryLayers() {
       nameAlt: null,
     },
     {
-      id: 'sd',
-      datasetName: 'School Districts',
-      url:
-        'http://data.cityofnewyork.us/api/geospatial/r8nu-ymqj?method=export&format=Shapefile',
-      nameCol: 'district',
-      nameAlt: 'districtco',
-    },
-    {
       id: 'hc',
       datasetName: 'Health Center Districts',
       url:
         'http://data.cityofnewyork.us/api/geospatial/b55q-34ps?method=export&format=Shapefile',
       nameCol: 'hcent_dist',
-      nameAlt: null,
-    },
-    {
-      id: 'cc',
-      datasetName: 'City Council Districts',
-      url:
-        'http://data.cityofnewyork.us/api/geospatial/yusd-j4xi?method=export&format=Shapefile',
-      nameCol: 'coun_dist',
       nameAlt: null,
     },
     {
@@ -112,14 +129,6 @@ export function BoundaryLayers() {
         'http://data.cityofnewyork.us/api/geospatial/h4i2-acfi?method=export&format=Shapefile',
       nameCol: 'st_sen_dis',
       nameAlt: null,
-    },
-    {
-      id: 'nta',
-      datasetName: 'Neighborhood Tabulation Area',
-      url:
-        'http://data.cityofnewyork.us/api/geospatial/cpf4-rkhq?method=export&format=Shapefile',
-      nameCol: 'ntaname',
-      nameAlt: 'ntacode',
     },
     {
       id: 'bid',

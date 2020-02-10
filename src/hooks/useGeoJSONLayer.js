@@ -3,7 +3,7 @@ import {useEffect, useRef} from 'react';
 export function useGeoJSONLayer(
   map,
   name,
-  {url, paintFill, paintLine, sourceLayer, onClick, selection},
+  {url, paintFill, paintLine, sourceLayer, onClick, selection, visible},
 ) {
   const fillLayer = useRef(null);
   const lineLayer = useRef(null);
@@ -19,26 +19,26 @@ export function useGeoJSONLayer(
         });
 
         if (paintFill) {
-          fillLayer.current = map.current.addLayer(
-            {
-              id: `${name}-fill`,
-              type: 'fill',
-              source: source_name,
-              paint: paintFill,
+          fillLayer.current = map.current.addLayer({
+            id: `${name}-fill`,
+            type: 'fill',
+            source: source_name,
+            paint: paintFill,
+            layout: {
+              visibility: visible ? 'visible' : 'none',
             },
-            'waterway-label',
-          );
+          });
         }
         if (paintLine) {
-          lineLayer.current = map.current.addLayer(
-            {
-              id: `${name}-line`,
-              type: 'line',
-              source: source_name,
-              paint: paintLine,
+          lineLayer.current = map.current.addLayer({
+            id: `${name}-line`,
+            type: 'line',
+            source: source_name,
+            paint: paintLine,
+            layout: {
+              visibility: visible ? 'visible' : 'none',
             },
-            'waterway-label',
-          );
+          });
         }
         map.current.on('click', `${name}-fill`, e => {
           console.log(e.features[0]);
@@ -66,6 +66,21 @@ export function useGeoJSONLayer(
       oldSelectionID.current = selection.id;
     }
   }, [selection]);
+
+  useEffect(() => {
+    if (map.current && map.current.loaded()) {
+      map.current.setLayoutProperty(
+        `${name}-fill`,
+        'visibility',
+        visible ? 'visible' : 'none',
+      );
+      map.current.setLayoutProperty(
+        `${name}-line`,
+        'visibility',
+        visible ? 'visible' : 'none',
+      );
+    }
+  }, [map, visible]);
 
   useEffect(() => {
     if (map.current && map.current.loaded()) {

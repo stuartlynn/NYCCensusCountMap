@@ -1,8 +1,9 @@
 import {useState, useRef, useEffect, useCallback} from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import style from '../map_style';
 
-export function useMap(mapDivRef, {lnglat, zoom, style, key}) {
+export function useMap(mapDivRef, {lnglat, zoom, key}) {
   mapboxgl.accessToken = key;
   const map = useRef(null);
   useEffect(() => {
