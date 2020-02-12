@@ -7,7 +7,6 @@ import {useMVTLayer} from '../hooks/useMVTLayer';
 import {useGeoJSONLayer} from '../hooks/useGeoJSONLayer';
 import useBoundaryLayers from '../hooks/useBoundaryLayers';
 import useFacilitiesLayer from '../hooks/useFacilitiesLayer';
-import {useCensusTractFacilities} from '../hooks/useFacilities';
 import Layers, {fillStyles} from '../Layers';
 
 export default function MainPage() {
@@ -16,6 +15,7 @@ export default function MainPage() {
   const [selectedFeature, setSelectedFeature] = useState(null);
   const [hardToCountStats, setHardToCountStats] = useState([]);
   const [showFacilities, setShowFacilities] = useState(true);
+  const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
   const [metric, setMetric] = useState('strategy');
 
   useEffect(() => {
@@ -27,6 +27,12 @@ export default function MainPage() {
       },
     });
   }, []);
+
+  const onToggleFacilityType = type => {
+    selectedFacilityTypes.includes(type)
+      ? setSelectedFacilityTypes(selectedFacilityTypes.filter(t => t !== type))
+      : setSelectedFacilityTypes([...selectedFacilityTypes, type]);
+  };
 
   const map = useMap(mapDiv, {
     lnglat: [-73.9920330193022, 40.75078660435196],
@@ -49,7 +55,11 @@ export default function MainPage() {
 
   const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
     ...style,
-    onClick: feature => setSelectedFeature(feature),
+    onClick: feature => {
+      if (selectedBoundary === 'tracts') {
+        setSelectedFeature(feature);
+      }
+    },
     selection: selectedFeature,
     visible: selectedBoundary === 'tracts',
   });
@@ -59,16 +69,12 @@ export default function MainPage() {
     map,
     selectedBoundary,
     null,
-    null,
-    null,
+    selectedBoundary,
+    selectedFeature ? selectedFeature.id : null,
     boundary => setSelectedFeature(boundary),
   );
 
   const facilities = useFacilitiesLayer(map, showFacilities);
-  const tractFacilities = useCensusTractFacilities(
-    selectedFeature ? selectedFeature.properties.GEOID : null,
-    facilities,
-  );
   return (
     <div className="main-page">
       <div className="map" ref={mapDiv} />
@@ -83,9 +89,9 @@ export default function MainPage() {
       </div>
       <div className="details overlay">
         <Details
-          facilities={tractFacilities}
           feature={selectedFeature}
           layer={selectedBoundary}
+          facilityTypes={selectedFacilityTypes}
         />{' '}
       </div>
       <Legend
@@ -94,6 +100,8 @@ export default function MainPage() {
         onSelectBoundary={setSelectedBoundary}
         showFacilities={showFacilities}
         onShowFacilitiesChange={setShowFacilities}
+        selectedFacilityTypes={selectedFacilityTypes}
+        onSelectFacilityType={onToggleFacilityType}
         metric={metric}
         onSelectMetric={setMetric}
       />

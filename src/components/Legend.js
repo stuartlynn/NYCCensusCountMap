@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import ContactTypeLegend from './ContactTypeLegend';
 import RangeLegend from './RangeLegend';
 import BoundarySelector from './BoundarySelector';
+import FacilitiesSelector from './FacilitiesSelector';
 import HelpTab from './HelpTab';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -23,6 +24,8 @@ export default function Legend({
   onShowFacilitiesChange,
   onSelectMetric,
   metric,
+  selectedFacilityTypes,
+  onSelectFacilityType,
 }) {
   const [tab, setTab] = useState('layers');
   console.log('Tab is ', tab);
@@ -79,16 +82,10 @@ export default function Legend({
               onSelect={onSelectBoundary}
               boundaries={boundaries}
             />
-            <div className="facilitesToggle">
-              <p>
-                Show Facilities{' '}
-                <input
-                  type="checkbox"
-                  checked={showFacilities}
-                  onChange={e => onShowFacilitiesChange(e.target.checked)}
-                />
-              </p>
-            </div>
+            <FacilitiesSelector
+              selected={selectedFacilityTypes}
+              onSelected={onSelectFacilityType}
+            />
           </section>
         )}
         {tab === 'questions' && <HelpTab />}

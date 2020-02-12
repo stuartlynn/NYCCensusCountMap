@@ -8,7 +8,7 @@ export default function AssetCategoryCard({assets, title}) {
       <ul>
         {assets.map(asset => (
           <li className="asset">
-            <h3>{asset.facname}</h3>
+            <h3>{asset.name}</h3>
             <p>
               {[asset.address, asset.boro, asset.city, asset.zipcode].join(',')}
             </p>

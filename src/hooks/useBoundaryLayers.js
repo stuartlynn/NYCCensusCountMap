@@ -10,6 +10,7 @@ export default function useBoundaryLayers(
   onClick,
 ) {
   const [layers, setLayers] = useState({});
+  const oldSelectionID = useRef(null);
 
   useEffect(() => {
     if (map.current) {
@@ -39,7 +40,16 @@ export default function useBoundaryLayers(
             source: sourceName,
             paint: {
               'fill-color': 'grey',
-              'fill-opacity': 0.7,
+              'fill-opacity': [
+                'case',
+                [
+                  'boolean',
+                  ['coalesce', ['feature-state', 'selected'], false],
+                  true,
+                ],
+                0,
+                0.7,
+              ],
             },
             layout: {
               visibility: selectedLayer == layer.id ? 'visible' : 'none',
@@ -51,7 +61,18 @@ export default function useBoundaryLayers(
               id: `${layer.id}-line`,
               type: 'line',
               source: sourceName,
-              paint: layer.paintLine,
+              paint: {
+                'line-color': [
+                  'case',
+                  [
+                    'boolean',
+                    ['coalesce', ['feature-state', 'selected'], false],
+                    true,
+                  ],
+                  'red',
+                  'black',
+                ],
+              },
               layout: {
                 visibility: selectedLayer == layer.id ? 'visible' : 'none',
               },
@@ -69,6 +90,7 @@ export default function useBoundaryLayers(
               'text-offset': [0, 0.0],
               'text-size': 15,
               'text-anchor': 'top',
+              'text-allow-overlap': true,
             },
           });
           layerList[layer.id] = layerDeets;
@@ -99,6 +121,25 @@ export default function useBoundaryLayers(
       });
     }
   }, [map, selectedLayer]);
+
+  useEffect(() => {
+    const source_name = `${selectedLayer}_source`;
+
+    if (map.current && selectedGeomID) {
+      if (oldSelectionID.current) {
+        map.current.setFeatureState(
+          {source: source_name, id: oldSelectionID.current},
+          {selected: false},
+        );
+      }
+
+      map.current.setFeatureState(
+        {source: source_name, id: selectedGeomID},
+        {selected: true},
+      );
+      oldSelectionID.current = selectedGeomID;
+    }
+  }, [selectedGeomID, selectedLayer, map]);
 
   useEffect(() => {
     if (map.current) {

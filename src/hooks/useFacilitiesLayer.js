@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import useFacilities from './useFacilities';
 
-export default function useFacilitiesLayer(map, visible) {
+export default function useFacilitiesLayer(map, visible, layer, id, types) {
   const facilities = useFacilities();
 
   useEffect(() => {
     console.log('Map ', map, ' Facilities ', facilities);
     if (map.current && facilities) {
+      console.log('Facilities are ', facilities);
       map.current.on('load', () => {
         map.current.loadImage(
           `${process.env.PUBLIC_URL}/marker.png`,
@@ -22,13 +23,18 @@ export default function useFacilitiesLayer(map, visible) {
               },
               layout: {
                 'icon-image': 'marker',
-                'icon-size': 0.4,
-                'text-field': ['get', 'facname'],
+                'icon-size': 0.2,
+                'text-field': ['get', 'name'],
                 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
                 'text-offset': [0, 0.6],
                 'text-size': 10,
                 'text-anchor': 'top',
-                visibility: false, // visible ? 'visible' : 'none',
+                //'icon-allow-overlap': true,
+                //              'text-allow-overlap': true,
+                visibility: visible ? 'visible' : 'none',
+              },
+              paint: {
+                'text-color': 'rgba(255,255,255,1)',
               },
             });
           },
@@ -39,6 +45,7 @@ export default function useFacilitiesLayer(map, visible) {
 
   useEffect(() => {
     if (map.current && map.current.loaded()) {
+      console.log('Toggling visible on facilities');
       map.current.setLayoutProperty(
         `facilities`,
         'visibility',

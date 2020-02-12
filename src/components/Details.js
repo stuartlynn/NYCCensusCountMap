@@ -5,16 +5,22 @@ import SimpleBarChart from './SimpleBarChart';
 import PieCard from './PieCard';
 import AssetCategoryCard from './AssetCategoryCard';
 import DetailsSelector from './DetailsSelector';
+import {useFilteredFacilities} from '../hooks/useFacilities';
 
 export default function Details({
   feature,
-  facilities,
   onSelectFacility,
   layer,
+  facilityTypes,
 }) {
   const [showFacilities, setShowFacilities] = useState(false);
 
   const [selectedDetails, setSelectedDetails] = useState('barriers');
+  const facilities = useFilteredFacilities(
+    feature ? feature.properties.geoid : null,
+    layer,
+    facilityTypes,
+  );
 
   const makeRenting = feature => {
     const properties = feature.properties;
@@ -224,7 +230,12 @@ export default function Details({
               )}
               {selectedDetails === 'assets' && (
                 <>
-                  <AssetCategoryCard title={'Medical'} assets={facilities} />
+                  {facilityTypes.map(type => (
+                    <AssetCategoryCard
+                      title={type}
+                      assets={facilities.filter(f => f.asset_type === type)}
+                    />
+                  ))}
                 </>
               )}
             </div>

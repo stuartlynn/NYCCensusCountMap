@@ -25,7 +25,7 @@ export function useGeoJSONLayer(
             source: source_name,
             paint: paintFill,
             layout: {
-              visibility: visible ? 'visible' : 'none',
+              visibility: 'visible', // visible ? 'visible' : 'none',
             },
           });
         }
@@ -36,7 +36,7 @@ export function useGeoJSONLayer(
             source: source_name,
             paint: paintLine,
             layout: {
-              visibility: visible ? 'visible' : 'none',
+              visibility: 'visible', // visible ? 'visible' : 'none',
             },
           });
         }
@@ -67,7 +67,7 @@ export function useGeoJSONLayer(
     }
   }, [selection]);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     if (map.current && map.current.loaded()) {
       map.current.setLayoutProperty(
         `${name}-fill`,
@@ -81,7 +81,7 @@ export function useGeoJSONLayer(
       );
     }
   }, [map, visible]);
-
+*/
   useEffect(() => {
     if (map.current && map.current.loaded()) {
       console.log(
