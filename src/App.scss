@@ -133,6 +133,7 @@ p {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    cursor: pointer;
   }
   .selected {
     font-weight: 700;
@@ -349,6 +350,15 @@ ul {
   padding: 10px 20px;
   flex: 1;
   box-sizing: border-box;
+  h2 {
+    display: flex;
+    align-items: center;
+  }
+  img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+  }
   ul {
     box-sizing: border-box;
     padding: 20px 0px;
