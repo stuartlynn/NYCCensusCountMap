@@ -230,12 +230,16 @@ export default function Details({
               )}
               {selectedDetails === 'assets' && (
                 <>
-                  {facilityTypes.map(type => (
-                    <AssetCategoryCard
-                      title={type}
-                      assets={facilities.filter(f => f.asset_type === type)}
-                    />
-                  ))}
+                  {facilityTypes && facilityTypes.length > 0 ? (
+                    facilityTypes.map(type => (
+                      <AssetCategoryCard
+                        title={type}
+                        assets={facilities.filter(f => f.asset_type === type)}
+                      />
+                    ))
+                  ) : (
+                    <h2>Turn on some Community Assets to view here</h2>
+                  )}
                 </>
               )}
             </div>

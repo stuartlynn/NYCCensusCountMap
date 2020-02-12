@@ -40,7 +40,7 @@ export default function PieCard({data, title}) {
           <Pie
             data={colData}
             cx={60}
-            cy={70}
+            cy={60}
             labelLine={false}
             label={renderCustomizedLabel}
             outerRadius={60}

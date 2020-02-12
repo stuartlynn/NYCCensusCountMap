@@ -64,11 +64,12 @@ p {
   height: 100%;
   overflow-x: auto;
   flex: 1;
+
   .card {
-    min-width: 240px;
+    min-width: 350px;
     height: 100%;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 20px 0px 0px 20px;
     //   border: 1px solid black;
     margin-right: 0px;
   }
@@ -93,7 +94,6 @@ p {
 .overlay.details {
   text-align: left;
   z-index: 1;
-  left: 20px;
   z-index: 1;
   bottom: 20px;
   height: 25vh;
@@ -319,13 +319,14 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: top;
   }
   .labels {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
     box-sizing: border-box;
+    padding: 5px 0px 0px 10px;
   }
   .label {
     display: flex;
