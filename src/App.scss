@@ -106,11 +106,6 @@ p {
   box-shadow: 0px -4px 16px 3px rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
-  .feature {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
   .selector-cards {
     display: flex;
     flex-direction: row;
@@ -223,6 +218,8 @@ p {
 }
 .Legend .content {
   padding: 20px;
+  flex: 1;
+  overflow-y: auto;
 }
 .Legend {
   padding: 0px;
@@ -232,6 +229,8 @@ p {
   background-color: white;
   height: 50vh;
   width: $sidebar-width;
+  display: flex;
+  flex-direction: column;
   h3 {
     margin: 10px 0px 5px 0px;
   }
@@ -351,6 +350,7 @@ ul {
   padding: 10px 20px;
   flex: 1;
   box-sizing: border-box;
+  width: fit-content;
   h2 {
     display: flex;
     align-items: center;
@@ -368,6 +368,12 @@ ul {
     flex-flow: column wrap;
     grid-row-gap: 10px;
     grid-column-gap: 10px;
+
+    width: fit-content;
+    li {
+      box-sizing: border-box;
+      padding: 5px 5px 5px 0px;
+    }
   }
   h3 {
     font-size: 1rem;

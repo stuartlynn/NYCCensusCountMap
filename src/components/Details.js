@@ -149,107 +149,96 @@ export default function Details({
     return data;
   };
 
-  return (
-    <div className="feature">
-      {feature ? (
-        <React.Fragment>
-          <div className="overview">
-            <h2>
-              {featureName}:{' '}
-              {layer === 'tracts'
-                ? feature.properties.GEOID
-                : feature.properties.geoid}
-            </h2>
-            <p>
-              Population:{' '}
-              <span style={{color: 'red'}}>
-                {feature.properties.total_population}
-              </span>
-            </p>
-            <p>
-              Mail return rate 2010:{' '}
-              <span style={{color: 'red'}}>{feature.properties.MRR2010}%</span>
-            </p>
-            <p>
-              Inital Contact Strategy:
-              <span style={{color: 'red'}}>
-                {contactStrategy(feature.properties)}
-              </span>
-            </p>
-          </div>
-          <div className="selector-cards">
-            <DetailsSelector
-              selected={selectedDetails}
-              onSelect={detail => setSelectedDetails(detail)}
-            />
-            <div className="cards">
-              {selectedDetails == 'barriers' && (
-                <>
-                  <div className="card internet">
-                    <PieCard
-                      title="Internet Access"
-                      data={makeInternetData(feature)}
-                      norm={true}
-                      style={{width: '500px'}}
-                    />
-                  </div>
-                  <div className="card english_proficency">
-                    <PieCard
-                      title="English Proficency"
-                      data={makeEnglishData(feature)}
-                      norm={true}
-                    />
-                  </div>
-                  <div className="card age">
-                    <PieCard
-                      title="Age"
-                      data={makeAgeData(feature)}
-                      norm={true}
-                    />
-                  </div>
-                </>
+  return feature ? (
+    <React.Fragment>
+      <div className="overview">
+        <h2>
+          {featureName}:{' '}
+          {layer === 'tracts'
+            ? feature.properties.GEOID
+            : feature.properties.geoid}
+        </h2>
+        <p>
+          Population:{' '}
+          <span style={{color: 'red'}}>
+            {feature.properties.total_population}
+          </span>
+        </p>
+        <p>
+          Mail return rate 2010:{' '}
+          <span style={{color: 'red'}}>{feature.properties.MRR2010}%</span>
+        </p>
+        <p>
+          Inital Contact Strategy:
+          <span style={{color: 'red'}}>
+            {contactStrategy(feature.properties)}
+          </span>
+        </p>
+      </div>
+      <div className="selector-cards">
+        <DetailsSelector
+          selected={selectedDetails}
+          onSelect={detail => setSelectedDetails(detail)}
+        />
+        <div className="cards">
+          {selectedDetails == 'barriers' && (
+            <>
+              <div className="card internet">
+                <PieCard
+                  title="Internet Access"
+                  data={makeInternetData(feature)}
+                  norm={true}
+                  style={{width: '500px'}}
+                />
+              </div>
+              <div className="card english_proficency">
+                <PieCard
+                  title="English Proficency"
+                  data={makeEnglishData(feature)}
+                  norm={true}
+                />
+              </div>
+              <div className="card age">
+                <PieCard title="Age" data={makeAgeData(feature)} norm={true} />
+              </div>
+            </>
+          )}
+          {selectedDetails === 'demographics' && (
+            <>
+              <div className="card demographics">
+                <PieCard
+                  title="Demographics"
+                  data={makeDemographicData(feature)}
+                />
+              </div>
+              <div className="card foreign">
+                <PieCard title="Foreign Born" data={makeForeignData(feature)} />
+              </div>
+              <div className="card housing">
+                <PieCard title="Renting" data={makeRenting(feature)} />
+              </div>
+            </>
+          )}
+          {selectedDetails === 'assets' && (
+            <>
+              {facilityTypes && facilityTypes.length > 0 ? (
+                facilityTypes.map(type => (
+                  <AssetCategoryCard
+                    title={type}
+                    assets={facilities.filter(f => f.asset_type === type)}
+                  />
+                ))
+              ) : (
+                <h2>Turn on some Community Assets to view here</h2>
               )}
-              {selectedDetails === 'demographics' && (
-                <>
-                  <div className="card demographics">
-                    <PieCard
-                      title="Demographics"
-                      data={makeDemographicData(feature)}
-                    />
-                  </div>
-                  <div className="card foreign">
-                    <PieCard
-                      title="Foreign Born"
-                      data={makeForeignData(feature)}
-                    />
-                  </div>
-                  <div className="card housing">
-                    <PieCard title="Renting" data={makeRenting(feature)} />
-                  </div>
-                </>
-              )}
-              {selectedDetails === 'assets' && (
-                <>
-                  {facilityTypes && facilityTypes.length > 0 ? (
-                    facilityTypes.map(type => (
-                      <AssetCategoryCard
-                        title={type}
-                        assets={facilities.filter(f => f.asset_type === type)}
-                      />
-                    ))
-                  ) : (
-                    <h2>Turn on some Community Assets to view here</h2>
-                  )}
-                </>
-              )}
-            </div>
-          </div>
-        </React.Fragment>
-      ) : (
-        <div className="placeholder">
-          <h2>Click {featureName} for details</h2>
+            </>
+          )}
         </div>
-      )}
+      </div>
+    </React.Fragment>
+  ) : (
+    <div className="placeholder">
+      <h2>Click {featureName} for details</h2>
     </div>
   );
 }
