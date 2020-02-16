@@ -6,6 +6,7 @@ import '@mapbox/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css';
 import style from '../map_style';
 
 export function useMap(mapDivRef, {lnglat, zoom, key}) {
+  const [mapLoaded, setMapLoaded] = useState(false);
   mapboxgl.accessToken = key;
   const map = useRef(null);
   useEffect(() => {
@@ -15,14 +16,14 @@ export function useMap(mapDivRef, {lnglat, zoom, key}) {
       center: lnglat, // starting position [lng, lat]
       zoom: zoom, // starting zoom
     });
-    map.current.addControl(new mapboxgl.ScaleControl(), 'top-right');
-    map.current.addControl(new mapboxgl.NavigationControl());
     map.current.addControl(
       new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
       }),
     );
+    map.current.addControl(new mapboxgl.ScaleControl(), 'top-right');
+    map.current.addControl(new mapboxgl.NavigationControl());
   }, [mapDivRef]);
 
   return map;

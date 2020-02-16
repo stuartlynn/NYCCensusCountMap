@@ -36,14 +36,14 @@ export default function PieCard({data, title}) {
     <div className="pie-card">
       <h2>{title}</h2>
       <div className="pie-card-content">
-        <PieChart width={140} height={140} data={colData}>
+        <PieChart width={165} height={165} data={colData}>
           <Pie
             data={colData}
-            cx={60}
-            cy={60}
+            cx={80}
+            cy={80}
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={60}
+            outerRadius={80}
             fill="#8884d8">
             {colData.map((entry, index) => (
               <Cell fill={entry.color} />

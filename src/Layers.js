@@ -16,7 +16,7 @@ export const fillStyles = {
     'interpolate',
     ['linear'],
     ['get', 'MRR2010'],
-    0,
+    50,
     '#309dae',
     100,
     '#ebf7f9',

@@ -161,7 +161,7 @@ export default function Details({
         <p>
           Population:{' '}
           <span style={{color: 'red'}}>
-            {feature.properties.total_population}
+            {Math.floor(feature.properties.total_population)}
           </span>
         </p>
         <p>

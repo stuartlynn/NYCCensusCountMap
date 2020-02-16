@@ -7,9 +7,9 @@ function FacilitiesSection({title, options, selected, onSelect}) {
 
   return (
     <section>
-      <h2 onClick={() => setExpanded(!expanded)}>
+      <h4 onClick={() => setExpanded(!expanded)}>
         <FontAwesomeIcon icon={expanded ? faAngleDown : faAngleRight} /> {title}
-      </h2>
+      </h4>
       {expanded && (
         <ul>
           {options.map(option => (

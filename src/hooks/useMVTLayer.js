@@ -10,7 +10,6 @@ export function useMVTLayer(
   useEffect(() => {
     if (map.current) {
       map.current.on('load', () => {
-        console.log('adding source ', url);
         source.current = map.current.addSource('strategy', {
           type: 'vector',
           tiles: [url],

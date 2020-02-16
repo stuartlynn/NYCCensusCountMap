@@ -4,6 +4,7 @@ import RangeLegend from './RangeLegend';
 import BoundarySelector from './BoundarySelector';
 import FacilitiesSelector from './FacilitiesSelector';
 import HelpTab from './HelpTab';
+import InfoTab from './InfoTab';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
@@ -56,11 +57,11 @@ export default function Legend({
       <div className="content">
         {tab === 'layers' && (
           <section className="thematic-layer">
-            <h3>Metric</h3>
+            <h3>Neighborhood Information</h3>
             <Dropdown
               options={[
                 {value: 'strategy', label: 'Mail Strategy'},
-                {value: 'returnCount', label: '2020 Mail Return Rate'},
+                {value: 'returnCount', label: '2010 Mail Return Rate'},
               ]}
               onChange={a => onSelectMetric(a.value)}
               value={metric}
@@ -88,6 +89,8 @@ export default function Legend({
             />
           </section>
         )}
+
+        {tab === 'info' && <InfoTab />}
         {tab === 'questions' && <HelpTab />}
       </div>
     </div>

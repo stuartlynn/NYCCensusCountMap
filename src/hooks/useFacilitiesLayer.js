@@ -32,7 +32,7 @@ function loadAllImages(map) {
   );
 }
 
-export default function useFacilitiesLayer(map, visible, layer, id, types) {
+export default function useFacilitiesLayer(map, visible, types) {
   const facilities = useFacilities();
 
   useEffect(() => {
@@ -58,6 +58,8 @@ export default function useFacilitiesLayer(map, visible, layer, id, types) {
               //              'text-allow-overlap': true,
               visibility: visible ? 'visible' : 'none',
             },
+            //    filter: ['match', ['get', 'asset_type'], types, true, false],
+
             paint: {
               'text-color': 'rgba(255,255,255,1)',
             },
@@ -66,6 +68,17 @@ export default function useFacilitiesLayer(map, visible, layer, id, types) {
       });
     }
   }, [map, facilities]);
+
+  useEffect(() => {
+    if (map.current && map.current.loaded()) {
+      console.log('setting filter');
+      map.current.setFilter('facilities', [
+        'in',
+        ['get', 'asset-type'],
+        ['literal', types],
+      ]);
+    }
+  }, [types, map]);
 
   useEffect(() => {
     if (map.current && map.current.loaded()) {

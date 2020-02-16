@@ -1,9 +1,8 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState, useEffect, useCallback} from 'react';
 import {useMap} from '../hooks/useMap';
 import Legend from '../components/Legend';
 import Details from '../components/Details';
 import Papa from 'papaparse';
-import {useMVTLayer} from '../hooks/useMVTLayer';
 import {useGeoJSONLayer} from '../hooks/useGeoJSONLayer';
 import useBoundaryLayers from '../hooks/useBoundaryLayers';
 import useFacilitiesLayer from '../hooks/useFacilitiesLayer';
@@ -15,7 +14,9 @@ export default function MainPage() {
   const [selectedFeature, setSelectedFeature] = useState(null);
   const [hardToCountStats, setHardToCountStats] = useState([]);
   const [showFacilities, setShowFacilities] = useState(true);
-  const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
+  const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([
+    'Food Kitchens and Pantries',
+  ]);
   const [metric, setMetric] = useState('strategy');
 
   useEffect(() => {
@@ -42,24 +43,34 @@ export default function MainPage() {
       'pk.eyJ1Ijoic3R1YXJ0LWx5bm4iLCJhIjoiM2Q4ODllNmRkZDQ4Yzc3NTBhN2UyNDE0MWY2OTRiZWIifQ.8OEKvgZBCCtDFUXkjt66Pw',
   });
 
+  const searchBox = useRef(null);
+
   useEffect(() => {
     setSelectedFeature(null);
   }, [selectedBoundary]);
-  //  const stategyLayer = useMVTLayer(map, Layers.censusStrategyLayer);
 
-  //  const HTCLayer = useMVTLayer(map, Layers.HTCLayer);
   const style = {
     ...Layers.HTCLayer,
     ...{paintFill: {'fill-color': fillStyles[metric], 'fill-opacity': 0.7}},
   };
 
-  const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
-    ...style,
-    onClick: feature => {
+  useEffect(() => {
+    console.log('selected boundary is being set as ', selectedBoundary);
+  }, [selectedBoundary]);
+
+  const selectTrack = useCallback(
+    feature => {
+      console.log('HERE! ', feature, selectedBoundary);
       if (selectedBoundary === 'tracts') {
         setSelectedFeature(feature);
       }
     },
+    [selectedBoundary],
+  );
+
+  const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
+    ...style,
+    onClick: selectTrack,
     selection: selectedFeature,
     visible: selectedBoundary === 'tracts',
   });
@@ -74,7 +85,11 @@ export default function MainPage() {
     boundary => setSelectedFeature(boundary),
   );
 
-  const facilities = useFacilitiesLayer(map, showFacilities);
+  const facilities = useFacilitiesLayer(
+    map,
+    showFacilities,
+    selectedFacilityTypes,
+  );
   return (
     <div className="main-page">
       <div className="map" ref={mapDiv} />
@@ -82,10 +97,17 @@ export default function MainPage() {
         <h2>NYC CENSUS 2020 INTERACTIVE MAP</h2>
         <h3>Created by Stuart Lynn: Hosted/designed Hester Street</h3>
         <p>
-          This interactive map serves the purpose for any organization to learn
-          more about the people they serve. This map is fully interactive and
-          will remain avaliable after the Census effort
+          This interactive map helps communities across New York City to learn
+          more about their neighborhoods and the Census 2020 process. If you are
+          creating an outreach strategy to get your neighborhood counted, this
+          tool can help! We have included information about historically
+          undercounted communities, common barriers to completing the Census,
+          and Census Bureau strategy. You can also map neighborhood institutions
+          serving undercounted populations that you may want to contact and
+          partner with. For more information on the map and how to submit data
+          for your neighborhood, please view the Help tab.
         </p>
+        <div ref={searchBox} />
       </div>
       <div className="details overlay">
         <Details

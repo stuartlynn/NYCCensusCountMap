@@ -14,12 +14,6 @@
       "type": "vector",
       "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=6VgTRKggrduCs5zjHNiW"
     },
-    "tracts": {
-      "type": "vector",
-      "tiles": ["http://localhost:8000/tile/{x}/{y}/{z}"],
-      "minZoom": 0,
-      "maxZoom": 14
-    },
     "mapbox": {
       "type": "vector",
       "tiles": [
@@ -796,13 +790,6 @@
         "text-halo-color": "rgba(255,255,255,0.75)",
         "text-halo-width": 2
       }
-    },
-    {
-      "id": "tracts",
-      "type": "fill",
-      "source": "tracts",
-      "source-layer": "tracts",
-      "paint": {"fill-color": "rgba(52, 197, 94, 1)"}
     }
   ],
   "id": "basic"
