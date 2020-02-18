@@ -58,12 +58,18 @@ export default function Legend({
               options={[
                 {value: 'strategy', label: 'Mail Strategy'},
                 {value: 'returnCount', label: '2010 Mail Return Rate'},
+                {value: 'blackPop', label: '% Black'},
+                {value: 'latinxPop', label: '% Latinx'},
+                {value: 'asianPop', label: '% Asian'},
+                {value: 'noInternetPC', label: '% No Internet'},
+                {value: 'englishProficency', label: '% English Proficiency'},
+                {value: 'under5', label: '% under 5'},
               ]}
               onChange={a => onSelectMetric(a.value)}
               value={metric}
               placeholder="Select a metric"
             />
-            {metric == 'strategy' ? (
+            {metric === 'strategy' && (
               <CategoryLegend
                 categories={[
                   {color: '#C2A5CF', name: 'Internet First, English'},
@@ -72,7 +78,8 @@ export default function Legend({
                   {color: '#5AAE61', name: 'Internet Choice, Bilingual'},
                 ]}
               />
-            ) : (
+            )}
+            {metric === 'returnCount' && (
               <CategoryLegend
                 categories={[
                   {color: '#b95356', name: '0 - 60%'},
@@ -81,6 +88,60 @@ export default function Legend({
                   {color: '#f9bd53', name: '70 - 73%'},
                   {color: 'rgba(0,0,0,0)', name: 'Not hard to count'},
                 ]}
+              />
+            )}
+            {metric === 'asianPop' && (
+              <RangeLegend
+                name={'% Asian'}
+                min={'0%'}
+                max={'100%'}
+                colStart={'#FFFFFF'}
+                colEnd={'#4682b4'}
+              />
+            )}
+            {metric === 'blackPop' && (
+              <RangeLegend
+                name={'% Black'}
+                min={'0%'}
+                max={'100%'}
+                colStart={'#FFFFFF'}
+                colEnd={'#4682b4'}
+              />
+            )}
+            {metric === 'latinxPop' && (
+              <RangeLegend
+                name={'% Latinx'}
+                min={'0%'}
+                max={'100%'}
+                colStart={'#FFFFFF'}
+                colEnd={'#4682b4'}
+              />
+            )}
+            {metric === 'noInternetPC' && (
+              <RangeLegend
+                name={'% No Internet'}
+                min={'0%'}
+                max={'100%'}
+                colStart={'#FFFFFF'}
+                colEnd={'#4682b4'}
+              />
+            )}
+            {metric === 'englishProficency' && (
+              <RangeLegend
+                name={'% Proficent in English'}
+                min={'0%'}
+                max={'100%'}
+                colStart={'#FFFFFF'}
+                colEnd={'#4682b4'}
+              />
+            )}
+            {metric === 'under5' && (
+              <RangeLegend
+                name={'% under 5 years old'}
+                min={'0%'}
+                max={'10%'}
+                colStart={'#FFFFFF'}
+                colEnd={'#4682b4'}
               />
             )}
             <BoundarySelector
