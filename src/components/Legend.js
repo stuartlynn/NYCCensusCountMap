@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import ContactTypeLegend from './ContactTypeLegend';
 import RangeLegend from './RangeLegend';
+import CategoryLegend from './CategoryLegend';
 import BoundarySelector from './BoundarySelector';
 import FacilitiesSelector from './FacilitiesSelector';
 import HelpTab from './HelpTab';
@@ -39,11 +40,6 @@ export default function Legend({
           <FontAwesomeIcon icon={faLayerGroup} />
         </div>
         <div
-          className={tab === 'legend' ? 'selected' : ''}
-          onClick={() => setTab('legend')}>
-          <FontAwesomeIcon icon={faList} />
-        </div>
-        <div
           className={tab === 'info' ? 'selected' : ''}
           onClick={() => setTab('info')}>
           <FontAwesomeIcon icon={faInfoCircle} />
@@ -68,14 +64,23 @@ export default function Legend({
               placeholder="Select a metric"
             />
             {metric == 'strategy' ? (
-              <ContactTypeLegend />
+              <CategoryLegend
+                categories={[
+                  {color: '#C2A5CF', name: 'Internet First, English'},
+                  {color: '#9970AB', name: 'Internet First, Bilingual'},
+                  {color: '#A6DBA0', name: 'Internet Choice, English'},
+                  {color: '#5AAE61', name: 'Internet Choice, Bilingual'},
+                ]}
+              />
             ) : (
-              <RangeLegend
-                name="2020 Mail Return %"
-                min={0}
-                max={100}
-                colStart="#309dae"
-                colEnd="#ebf7f9"
+              <CategoryLegend
+                categories={[
+                  {color: '#b95356', name: '0 - 60%'},
+                  {color: '#ee5658', name: '60 - 65%'},
+                  {color: '#ecbaa8', name: '65 - 70%'},
+                  {color: '#f9bd53', name: '70 - 73%'},
+                  {color: 'rgba(0,0,0,0)', name: 'Not hard to count'},
+                ]}
               />
             )}
             <BoundarySelector

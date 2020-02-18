@@ -103,6 +103,10 @@ export default function useBoundaryLayers(
   useEffect(() => {
     if (map.current) {
       Object.entries(layers).forEach(([id, layer]) => {
+        map.current.setFeatureState(
+          {source: layer.id + '_source', id: oldSelectionID.current},
+          {selected: false},
+        );
         map.current.setLayoutProperty(
           `${layer.id}-line`,
           'visibility',

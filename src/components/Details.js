@@ -3,6 +3,7 @@ import {RadialChart} from 'react-vis';
 import FacilityCard from './FacilityCard';
 import SimpleBarChart from './SimpleBarChart';
 import PieCard from './PieCard';
+import FactCard from './FactCard';
 import AssetCategoryCard from './AssetCategoryCard';
 import DetailsSelector from './DetailsSelector';
 import {useFilteredFacilities} from '../hooks/useFacilities';
@@ -15,7 +16,7 @@ export default function Details({
 }) {
   const [showFacilities, setShowFacilities] = useState(false);
 
-  const [selectedDetails, setSelectedDetails] = useState('barriers');
+  const [selectedDetails, setSelectedDetails] = useState('demographics');
   const facilities = useFilteredFacilities(
     feature ? feature.properties.geoid : null,
     layer,
@@ -36,10 +37,12 @@ export default function Details({
     sd: 'School District',
     cc: 'City Council District',
     nat: 'Neighborhood Tablulation Area',
+    NOCCs: 'NOCC',
+    senate_districts: 'Senate District',
+    police_precints: 'Police Precinct',
+    congress_districts: 'Congress Assembly District',
   };
   const featureName = featureNames[layer];
-
-  console.log('layer:  ', layer, ' feature name  ', featureName);
 
   const makeAgeData = feature => {
     const properties = feature.properties;
@@ -161,19 +164,36 @@ export default function Details({
         <p>
           Population:{' '}
           <span style={{color: 'red'}}>
-            {Math.floor(feature.properties.total_population)}
+            {Math.floor(feature.properties.total_population).toLocaleString()}
           </span>
         </p>
-        <p>
-          Mail return rate 2010:{' '}
-          <span style={{color: 'red'}}>{feature.properties.MRR2010}%</span>
-        </p>
-        <p>
-          Inital Contact Strategy:
-          <span style={{color: 'red'}}>
-            {contactStrategy(feature.properties)}
-          </span>
-        </p>
+        {layer === 'tracts' ? (
+          <>
+            <p>
+              Mail return rate 2010:{' '}
+              <span style={{color: 'red'}}>{feature.properties.MRR2010}%</span>
+            </p>
+            <p>
+              Inital Contact Strategy:
+              <span style={{color: 'red'}}>
+                {contactStrategy(feature.properties)}
+              </span>
+            </p>
+          </>
+        ) : (
+          <>
+            <p>
+              Population in HTC areas:{' '}
+              <span style={{color: 'red'}}>
+                {Math.floor(
+                  (feature.properties.htc_pop * 100.0) /
+                    feature.properties.total_population,
+                ).toLocaleString()}
+                %
+              </span>
+            </p>
+          </>
+        )}
       </div>
       <div className="selector-cards">
         <DetailsSelector
@@ -181,7 +201,60 @@ export default function Details({
           onSelect={detail => setSelectedDetails(detail)}
         />
         <div className="cards">
-          {selectedDetails == 'barriers' && (
+          {selectedDetails == 'barriers' && <></>}
+          {selectedDetails === 'demographics' && (
+            <>
+              <div className="card demographics">
+                <PieCard title="Race" data={makeDemographicData(feature)} />
+              </div>
+              <FactCard
+                title={''}
+                facts={[
+                  {
+                    name: 'identify as Latinx',
+                    value:
+                      Math.floor(
+                        (feature.properties.race_hispanic * 100.0) /
+                          feature.properties.race_total,
+                      ).toLocaleString() + '%',
+                  },
+                  {
+                    name: 'identify as Black',
+                    value:
+                      Math.floor(
+                        (feature.properties.race_black * 100.0) /
+                          feature.properties.race_total,
+                      ).toLocaleString() + '%',
+                  },
+                ]}
+              />
+              <div className="card foreign">
+                <PieCard title="Foreign Born" data={makeForeignData(feature)} />
+              </div>
+              <div className="card age">
+                <PieCard title="Age" data={makeAgeData(feature)} norm={true} />
+              </div>
+              <FactCard
+                title={''}
+                facts={[
+                  {
+                    name: 'children under 5 years old',
+                    value: Math.floor(
+                      feature.properties.age_less_5,
+                    ).toLocaleString(),
+                  },
+                ]}
+              />
+              <div className="card english_proficency">
+                <PieCard
+                  title="English Proficency"
+                  data={makeEnglishData(feature)}
+                  norm={true}
+                />
+              </div>
+            </>
+          )}
+          {selectedDetails === 'housing' && (
             <>
               <div className="card internet">
                 <PieCard
@@ -191,29 +264,16 @@ export default function Details({
                   style={{width: '500px'}}
                 />
               </div>
-              <div className="card english_proficency">
-                <PieCard
-                  title="English Proficency"
-                  data={makeEnglishData(feature)}
-                  norm={true}
-                />
-              </div>
-              <div className="card age">
-                <PieCard title="Age" data={makeAgeData(feature)} norm={true} />
-              </div>
-            </>
-          )}
-          {selectedDetails === 'demographics' && (
-            <>
-              <div className="card demographics">
-                <PieCard
-                  title="Demographics"
-                  data={makeDemographicData(feature)}
-                />
-              </div>
-              <div className="card foreign">
-                <PieCard title="Foreign Born" data={makeForeignData(feature)} />
-              </div>
+              <FactCard
+                facts={[
+                  {
+                    name: 'have no internet access',
+                    value: Math.floor(
+                      feature.properties.internet_no_access,
+                    ).toLocaleString(),
+                  },
+                ]}
+              />
               <div className="card housing">
                 <PieCard title="Renting" data={makeRenting(feature)} />
               </div>

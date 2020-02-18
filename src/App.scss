@@ -359,7 +359,6 @@ ul {
   padding: 10px 20px;
   flex: 1;
   box-sizing: border-box;
-  width: fit-content;
   h2 {
     display: flex;
     align-items: center;
@@ -370,19 +369,27 @@ ul {
     margin-right: 5px;
   }
   ul {
+    display: inline-flex;
+    writing-mode: vertical-lr;
+    flex-wrap: wrap;
+    align-content: flex-start;
     box-sizing: border-box;
     padding: 20px 0px;
     max-height: 220px;
+    flex-direction: row;
+    flex: 1;
     // display: flex;
     //  flex-flow: column wrap;
-    grid-column-gap: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit(400px));
-    grid-template-rows: max-content;
+    //    grid-column-gap: 10px;
+    ///  display: grid;
+    // grid-template-columns: repeat(auto-fit(400px));
+    // grid-template-rows: max-content;
 
     li {
       box-sizing: border-box;
       padding: 5px 5px 5px 0px;
+      writing-mode: horizontal-tb;
+      width: 267px;
     }
   }
   h3 {
@@ -398,7 +405,18 @@ ul {
     margin: 0px;
   }
 }
-
+.category-entry {
+  display: flex;
+  align-items: center;
+}
+.category-marker {
+  width: 30px;
+  height: 10px;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid black;
+  margin-right: 10px;
+}
 .facilities-selector {
   display: flex;
   flex-direction: column;
@@ -421,5 +439,19 @@ ul {
     li {
       padding: 2px 0px;
     }
+  }
+}
+
+.card.fact {
+  p {
+    font-size: 1.6rem;
+  }
+  .fact-text {
+    font-weight: 700;
+    color: black;
+  }
+  .fact-value {
+    font-weight: 700;
+    color: #dd2230;
   }
 }

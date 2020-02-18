@@ -13,13 +13,17 @@ export const fillStyles = {
     'grey',
   ],
   returnCount: [
-    'interpolate',
-    ['linear'],
+    'step',
     ['get', 'MRR2010'],
-    50,
-    '#309dae',
-    100,
-    '#ebf7f9',
+    '#b95356',
+    60,
+    '#ee5658',
+    65,
+    '#ecbaa8',
+    70,
+    '#f9bd53',
+    73,
+    ['rgba', 0, 0, 0, 0],
   ],
 };
 
@@ -81,10 +85,40 @@ export function BoundaryLayers() {
       nameAlt: null,
     },
     {
-      id: 'nta',
-      datasetName: 'Neighborhood Tabulation Area',
-      polygons: 'ntas_with_vars.geojson',
-      labels: 'nta_labels.geojson',
+      id: 'congress_districts',
+      datasetName: 'Congress Assembly Districts',
+      polygons: 'congress_assembly_with_vars.geojson',
+      labels: 'congress_assembly_district_labels.geojson',
+      url:
+        'http://data.cityofnewyork.us/api/geospatial/yusd-j4xi?method=export&format=Shapefile',
+      nameCol: 'geoid',
+      nameAlt: null,
+    },
+    {
+      id: 'senate_districts',
+      datasetName: 'Senate Districts',
+      polygons: 'senate_districts_with_vars.geojson',
+      labels: 'senate_districts_with_vars.geojson',
+      url:
+        'http://data.cityofnewyork.us/api/geospatial/yusd-j4xi?method=export&format=Shapefile',
+      nameCol: 'st_sen_dist',
+      nameAlt: null,
+    },
+    {
+      id: 'police_precincts',
+      datasetName: 'Police Precincts',
+      polygons: 'police_precincts_with_vars.geojson',
+      labels: 'police_precincts_labels.geojson',
+      url:
+        'http://data.cityofnewyork.us/api/geospatial/yusd-j4xi?method=export&format=Shapefile',
+      nameCol: 'geoid',
+      nameAlt: null,
+    },
+    {
+      id: 'NOCCs',
+      datasetName: 'NOCCS',
+      polygons: 'noccs_with_vars.geojson',
+      labels: 'noccs_labels.geojson',
       url:
         'http://data.cityofnewyork.us/api/geospatial/cpf4-rkhq?method=export&format=Shapefile',
       nameCol: 'ntaname',

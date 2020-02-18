@@ -6,19 +6,14 @@ export default function DetailsSelector({selected, onSelect}) {
     <div className="details-selector">
       <ul>
         <li
-          onClick={() => onSelect('barriers')}
-          className={isSelected('barriers')}>
-          Barriers
-        </li>
-        <li
           onClick={() => onSelect('demographics')}
           className={isSelected('demographics')}>
           Demographics
         </li>
         <li
-          onClick={() => onSelect('census2020')}
-          className={isSelected('census2020')}>
-          Census 2020 info
+          onClick={() => onSelect('housing')}
+          className={isSelected('housing')}>
+          Housing and Economics
         </li>
         <li onClick={() => onSelect('assets')} className={isSelected('assets')}>
           Assets
