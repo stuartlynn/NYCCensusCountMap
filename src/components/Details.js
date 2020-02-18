@@ -12,9 +12,11 @@ export default function Details({
   feature,
   onSelectFacility,
   layer,
+  tract,
   facilityTypes,
 }) {
   const [showFacilities, setShowFacilities] = useState(false);
+  const [showBoundaryData, setShowBoundaryData] = useState(true);
 
   const [selectedDetails, setSelectedDetails] = useState('demographics');
   const facilities = useFilteredFacilities(
@@ -43,7 +45,13 @@ export default function Details({
     congress_districts: 'Congress Assembly District',
   };
   const featureName = featureNames[layer];
-
+  const displayFeature =
+    showBoundaryData && layer !== 'tracts'
+      ? feature
+      : tract && {
+          ...tract,
+          properties: {...tract.properties, geoid: tract.properties.GEOID},
+        };
   const makeAgeData = feature => {
     const properties = feature.properties;
     const data = [
@@ -152,35 +160,36 @@ export default function Details({
     return data;
   };
 
-  return feature ? (
+  return displayFeature ? (
     <React.Fragment>
       <div className="overview">
         <h2>
-          {featureName}:{' '}
-          {layer === 'tracts'
-            ? feature.properties.GEOID
-            : feature.properties.geoid}
+          {feature && (
+            <span
+              style={{fontWeight: showBoundaryData ? 700 : 400}}
+              onClick={() => setShowBoundaryData(true)}>
+              {featureName}: {feature.properties.geoid}
+            </span>
+          )}
+          {tract && (
+            <span
+              style={{fontWeight: !showBoundaryData ? 700 : 400}}
+              onClick={() => setShowBoundaryData(false)}>
+              Census Tract: {tract.properties.GEOID}
+            </span>
+          )}
         </h2>
-        <p>
-          Population:{' '}
-          <span style={{color: 'red'}}>
-            {Math.floor(feature.properties.total_population).toLocaleString()}
-          </span>
-        </p>
-        {layer === 'tracts' ? (
-          <>
-            <p>
-              Mail return rate 2010:{' '}
-              <span style={{color: 'red'}}>{feature.properties.MRR2010}%</span>
-            </p>
-            <p>
-              Inital Contact Strategy:
-              <span style={{color: 'red'}}>
-                {contactStrategy(feature.properties)}
-              </span>
-            </p>
-          </>
-        ) : (
+        {displayFeature && (
+          <p>
+            Population:{' '}
+            <span style={{color: 'red'}}>
+              {Math.floor(
+                displayFeature.properties.total_population,
+              ).toLocaleString()}
+            </span>
+          </p>
+        )}
+        {showBoundaryData && feature ? (
           <>
             <p>
               Population in HTC areas:{' '}
@@ -193,6 +202,21 @@ export default function Details({
               </span>
             </p>
           </>
+        ) : (
+          tract && (
+            <>
+              <p>
+                Mail return rate 2010:{' '}
+                <span style={{color: 'red'}}>{tract.properties.MRR2010}%</span>
+              </p>
+              <p>
+                Inital Contact Strategy:
+                <span style={{color: 'red'}}>
+                  {contactStrategy(tract.properties)}
+                </span>
+              </p>
+            </>
+          )
         )}
       </div>
       <div className="selector-cards">
@@ -200,100 +224,111 @@ export default function Details({
           selected={selectedDetails}
           onSelect={detail => setSelectedDetails(detail)}
         />
-        <div className="cards">
-          {selectedDetails == 'barriers' && <></>}
-          {selectedDetails === 'demographics' && (
-            <>
-              <div className="card demographics">
-                <PieCard title="Race" data={makeDemographicData(feature)} />
-              </div>
-              <FactCard
-                title={''}
-                facts={[
-                  {
-                    name: 'identify as Latinx',
-                    value:
-                      Math.floor(
-                        (feature.properties.race_hispanic * 100.0) /
-                          feature.properties.race_total,
-                      ).toLocaleString() + '%',
-                  },
-                  {
-                    name: 'identify as Black',
-                    value:
-                      Math.floor(
-                        (feature.properties.race_black * 100.0) /
-                          feature.properties.race_total,
-                      ).toLocaleString() + '%',
-                  },
-                ]}
-              />
-              <div className="card foreign">
-                <PieCard title="Foreign Born" data={makeForeignData(feature)} />
-              </div>
-              <div className="card age">
-                <PieCard title="Age" data={makeAgeData(feature)} norm={true} />
-              </div>
-              <FactCard
-                title={''}
-                facts={[
-                  {
-                    name: 'children under 5 years old',
-                    value: Math.floor(
-                      feature.properties.age_less_5,
-                    ).toLocaleString(),
-                  },
-                ]}
-              />
-              <div className="card english_proficency">
-                <PieCard
-                  title="English Proficency"
-                  data={makeEnglishData(feature)}
-                  norm={true}
-                />
-              </div>
-            </>
-          )}
-          {selectedDetails === 'housing' && (
-            <>
-              <div className="card internet">
-                <PieCard
-                  title="Internet Access"
-                  data={makeInternetData(feature)}
-                  norm={true}
-                  style={{width: '500px'}}
-                />
-              </div>
-              <FactCard
-                facts={[
-                  {
-                    name: 'have no internet access',
-                    value: Math.floor(
-                      feature.properties.internet_no_access,
-                    ).toLocaleString(),
-                  },
-                ]}
-              />
-              <div className="card housing">
-                <PieCard title="Renting" data={makeRenting(feature)} />
-              </div>
-            </>
-          )}
-          {selectedDetails === 'assets' && (
-            <>
-              {facilityTypes && facilityTypes.length > 0 ? (
-                facilityTypes.map(type => (
-                  <AssetCategoryCard
-                    title={type}
-                    assets={facilities.filter(f => f.asset_type === type)}
+        {displayFeature && (
+          <div className="cards">
+            {selectedDetails === 'demographics' && (
+              <>
+                <div className="card demographics">
+                  <PieCard
+                    title="Race"
+                    data={makeDemographicData(displayFeature)}
                   />
-                ))
-              ) : (
-                <h2>Turn on some Community Assets to view here</h2>
-              )}
-            </>
-          )}
-        </div>
+                </div>
+                <FactCard
+                  title={''}
+                  facts={[
+                    {
+                      name: 'identify as Latinx',
+                      value:
+                        Math.floor(
+                          (displayFeature.properties.race_hispanic * 100.0) /
+                            displayFeature.properties.race_total,
+                        ).toLocaleString() + '%',
+                    },
+                    {
+                      name: 'identify as Black',
+                      value:
+                        Math.floor(
+                          (displayFeature.properties.race_black * 100.0) /
+                            displayFeature.properties.race_total,
+                        ).toLocaleString() + '%',
+                    },
+                  ]}
+                />
+                <div className="card foreign">
+                  <PieCard
+                    title="Foreign Born"
+                    data={makeForeignData(displayFeature)}
+                  />
+                </div>
+                <div className="card age">
+                  <PieCard
+                    title="Age"
+                    data={makeAgeData(displayFeature)}
+                    norm={true}
+                  />
+                </div>
+                <FactCard
+                  title={''}
+                  facts={[
+                    {
+                      name: 'children under 5 years old',
+                      value: Math.floor(
+                        displayFeature.properties.age_less_5,
+                      ).toLocaleString(),
+                    },
+                  ]}
+                />
+                <div className="card english_proficency">
+                  <PieCard
+                    title="English Proficency"
+                    data={makeEnglishData(displayFeature)}
+                    norm={true}
+                  />
+                </div>
+              </>
+            )}
+            {selectedDetails === 'housing' && (
+              <>
+                <div className="card internet">
+                  <PieCard
+                    title="Internet Access"
+                    data={makeInternetData(displayFeature)}
+                    norm={true}
+                    style={{width: '500px'}}
+                  />
+                </div>
+                <FactCard
+                  facts={[
+                    {
+                      name: 'have no internet access',
+                      value: Math.floor(
+                        displayFeature.properties.internet_no_access,
+                      ).toLocaleString(),
+                    },
+                  ]}
+                />
+                <div className="card housing">
+                  <PieCard title="Renting" data={makeRenting(displayFeature)} />
+                </div>
+              </>
+            )}
+            {selectedDetails === 'assets' && (
+              <>
+                {facilityTypes && facilityTypes.length > 0 ? (
+                  facilityTypes.map(type => (
+                    <AssetCategoryCard
+                      title={type}
+                      assets={facilities.filter(f => f.asset_type === type)}
+                    />
+                  ))
+                ) : (
+                  <h2>Turn on some Community Assets to view here</h2>
+                )}
+              </>
+            )}
+          </div>
+        )}
       </div>
     </React.Fragment>
   ) : (

@@ -44,6 +44,7 @@ export default function PieCard({data, title}) {
             labelLine={false}
             label={renderCustomizedLabel}
             outerRadius={80}
+            isAnimationActive={false}
             fill="#8884d8">
             {colData.map((entry, index) => (
               <Cell fill={entry.color} />

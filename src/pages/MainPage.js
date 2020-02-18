@@ -11,6 +11,7 @@ import Layers, {fillStyles} from '../Layers';
 export default function MainPage() {
   const mapDiv = useRef(null);
   const [selectedBoundary, setSelectedBoundary] = useState('cd');
+  const [selectedTract, setSelectedTract] = useState(null);
   const [selectedFeature, setSelectedFeature] = useState(null);
   const [hardToCountStats, setHardToCountStats] = useState([]);
   const [showFacilities, setShowFacilities] = useState(true);
@@ -54,24 +55,10 @@ export default function MainPage() {
     ...{paintFill: {'fill-color': fillStyles[metric], 'fill-opacity': 0.7}},
   };
 
-  useEffect(() => {
-    console.log('selected boundary is being set as ', selectedBoundary);
-  }, [selectedBoundary]);
-
-  const selectTrack = useCallback(
-    feature => {
-      console.log('HERE! ', feature, selectedBoundary);
-      if (selectedBoundary === 'tracts') {
-        setSelectedFeature(feature);
-      }
-    },
-    [selectedBoundary],
-  );
-
   const GeojsonLayer = useGeoJSONLayer(map, 'HTC', {
     ...style,
-    onClick: selectTrack,
-    selection: selectedFeature,
+    onClick: setSelectedTract,
+    selection: selectedTract,
     visible: selectedBoundary === 'tracts',
   });
 
@@ -82,7 +69,10 @@ export default function MainPage() {
     null,
     selectedBoundary,
     selectedFeature ? selectedFeature.id : null,
-    boundary => setSelectedFeature(boundary),
+    boundary => {
+      setSelectedTract(null);
+      setSelectedFeature(boundary);
+    },
   );
 
   const facilities = useFacilitiesLayer(
@@ -112,6 +102,7 @@ export default function MainPage() {
       <div className="details overlay">
         <Details
           feature={selectedFeature}
+          tract={selectedTract}
           layer={selectedBoundary}
           facilityTypes={selectedFacilityTypes}
         />{' '}

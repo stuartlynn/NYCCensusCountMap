@@ -141,6 +141,12 @@ p {
   border-bottom: 1px solid lightgrey;
   align-items: center;
   padding: 0px 10px;
+  h2 {
+    span {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
   p {
     margin-left: 20px;
     span {
