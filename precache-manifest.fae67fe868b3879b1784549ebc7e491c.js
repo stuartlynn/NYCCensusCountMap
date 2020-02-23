@@ -1,0 +1,38 @@
+self.__precacheManifest = (self.__precacheManifest || []).concat([
+  {
+    "revision": "5badc99763eb2f0ffcfe6a0df007abfc",
+    "url": "/NYCCensusCountMap/index.html"
+  },
+  {
+    "revision": "5ce9761d062f5dcbefc4",
+    "url": "/NYCCensusCountMap/static/css/2.865826b4.chunk.css"
+  },
+  {
+    "revision": "314adaa58082a46b37a8",
+    "url": "/NYCCensusCountMap/static/css/main.8463183e.chunk.css"
+  },
+  {
+    "revision": "5ce9761d062f5dcbefc4",
+    "url": "/NYCCensusCountMap/static/js/2.27b2693c.chunk.js"
+  },
+  {
+    "revision": "ce4ae47ff53bde1fc8818599ae5b60ec",
+    "url": "/NYCCensusCountMap/static/js/2.27b2693c.chunk.js.LICENSE"
+  },
+  {
+    "revision": "314adaa58082a46b37a8",
+    "url": "/NYCCensusCountMap/static/js/main.7b5c45e3.chunk.js"
+  },
+  {
+    "revision": "4fb971311b5aecdd4425",
+    "url": "/NYCCensusCountMap/static/js/runtime-main.269e74d1.js"
+  },
+  {
+    "revision": "1313c346b5eefdd2c3fd440bc9b18002",
+    "url": "/NYCCensusCountMap/static/media/GT-America-Standard-Bold.1313c346.otf"
+  },
+  {
+    "revision": "ac9e5f9ba79e0a6c4e0c72a295fde8cf",
+    "url": "/NYCCensusCountMap/static/media/GT-America-Standard-Regular.ac9e5f9b.otf"
+  }
+]);

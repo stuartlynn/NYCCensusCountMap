@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/NYCCensusCountMap/precache-manifest.543e1484e471ef973bee0ba0c60242ee.js"
+  "/NYCCensusCountMap/precache-manifest.fae67fe868b3879b1784549ebc7e491c.js"
 );
 
 self.addEventListener('message', (event) => {
