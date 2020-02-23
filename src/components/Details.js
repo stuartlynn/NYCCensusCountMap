@@ -19,9 +19,16 @@ export default function Details({
     const [showBoundaryData, setShowBoundaryData] = useState(true);
 
     const [selectedDetails, setSelectedDetails] = useState("demographics");
+
     const facilities = useFilteredFacilities(
-        feature ? feature.properties.geoid : null,
-        layer,
+        showBoundaryData
+            ? feature
+                ? feature.properties.geoid
+                : null
+            : tract
+            ? tract.properties.GEOID
+            : null,
+        showBoundaryData ? layer : "tracts",
         facilityTypes
     );
 
