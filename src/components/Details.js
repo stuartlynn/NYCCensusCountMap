@@ -261,36 +261,38 @@ export default function Details({
                                             displayFeature
                                         )}
                                     />
+                                    <FactCard
+                                        title={""}
+                                        facts={[
+                                            {
+                                                name: "identify as Latinx",
+                                                value:
+                                                    Math.floor(
+                                                        (displayFeature
+                                                            .properties
+                                                            .race_hispanic *
+                                                            100.0) /
+                                                            displayFeature
+                                                                .properties
+                                                                .race_total
+                                                    ).toLocaleString() + "%"
+                                            },
+                                            {
+                                                name: "identify as Black",
+                                                value:
+                                                    Math.floor(
+                                                        (displayFeature
+                                                            .properties
+                                                            .race_black *
+                                                            100.0) /
+                                                            displayFeature
+                                                                .properties
+                                                                .race_total
+                                                    ).toLocaleString() + "%"
+                                            }
+                                        ]}
+                                    />
                                 </div>
-                                <FactCard
-                                    title={""}
-                                    facts={[
-                                        {
-                                            name: "identify as Latinx",
-                                            value:
-                                                Math.floor(
-                                                    (displayFeature.properties
-                                                        .race_hispanic *
-                                                        100.0) /
-                                                        displayFeature
-                                                            .properties
-                                                            .race_total
-                                                ).toLocaleString() + "%"
-                                        },
-                                        {
-                                            name: "identify as Black",
-                                            value:
-                                                Math.floor(
-                                                    (displayFeature.properties
-                                                        .race_black *
-                                                        100.0) /
-                                                        displayFeature
-                                                            .properties
-                                                            .race_total
-                                                ).toLocaleString() + "%"
-                                        }
-                                    ]}
-                                />
                                 <div className="card foreign">
                                     <PieCard
                                         title="Foreign Born"
@@ -303,19 +305,20 @@ export default function Details({
                                         data={makeAgeData(displayFeature)}
                                         norm={true}
                                     />
+                                    <FactCard
+                                        title={""}
+                                        facts={[
+                                            {
+                                                name:
+                                                    "people under 5 years old",
+                                                value: Math.floor(
+                                                    displayFeature.properties
+                                                        .age_less_5
+                                                ).toLocaleString()
+                                            }
+                                        ]}
+                                    />
                                 </div>
-                                <FactCard
-                                    title={""}
-                                    facts={[
-                                        {
-                                            name: "people under 5 years old",
-                                            value: Math.floor(
-                                                displayFeature.properties
-                                                    .age_less_5
-                                            ).toLocaleString()
-                                        }
-                                    ]}
-                                />
                                 <div className="card english_proficency">
                                     <PieCard
                                         title="Limited English Proficency"
@@ -334,19 +337,19 @@ export default function Details({
                                         norm={true}
                                         style={{ width: "500px" }}
                                     />
+                                    <FactCard
+                                        facts={[
+                                            {
+                                                name:
+                                                    "people have no internet access",
+                                                value: Math.floor(
+                                                    displayFeature.properties
+                                                        .internet_no_access
+                                                ).toLocaleString()
+                                            }
+                                        ]}
+                                    />
                                 </div>
-                                <FactCard
-                                    facts={[
-                                        {
-                                            name:
-                                                "people have no internet access",
-                                            value: Math.floor(
-                                                displayFeature.properties
-                                                    .internet_no_access
-                                            ).toLocaleString()
-                                        }
-                                    ]}
-                                />
                                 <div className="card housing">
                                     <PieCard
                                         title="Housing Tenure"

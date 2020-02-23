@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
 
-export default function FactCard({title, facts}) {
-  return (
-    <div className="card fact">
-      <h2>{title}</h2>
-      {facts.map(fact => (
-        <p className="fact-name">
-          <span className="fact-value">{fact.value}</span>{' '}
-          <span className="fact-text">{fact.name}</span>
-        </p>
-      ))}
-    </div>
-  );
+export default function FactCard({ title, facts }) {
+    return (
+        <div className="fact">
+            {facts.map(fact => (
+                <p className="fact-name">
+                    <span className="fact-value">{fact.value}</span>{" "}
+                    <span className="fact-text">{fact.name}</span>
+                </p>
+            ))}
+        </div>
+    );
 }

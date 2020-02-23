@@ -64,12 +64,13 @@ p {
     height: 100%;
     overflow-x: auto;
     flex: 1;
+    align-items: center;
 
     .card {
         min-width: 350px;
         height: 100%;
         box-sizing: border-box;
-        padding: 20px 0px 0px 20px;
+        padding: 20px 10px 10px 20px;
         //   border: 1px solid black;
         margin-right: 0px;
     }
@@ -110,7 +111,6 @@ p {
         display: flex;
         flex-direction: row;
         flex: 1;
-        max-height: 277px;
     }
 }
 .details-selector {
@@ -396,6 +396,7 @@ ul {
     padding: 10px 20px;
     flex: 1;
     box-sizing: border-box;
+    height: 100%;
     h2 {
         display: flex;
         align-items: center;
@@ -484,10 +485,12 @@ ul {
     }
 }
 
-.card.fact {
-    p {
-        font-size: 1.6rem;
-    }
+.fact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: row;
+    justify-content: space-between;
+
     .fact-text {
         font-weight: 700;
         color: grey;
