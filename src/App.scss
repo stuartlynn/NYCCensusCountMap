@@ -468,6 +468,9 @@ ul {
         display: flex;
         align-items: center;
     }
+    svg {
+        cursor: pointer;
+    }
     h3 {
         margin-bottom: 10px;
     }
