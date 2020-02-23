@@ -4,8 +4,8 @@ import { faAngleRight, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 function FacilitiesSection({ title, options, selected, onSelect }) {
     const [expanded, setExpanded] = useState(false);
-
-    const allSelected = options.filter(o => !selected.includes(o)).length === 0;
+    const selectedInThisCategory = options.filter(o => selected.includes(o));
+    const allSelected = selectedInThisCategory.length === options.length;
 
     const onSelectAll = selectAll => {
         if (selectAll) {
@@ -17,13 +17,18 @@ function FacilitiesSection({ title, options, selected, onSelect }) {
     return (
         <section>
             <div className="facilities-section-header">
-                <FontAwesomeIcon icon={expanded ? faAngleDown : faAngleRight} />{" "}
+                <FontAwesomeIcon
+                    onClick={() => setExpanded(!expanded)}
+                    icon={expanded ? faAngleDown : faAngleRight}
+                />{" "}
                 <input
                     type="checkbox"
                     checked={allSelected}
                     onChange={e => onSelectAll(e.target.checked)}
                 />
-                <h4 onClick={() => setExpanded(!expanded)}>{title}</h4>
+                <h4 onClick={() => setExpanded(!expanded)}>
+                    {title} ({selectedInThisCategory.length}/{options.length})
+                </h4>
             </div>
             {expanded && (
                 <ul>
