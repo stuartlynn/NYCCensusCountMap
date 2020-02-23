@@ -15,9 +15,7 @@ export default function MainPage() {
     const [selectedFeature, setSelectedFeature] = useState(null);
     const [hardToCountStats, setHardToCountStats] = useState([]);
     const [showFacilities, setShowFacilities] = useState(true);
-    const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([
-        "Food Kitchens and Pantries"
-    ]);
+    const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
     const [metric, setMetric] = useState("strategy");
 
     useEffect(() => {
