@@ -332,6 +332,21 @@ export default function Details({
                                         data={makeEnglishData(displayFeature)}
                                         norm={true}
                                     />
+                                    <FactCard
+                                        title={""}
+                                        facts={[
+                                            {
+                                                name:
+                                                    "% of people are bilingual",
+                                                value:
+                                                    (displayFeature.properties
+                                                        .bilingual *
+                                                        100.0) /
+                                                    displayFeature.properties
+                                                        .english_total_households
+                                            }
+                                        ]}
+                                    />
                                 </div>
                             </>
                         )}

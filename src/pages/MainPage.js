@@ -10,7 +10,7 @@ import Layers, { fillStyles } from "../Layers";
 
 export default function MainPage() {
     const mapDiv = useRef(null);
-    const [selectedBoundary, setSelectedBoundary] = useState("cd");
+    const [selectedBoundary, setSelectedBoundary] = useState("NOCCs");
     const [selectedTract, setSelectedTract] = useState(null);
     const [selectedFeature, setSelectedFeature] = useState(null);
     const [hardToCountStats, setHardToCountStats] = useState([]);
