@@ -97,7 +97,7 @@ p {
     z-index: 1;
     z-index: 1;
     bottom: 20px;
-    height: 25vh;
+    height: 260px;
     min-width: $sidebar-width;
     max-width: 97vw;
     padding: 0px 0px 0px 0px;
@@ -250,7 +250,7 @@ p {
 .info {
     position: absolute;
     top: 20px;
-    height: 15vh;
+    height: 150px;
     text-align: left;
     width: $sidebar-width;
     h3 {
@@ -269,9 +269,9 @@ p {
     padding: 0px;
     position: absolute;
     z-index: 100;
-    top: 20vh;
+    top: calc(150px + 20px + 20px);
     background-color: white;
-    height: 50vh;
+    height: calc(100vh - 490px);
     width: $sidebar-width;
     display: flex;
     flex-direction: column;
