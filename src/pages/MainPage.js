@@ -34,6 +34,14 @@ export default function MainPage() {
         });
     }, []);
 
+    useEffect(() => {
+        ReactGA.event({
+            category: "User",
+            action: "Viewed Tract",
+            label: selectedTract.id
+        });
+    }, [selectedTract]);
+
     const onToggleFacilityType = types => {
         let newList = [...selectedFacilityTypes];
         types.forEach(type => {
