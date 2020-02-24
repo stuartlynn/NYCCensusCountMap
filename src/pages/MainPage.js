@@ -93,17 +93,13 @@ export default function MainPage() {
                 <h2>NYC CENSUS 2020 INTERACTIVE MAP</h2>
                 <h3>Created by Stuart Lynn: Hosted/designed Hester Street</h3>
                 <p>
-                    This interactive map helps communities across New York City
-                    to learn more about their neighborhoods and the Census 2020
-                    process. If you are creating an outreach strategy to get
-                    your neighborhood counted, this tool can help! We have
-                    included information about historically undercounted
-                    communities, common barriers to completing the Census, and
-                    Census Bureau strategy. You can also map neighborhood
-                    institutions serving undercounted populations that you may
-                    want to contact and partner with. For more information on
-                    the map and how to submit data for your neighborhood, please
-                    view the Help tab.
+                    This map is a tool to identify community-based assets, learn
+                    about historically undercounted communities, and visualize
+                    geographically relevant Census data for 2020 Census efforts.
+                    If you are creating an outreach strategy to get your
+                    neighborhood counted, this tool can help! For more
+                    information about the map and how to submit data for your
+                    neighborhood click on the "?" below.
                 </p>
                 <div ref={searchBox} />
             </div>

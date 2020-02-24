@@ -118,30 +118,37 @@ export default function useBoundaryLayers(
 
     useEffect(() => {
         if (map.current) {
-            Object.entries(layers).forEach(([id, layer]) => {
-                map.current.setFeatureState(
-                    {
-                        source: layer.id + "_source",
-                        id: oldSelectionID.current
-                    },
-                    { selected: false }
-                );
-                map.current.setLayoutProperty(
-                    `${layer.id}-line`,
-                    "visibility",
-                    id == selectedLayer ? "visible" : "none"
-                );
-                map.current.setLayoutProperty(
-                    `${layer.id}-labels`,
-                    "visibility",
-                    id == selectedLayer ? "visible" : "none"
-                );
-                map.current.setLayoutProperty(
-                    `${layer.id}-fill`,
-                    "visibility",
-                    id == selectedLayer ? "visible" : "none"
-                );
-            });
+            const updateVisibility = () => {
+                if (map.current.isStyleLoaded()) {
+                    Object.entries(layers).forEach(([id, layer]) => {
+                        map.current.setFeatureState(
+                            {
+                                source: layer.id + "_source",
+                                id: oldSelectionID.current
+                            },
+                            { selected: false }
+                        );
+                        map.current.setLayoutProperty(
+                            `${layer.id}-line`,
+                            "visibility",
+                            id == selectedLayer ? "visible" : "none"
+                        );
+                        map.current.setLayoutProperty(
+                            `${layer.id}-labels`,
+                            "visibility",
+                            id == selectedLayer ? "visible" : "none"
+                        );
+                        map.current.setLayoutProperty(
+                            `${layer.id}-fill`,
+                            "visibility",
+                            id == selectedLayer ? "visible" : "none"
+                        );
+                    });
+                } else {
+                    setTimeout(updateVisibility, 100);
+                }
+            };
+            updateVisibility();
         }
     }, [map, selectedLayer]);
 
