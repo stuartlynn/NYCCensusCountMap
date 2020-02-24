@@ -7,6 +7,7 @@ import { useGeoJSONLayer } from "../hooks/useGeoJSONLayer";
 import useBoundaryLayers from "../hooks/useBoundaryLayers";
 import useFacilitiesLayer from "../hooks/useFacilitiesLayer";
 import Layers, { fillStyles } from "../Layers";
+import ReactGA from "react-ga";
 
 export default function MainPage() {
     const mapDiv = useRef(null);
@@ -17,6 +18,11 @@ export default function MainPage() {
     const [showFacilities, setShowFacilities] = useState(true);
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
     const [metric, setMetric] = useState("strategy");
+
+    useEffect(() => {
+        ReactGA.initialize("UA-159011122-1");
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
 
     useEffect(() => {
         Papa.parse("/hard_to_count_NY.csv", {
