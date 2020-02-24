@@ -38,7 +38,7 @@ export default function MainPage() {
         ReactGA.event({
             category: "User",
             action: "Viewed Tract",
-            label: selectedTract.id
+            label: selectedTract ? selectedTract.id : ""
         });
     }, [selectedTract]);
 
