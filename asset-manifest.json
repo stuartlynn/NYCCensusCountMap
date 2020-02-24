@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/NYCCensusCountMap/static/css/main.11bd9d9d.chunk.css",
-    "main.js": "/NYCCensusCountMap/static/js/main.37db7efa.chunk.js",
-    "main.js.map": "/NYCCensusCountMap/static/js/main.37db7efa.chunk.js.map",
+    "main.css": "/NYCCensusCountMap/static/css/main.e4d80619.chunk.css",
+    "main.js": "/NYCCensusCountMap/static/js/main.a474057c.chunk.js",
+    "main.js.map": "/NYCCensusCountMap/static/js/main.a474057c.chunk.js.map",
     "runtime-main.js": "/NYCCensusCountMap/static/js/runtime-main.269e74d1.js",
     "runtime-main.js.map": "/NYCCensusCountMap/static/js/runtime-main.269e74d1.js.map",
     "static/css/2.865826b4.chunk.css": "/NYCCensusCountMap/static/css/2.865826b4.chunk.css",
     "static/js/2.0dabec4f.chunk.js": "/NYCCensusCountMap/static/js/2.0dabec4f.chunk.js",
     "static/js/2.0dabec4f.chunk.js.map": "/NYCCensusCountMap/static/js/2.0dabec4f.chunk.js.map",
     "index.html": "/NYCCensusCountMap/index.html",
-    "precache-manifest.7318217652e59668183cca78ba8af70e.js": "/NYCCensusCountMap/precache-manifest.7318217652e59668183cca78ba8af70e.js",
+    "precache-manifest.a1a33496b56864d0cdb37057d77b3272.js": "/NYCCensusCountMap/precache-manifest.a1a33496b56864d0cdb37057d77b3272.js",
     "service-worker.js": "/NYCCensusCountMap/service-worker.js",
     "static/css/2.865826b4.chunk.css.map": "/NYCCensusCountMap/static/css/2.865826b4.chunk.css.map",
-    "static/css/main.11bd9d9d.chunk.css.map": "/NYCCensusCountMap/static/css/main.11bd9d9d.chunk.css.map",
+    "static/css/main.e4d80619.chunk.css.map": "/NYCCensusCountMap/static/css/main.e4d80619.chunk.css.map",
     "static/js/2.0dabec4f.chunk.js.LICENSE": "/NYCCensusCountMap/static/js/2.0dabec4f.chunk.js.LICENSE",
     "static/media/App.scss": "/NYCCensusCountMap/static/media/GT-America-Standard-Regular.ac9e5f9b.otf"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.269e74d1.js",
     "static/css/2.865826b4.chunk.css",
     "static/js/2.0dabec4f.chunk.js",
-    "static/css/main.11bd9d9d.chunk.css",
-    "static/js/main.37db7efa.chunk.js"
+    "static/css/main.e4d80619.chunk.css",
+    "static/js/main.a474057c.chunk.js"
   ]
 }
