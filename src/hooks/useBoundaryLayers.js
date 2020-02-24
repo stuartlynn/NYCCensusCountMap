@@ -52,7 +52,7 @@ export default function useBoundaryLayers(
                                     true
                                 ],
                                 0,
-                                0.5
+                                0.3
                             ]
                         },
                         layout: {
@@ -106,7 +106,7 @@ export default function useBoundaryLayers(
                             "text-offset": [0, 0.0],
                             "text-size": 15,
                             "text-anchor": "top",
-                            "text-allow-overlap": true
+                            "text-allow-overlap": false
                         }
                     });
                     layerList[layer.id] = layerDeets;

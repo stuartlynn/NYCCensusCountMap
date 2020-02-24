@@ -63,6 +63,7 @@ export default function Details({
                       geoid: tract.properties.GEOID
                   }
               };
+
     const makeAgeData = feature => {
         const properties = feature.properties;
         const data = [
@@ -386,16 +387,19 @@ export default function Details({
                                     facilityTypes.map(type => (
                                         <AssetCategoryCard
                                             title={type}
+                                            key={type}
                                             assets={facilities.filter(
                                                 f => f.asset_type === type
                                             )}
                                         />
                                     ))
                                 ) : (
-                                    <h2>
-                                        Turn on some Community Assets to view
-                                        here
-                                    </h2>
+                                    <div className="asset-placeholder">
+                                        <h2>
+                                            Turn on some Community Assets to
+                                            view here
+                                        </h2>
+                                    </div>
                                 )}
                             </>
                         )}

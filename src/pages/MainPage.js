@@ -91,11 +91,12 @@ export default function MainPage() {
             <div className="map" ref={mapDiv} />
             <div className="info overlay">
                 <h2>NYC CENSUS 2020 INTERACTIVE MAP</h2>
-                <h3>Created by Stuart Lynn: Hosted/designed Hester Street</h3>
                 <p>
                     This map is a tool to identify community-based assets, learn
                     about historically undercounted communities, and visualize
                     geographically relevant Census data for 2020 Census efforts.
+                </p>
+                <p>
                     If you are creating an outreach strategy to get your
                     neighborhood counted, this tool can help! For more
                     information about the map and how to submit data for your

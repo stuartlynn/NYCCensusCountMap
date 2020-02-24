@@ -33,7 +33,7 @@ function FacilitiesSection({ title, options, selected, onSelect }) {
             {expanded && (
                 <ul>
                     {options.map(option => (
-                        <li className="facilities-option">
+                        <li key={option} className="facilities-option">
                             <input
                                 type="checkbox"
                                 checked={selected.includes(option)}
@@ -91,6 +91,7 @@ export default function FacilitiesSelector({ selected, onSelected }) {
             <h3>Community Assets</h3>
             {sections.map(section => (
                 <FacilitiesSection
+                    key={section.title}
                     title={section.title}
                     options={section.options}
                     selected={selected}
