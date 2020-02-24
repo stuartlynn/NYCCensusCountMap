@@ -58,6 +58,7 @@ export default function useFacilitiesLayer(map, visible, selectedTypes) {
                                     )
                                 }
                             },
+
                             layout: {
                                 "icon-image": ["get", "icon"],
                                 "icon-size": 0.02,
@@ -67,7 +68,7 @@ export default function useFacilitiesLayer(map, visible, selectedTypes) {
                                     "Arial Unicode MS Bold"
                                 ],
                                 "text-offset": [0, 0.6],
-                                "text-size": 10,
+                                "text-size": 13,
                                 "text-anchor": "top",
                                 //'icon-allow-overlap': true,
                                 //              'text-allow-overlap': true,
@@ -78,7 +79,10 @@ export default function useFacilitiesLayer(map, visible, selectedTypes) {
                             //    filter: ['match', ['get', 'asset_type'], types, true, false],
 
                             paint: {
-                                "text-color": "rgba(255,255,255,1)"
+                                "text-color": "rgba(255,255,255,1)",
+                                "text-halo-color": "rgba(10, 10, 10, 0.8)",
+                                "text-halo-width": 1,
+                                "text-halo-blur": 0
                             }
                         });
                     });
