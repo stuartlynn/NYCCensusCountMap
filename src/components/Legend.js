@@ -27,10 +27,12 @@ export default function Legend({
     onSelectMetric,
     metric,
     selectedFacilityTypes,
-    onSelectFacilityType
+    onSelectFacilityType,
+    showENRFU,
+    onToggleENRFU
 }) {
     const [tab, setTab] = useState("layers");
-    console.log("Tab is ", tab);
+    console.log("ENRFU ", showENRFU);
     return (
         <div className="Legend overlay">
             <div className="tabs">
@@ -222,6 +224,23 @@ export default function Legend({
                             selected={selectedFacilityTypes}
                             onSelected={onSelectFacilityType}
                         />
+                        <div className="NRFU">
+                            <h3>Early NRFU Locations</h3>
+                            <div className="nrfu-selector">
+                                <div
+                                    className="category-marker"
+                                    style={{ backgroundColor: "blue" }}
+                                />
+                                <input
+                                    type="checkbox"
+                                    checked={showENRFU}
+                                    onChange={() => {
+                                        onToggleENRFU(!showENRFU);
+                                    }}
+                                />
+                                <p>Show NRFU Locations</p>
+                            </div>
+                        </div>
                     </section>
                 )}
 

@@ -18,6 +18,7 @@ export default function MainPage() {
     const [showFacilities, setShowFacilities] = useState(true);
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
     const [metric, setMetric] = useState("strategy");
+    const [showENRFU, setShowNRFU] = useState(true);
 
     useEffect(() => {
         ReactGA.initialize("UA-159011122-1");
@@ -71,7 +72,12 @@ export default function MainPage() {
         ...style,
         onClick: setSelectedTract,
         selection: selectedTract,
-        visible: selectedBoundary === "tracts"
+        visible: true
+    });
+
+    const EarlyNRFULocations = useGeoJSONLayer(map, "early_nrfu", {
+        ...Layers.EarlyNRFU,
+        visible: showENRFU
     });
 
     // BoundaryLayers().forEach(layer => {
@@ -128,6 +134,8 @@ export default function MainPage() {
                 onSelectFacilityType={onToggleFacilityType}
                 metric={metric}
                 onSelectMetric={setMetric}
+                showENRFU={showENRFU}
+                onToggleENRFU={setShowNRFU}
             />
         </div>
     );

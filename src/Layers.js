@@ -137,6 +137,13 @@ export default {
                 1
             ]
         }
+    },
+    EarlyNRFU: {
+        url: `${process.env.PUBLIC_URL}/boundaries/EarlyNRFULocations.geojson`,
+        paintFill: {
+            "fill-color": "blue",
+            "fill-opacity": 0.7
+        }
     }
 };
 

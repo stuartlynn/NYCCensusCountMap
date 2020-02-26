@@ -67,21 +67,28 @@ export function useGeoJSONLayer(
         }
     }, [selection]);
 
-    /*  useEffect(() => {
-    if (map.current && map.current.loaded()) {
-      map.current.setLayoutProperty(
-        `${name}-fill`,
-        'visibility',
-        visible ? 'visible' : 'none',
-      );
-      map.current.setLayoutProperty(
-        `${name}-line`,
-        'visibility',
-        visible ? 'visible' : 'none',
-      );
-    }
-  }, [map, visible]);
-*/
+    useEffect(() => {
+        if (map.current) {
+            const setVisibility = () => {
+                if (map.current.loaded()) {
+                    map.current.setLayoutProperty(
+                        `early_nrfu-fill`,
+                        "visibility",
+                        visible ? "visible" : "none"
+                    );
+                    map.current.setLayoutProperty(
+                        `early_nrfu-line`,
+                        "visibility",
+                        visible ? "visible" : "none"
+                    );
+                } else {
+                    setTimeout(setVisibility, 200);
+                }
+            };
+            setVisibility();
+        }
+    }, [map, visible]);
+
     useEffect(() => {
         if (map.current) {
             const setPaint = () => {
