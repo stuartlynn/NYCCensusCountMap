@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/NYCCensusCountMap/static/css/main.5a3b6fa4.chunk.css",
-    "main.js": "/NYCCensusCountMap/static/js/main.398678a4.chunk.js",
-    "main.js.map": "/NYCCensusCountMap/static/js/main.398678a4.chunk.js.map",
+    "main.css": "/NYCCensusCountMap/static/css/main.ae7fbab7.chunk.css",
+    "main.js": "/NYCCensusCountMap/static/js/main.24e4286a.chunk.js",
+    "main.js.map": "/NYCCensusCountMap/static/js/main.24e4286a.chunk.js.map",
     "runtime-main.js": "/NYCCensusCountMap/static/js/runtime-main.269e74d1.js",
     "runtime-main.js.map": "/NYCCensusCountMap/static/js/runtime-main.269e74d1.js.map",
-    "static/css/2.b4d6b9fe.chunk.css": "/NYCCensusCountMap/static/css/2.b4d6b9fe.chunk.css",
-    "static/js/2.1e3a01de.chunk.js": "/NYCCensusCountMap/static/js/2.1e3a01de.chunk.js",
-    "static/js/2.1e3a01de.chunk.js.map": "/NYCCensusCountMap/static/js/2.1e3a01de.chunk.js.map",
+    "static/css/2.f1b4d920.chunk.css": "/NYCCensusCountMap/static/css/2.f1b4d920.chunk.css",
+    "static/js/2.0d1ff73b.chunk.js": "/NYCCensusCountMap/static/js/2.0d1ff73b.chunk.js",
+    "static/js/2.0d1ff73b.chunk.js.map": "/NYCCensusCountMap/static/js/2.0d1ff73b.chunk.js.map",
     "index.html": "/NYCCensusCountMap/index.html",
-    "precache-manifest.c7430b88f0d24a4bd68a5bfb6c3ae3e7.js": "/NYCCensusCountMap/precache-manifest.c7430b88f0d24a4bd68a5bfb6c3ae3e7.js",
+    "precache-manifest.ec62711d1fab12407a8271822cceebde.js": "/NYCCensusCountMap/precache-manifest.ec62711d1fab12407a8271822cceebde.js",
     "service-worker.js": "/NYCCensusCountMap/service-worker.js",
-    "static/css/2.b4d6b9fe.chunk.css.map": "/NYCCensusCountMap/static/css/2.b4d6b9fe.chunk.css.map",
-    "static/css/main.5a3b6fa4.chunk.css.map": "/NYCCensusCountMap/static/css/main.5a3b6fa4.chunk.css.map",
-    "static/js/2.1e3a01de.chunk.js.LICENSE": "/NYCCensusCountMap/static/js/2.1e3a01de.chunk.js.LICENSE",
+    "static/css/2.f1b4d920.chunk.css.map": "/NYCCensusCountMap/static/css/2.f1b4d920.chunk.css.map",
+    "static/css/main.ae7fbab7.chunk.css.map": "/NYCCensusCountMap/static/css/main.ae7fbab7.chunk.css.map",
+    "static/js/2.0d1ff73b.chunk.js.LICENSE": "/NYCCensusCountMap/static/js/2.0d1ff73b.chunk.js.LICENSE",
     "static/media/App.scss": "/NYCCensusCountMap/static/media/GT-America-Standard-Regular.ac9e5f9b.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.269e74d1.js",
-    "static/css/2.b4d6b9fe.chunk.css",
-    "static/js/2.1e3a01de.chunk.js",
-    "static/css/main.5a3b6fa4.chunk.css",
-    "static/js/main.398678a4.chunk.js"
+    "static/css/2.f1b4d920.chunk.css",
+    "static/js/2.0d1ff73b.chunk.js",
+    "static/css/main.ae7fbab7.chunk.css",
+    "static/js/main.24e4286a.chunk.js"
   ]
 }
