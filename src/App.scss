@@ -64,7 +64,7 @@ p {
     height: 100%;
     overflow-x: auto;
     flex: 1;
-    align-items: center;
+    align-items: flex-start;
 
     .card {
         min-width: 350px;
@@ -407,7 +407,8 @@ ul {
     padding: 10px 20px;
     flex: 1;
     box-sizing: border-box;
-    height: 100%;
+    max-height: 160px;
+
     h2 {
         display: flex;
         align-items: center;
@@ -419,17 +420,19 @@ ul {
         margin-right: 5px;
     }
     ul {
-        display: inline-flex;
-        writing-mode: vertical-lr;
-        flex-wrap: wrap;
-        align-content: flex-start;
+        //display: inline-flex;
+        //writing-mode: vertical-lr;
+        //flex-wrap: wrap;
+        //align-content: flex-start;
         box-sizing: border-box;
-        padding: 20px 0px;
-        max-height: 220px;
-        flex-direction: row;
+        padding: 20px 0px 10px 0px;
+        height: 170px;
+        // max-height: 220px;
+        // flex-direction: row;
+        // flex: 1;
+        display: flex;
         flex: 1;
-        // display: flex;
-        //  flex-flow: column wrap;
+        flex-flow: column wrap;
         //    grid-column-gap: 10px;
         ///  display: grid;
         // grid-template-columns: repeat(auto-fit(400px));

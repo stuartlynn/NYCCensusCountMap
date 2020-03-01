@@ -13,15 +13,23 @@ export default function AssetCategoryCard({ assets, title }) {
         "Community Schools": "Dot_CommunityCenters.png",
         "Mental Health Services": "Dot_MentalHealth.png",
         "Community-Based Organizations": "Dot_CBO.png",
-        "Public Libraries": "Dot_Libraries.png"
+        "Public Libraries": "Dot_Libraries.png",
+        "Head Start and Early Head Start": "Dot_HeadStart.png"
     };
+
+    const width = Math.max(300, 300 * Math.ceil(assets.length / 3));
     return (
-        <div className="asset-card">
+        <div className="asset-card" style={{ width: width + "px" }}>
             <h2>
                 <img src={`${process.env.PUBLIC_URL}/imgs/${icons[title]}`} />
                 {title}
             </h2>
-            <ul>
+            <ul style={{ width: width + "px" }}>
+                {assets.length == 0 && (
+                    <li key={`${title}-empty `}>
+                        <h3>None identified</h3>
+                    </li>
+                )}
                 {assets.map(asset => (
                     <li key={asset.name} className="asset">
                         <h3>{asset.name}</h3>
