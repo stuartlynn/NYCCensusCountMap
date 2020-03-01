@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@turf/turf": "^5.1.6",
+    "file-saver": "^2.0.2",
     "mapbox-gl": "^1.6.1",
     "node-sass": "^4.13.1",
     "papaparse": "^5.1.1",
