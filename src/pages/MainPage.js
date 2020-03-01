@@ -143,7 +143,9 @@ export default function MainPage() {
         selectedFacilityTypes
     );
 
-    let shareURL = `${window.location.origin}?layer=${selectedBoundary}&metric=${metric}`;
+    let shareURL = `${
+        process.env.PUBLIC_URL ? process.env.PUBLIC_URL : window.location.origin
+    }?layer=${selectedBoundary}&metric=${metric}`;
     if (selectedFeature) {
         shareURL += `&boundaryID=${selectedFeature.id}`;
     }
