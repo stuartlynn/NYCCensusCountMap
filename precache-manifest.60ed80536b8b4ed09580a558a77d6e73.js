@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "32af65cca952c2e05697117de94bd30a",
+    "revision": "515e52b1f9b707bf5a66618911c74477",
     "url": "/NYCCensusCountMap/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/NYCCensusCountMap/static/css/2.f1b4d920.chunk.css"
   },
   {
-    "revision": "d869e2c08b589545c3af",
+    "revision": "8e78f539a8b9d5ae5dc8",
     "url": "/NYCCensusCountMap/static/css/main.ae7fbab7.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/NYCCensusCountMap/static/js/2.0d1ff73b.chunk.js.LICENSE"
   },
   {
-    "revision": "d869e2c08b589545c3af",
-    "url": "/NYCCensusCountMap/static/js/main.24e4286a.chunk.js"
+    "revision": "8e78f539a8b9d5ae5dc8",
+    "url": "/NYCCensusCountMap/static/js/main.55de0c42.chunk.js"
   },
   {
     "revision": "4fb971311b5aecdd4425",
