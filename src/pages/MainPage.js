@@ -85,7 +85,9 @@ export default function MainPage() {
                     );
                     if (sf) {
                         setSelectedFeature(sf);
-                        let bounds = turf.bbox(turf.buffer(sf, 0.01));
+                        let bounds = turf.bbox(
+                            turf.buffer(sf, 1, { units: "miles" })
+                        );
                         console.log("bounds ", bounds);
                         map.current.fitBounds(bounds);
                     }

@@ -58,6 +58,9 @@ p {
     overflow-y: auto;
 }
 
+.cards::-webkit-scrollbar {
+    display: none;
+}
 .cards {
     display: flex;
     flex-direction: row;
@@ -65,6 +68,7 @@ p {
     overflow-x: auto;
     flex: 1;
     align-items: flex-start;
+    -ms-overflow-style: none;
 
     .card {
         min-width: 350px;
@@ -531,4 +535,32 @@ ul {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.share-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.share-button {
+    box-shadow: inset 0px 1px 0px 0px #9acc85;
+    background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+    background-color: #74ad5a;
+    border: 1px solid #3b6e22;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
+}
+.share-button:hover {
+    background: linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+    background-color: #68a54b;
+}
+.share-button:active {
+    position: relative;
+    top: 1px;
 }
