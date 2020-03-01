@@ -27,5 +27,14 @@ export function useMap(mapDivRef, { lnglat, zoom, key }) {
         window.map = map;
     }, [mapDivRef]);
 
-    return map;
+    const zoomToBounds = bounds => {
+        if (map.current) {
+            map.current.fitBounds([
+                [32.958984, -5.353521],
+                [43.50585, 5.615985]
+            ]);
+        }
+    };
+
+    return { map, zoomToBounds };
 }

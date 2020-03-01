@@ -10,6 +10,9 @@ export function useGeoJSONLayer(
     const source = useRef(null);
     const source_name = `${name}_source`;
     const oldSelectionID = useRef(null);
+    const metricChangeTimeout = useRef(null);
+    const visibilityChangeTimeout = useRef(null);
+
     useEffect(() => {
         if (map.current) {
             map.current.on("load", () => {
@@ -25,7 +28,7 @@ export function useGeoJSONLayer(
                         source: source_name,
                         paint: paintFill,
                         layout: {
-                            visibility: "visible" // visible ? 'visible' : 'none',
+                            visibility: visible ? "visible" : "none"
                         }
                     });
                 }
@@ -36,7 +39,7 @@ export function useGeoJSONLayer(
                         source: source_name,
                         paint: paintLine,
                         layout: {
-                            visibility: "visible" // visible ? 'visible' : 'none',
+                            visibility: visible ? "visible" : "none"
                         }
                     });
                 }
@@ -82,7 +85,14 @@ export function useGeoJSONLayer(
                         visible ? "visible" : "none"
                     );
                 } else {
-                    setTimeout(setVisibility, 200);
+                    if (visibilityChangeTimeout.current) {
+                        clearTimeout(visibilityChangeTimeout.current);
+                        visibilityChangeTimeout.current = null;
+                    }
+                    visibilityChangeTimeout.current = setTimeout(
+                        setVisibility,
+                        200
+                    );
                 }
             };
             setVisibility();
@@ -99,7 +109,11 @@ export function useGeoJSONLayer(
                         paintFill["fill-color"]
                     );
                 } else {
-                    setTimeout(setPaint, 1000);
+                    if (metricChangeTimeout.current) {
+                        clearTimeout(metricChangeTimeout.current);
+                        metricChangeTimeout.current = null;
+                    }
+                    metricChangeTimeout.current = setTimeout(setPaint, 500);
                 }
             };
             setPaint();

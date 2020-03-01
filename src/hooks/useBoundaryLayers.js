@@ -11,6 +11,7 @@ export default function useBoundaryLayers(
 ) {
     const [layers, setLayers] = useState({});
     const oldSelectionID = useRef(null);
+    const boundaryLayerChangeTimeout = useRef(null);
 
     useEffect(() => {
         if (map.current) {
@@ -80,6 +81,21 @@ export default function useBoundaryLayers(
                                     ],
                                     "red",
                                     "black"
+                                ],
+
+                                "line-width": [
+                                    "case",
+                                    [
+                                        "boolean",
+                                        [
+                                            "coalesce",
+                                            ["feature-state", "selected"],
+                                            false
+                                        ],
+                                        true
+                                    ],
+                                    4,
+                                    1
                                 ]
                             },
                             layout: {
@@ -119,8 +135,17 @@ export default function useBoundaryLayers(
     useEffect(() => {
         if (map.current) {
             const updateVisibility = () => {
-                if (map.current.isStyleLoaded()) {
+                if (
+                    map.current.isStyleLoaded() &&
+                    map.current.getLayer(selectedLayer + "-fill")
+                ) {
+                    console.log(
+                        "Actually changing layers ",
+                        selectedLayer,
+                        layers
+                    );
                     Object.entries(layers).forEach(([id, layer]) => {
+                        console.log("comparing ", id, selectedLayer);
                         map.current.setFeatureState(
                             {
                                 source: layer.id + "_source",
@@ -145,12 +170,19 @@ export default function useBoundaryLayers(
                         );
                     });
                 } else {
-                    setTimeout(updateVisibility, 100);
+                    if (boundaryLayerChangeTimeout.current) {
+                        clearTimeout(boundaryLayerChangeTimeout.current);
+                        boundaryLayerChangeTimeout.current = null;
+                    }
+                    boundaryLayerChangeTimeout.current = setTimeout(
+                        updateVisibility,
+                        500
+                    );
                 }
             };
             updateVisibility();
         }
-    }, [map, selectedLayer]);
+    }, [map, selectedLayer, layers]);
 
     useEffect(() => {
         const source_name = `${selectedLayer}_source`;

@@ -3,11 +3,13 @@ import { useMap } from "../hooks/useMap";
 import Legend from "../components/Legend";
 import Details from "../components/Details";
 import Papa from "papaparse";
+import * as turf from "@turf/turf";
 import { useGeoJSONLayer } from "../hooks/useGeoJSONLayer";
 import useBoundaryLayers from "../hooks/useBoundaryLayers";
 import useFacilitiesLayer from "../hooks/useFacilitiesLayer";
 import Layers, { fillStyles } from "../Layers";
 import ReactGA from "react-ga";
+import queryString from "query-string";
 
 export default function MainPage() {
     const mapDiv = useRef(null);
@@ -18,7 +20,7 @@ export default function MainPage() {
     const [showFacilities, setShowFacilities] = useState(true);
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
     const [metric, setMetric] = useState("strategy");
-    const [showENRFU, setShowNRFU] = useState(true);
+    const [showENRFU, setShowNRFU] = useState(false);
 
     useEffect(() => {
         ReactGA.initialize("UA-159011122-1");
@@ -47,13 +49,53 @@ export default function MainPage() {
         setSelectedFacilityTypes(newList);
     };
 
-    const map = useMap(mapDiv, {
+    const { map, zoomToBounds } = useMap(mapDiv, {
         lnglat: [-73.9920330193022, 40.75078660435196],
         zoom: 10,
         style: "mapbox://styles/mapbox/light-v10",
         key:
             "pk.eyJ1Ijoic3R1YXJ0LWx5bm4iLCJhIjoiM2Q4ODllNmRkZDQ4Yzc3NTBhN2UyNDE0MWY2OTRiZWIifQ.8OEKvgZBCCtDFUXkjt66Pw"
     });
+
+    useEffect(() => {
+        const params = queryString.parse(window.location.search);
+        if (params.layer) {
+            setSelectedBoundary(params.layer);
+        }
+        if (params.metric) {
+            setMetric(params.metric);
+        }
+        if (params.nrfu) {
+            setShowNRFU(params.nrfu === "yes");
+        }
+        if (params.boundaryID) {
+            const zoomToFeature = () => {
+                if (
+                    map.current &&
+                    map.current.isStyleLoaded &&
+                    map.current.getLayer(params.layer + "-fill") &&
+                    map.current.querySourceFeatures(params.layer + "_source")
+                        .length > 0
+                ) {
+                    const features = map.current.querySourceFeatures(
+                        params.layer + "_source"
+                    );
+                    const sf = features.find(
+                        f => f.id + "" === params.boundaryID
+                    );
+                    if (sf) {
+                        setSelectedFeature(sf);
+                        let bounds = turf.bbox(turf.buffer(sf, 0.01));
+                        console.log("bounds ", bounds);
+                        map.current.fitBounds(bounds);
+                    }
+                } else {
+                    setTimeout(zoomToFeature, 500);
+                }
+            };
+            zoomToFeature();
+        }
+    }, [window.location.search]);
 
     const searchBox = useRef(null);
 
@@ -98,6 +140,11 @@ export default function MainPage() {
         showFacilities,
         selectedFacilityTypes
     );
+
+    let shareURL = `${window.location.origin}?layer=${selectedBoundary}&metric=${metric}`;
+    if (selectedFeature) {
+        shareURL += `&boundaryID=${selectedFeature.id}`;
+    }
     return (
         <div className="main-page">
             <div className="map" ref={mapDiv} />
@@ -136,6 +183,7 @@ export default function MainPage() {
                 onSelectMetric={setMetric}
                 showENRFU={showENRFU}
                 onToggleENRFU={setShowNRFU}
+                shareURL={shareURL}
             />
         </div>
     );

@@ -6,6 +6,7 @@ import BoundarySelector from "./BoundarySelector";
 import FacilitiesSelector from "./FacilitiesSelector";
 import HelpTab from "./HelpTab";
 import InfoTab from "./InfoTab";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -29,7 +30,8 @@ export default function Legend({
     selectedFacilityTypes,
     onSelectFacilityType,
     showENRFU,
-    onToggleENRFU
+    onToggleENRFU,
+    shareURL
 }) {
     const [tab, setTab] = useState("layers");
     console.log("ENRFU ", showENRFU);
@@ -239,6 +241,22 @@ export default function Legend({
                                     }}
                                 />
                                 <p>Show NRFU Locations</p>
+                            </div>
+                        </div>
+                        <div className="share">
+                            <h3>Share</h3>
+                            <div className="share-buttons">
+                                <CopyToClipboard text={window.location}>
+                                    <button className="share-button">
+                                        Copy Link
+                                    </button>
+                                </CopyToClipboard>
+
+                                <CopyToClipboard text={shareURL}>
+                                    <button className="share-button">
+                                        Copy Link to this view
+                                    </button>
+                                </CopyToClipboard>
                             </div>
                         </div>
                     </section>
