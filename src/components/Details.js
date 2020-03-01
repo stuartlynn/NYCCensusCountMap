@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { RadialChart } from "react-vis";
 import FacilityCard from "./FacilityCard";
 import SimpleBarChart from "./SimpleBarChart";
@@ -7,6 +7,10 @@ import FactCard from "./FactCard";
 import AssetCategoryCard from "./AssetCategoryCard";
 import DetailsSelector from "./DetailsSelector";
 import { useFilteredFacilities } from "../hooks/useFacilities";
+import { saveAs } from "file-saver";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 export default function Details({
     feature,
@@ -63,6 +67,18 @@ export default function Details({
                       geoid: tract.properties.GEOID
                   }
               };
+    const downloadAssets = useCallback(() => {
+        let csv = ["name", "address", "type"].join(",") + "\n";
+        csv += facilities
+            .map(f => [f.name, f.address, f.asset_type].join(","))
+            .join("\n");
+        var blob = new Blob([csv], { type: "text/plain;charset=utf-8" });
+        const boundaryType = showBoundaryData ? layer : "tract";
+        const boundaryId = displayFeature.id;
+        console.log(boundaryType, boundaryId, facilities, displayFeature);
+
+        saveAs(blob, `assets_for_${boundaryType}-${boundaryId}.csv`);
+    }, [facilities, displayFeature]);
 
     const makeAgeData = feature => {
         const properties = feature.properties;
@@ -250,6 +266,12 @@ export default function Details({
                                 </p>
                             </>
                         )
+                    )}
+                    {selectedDetails === "assets" && (
+                        <p onClick={downloadAssets} className="download-assets">
+                            <FontAwesomeIcon icon={faDownload} />
+                            Download Community Assets
+                        </p>
                     )}
                 </div>
             </div>

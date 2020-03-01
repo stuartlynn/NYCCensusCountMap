@@ -113,6 +113,12 @@ p {
         flex: 1;
     }
 }
+.download-assets {
+    cursor: pointer;
+    svg {
+        margin-right: 10px;
+    }
+}
 .details-selector {
     ul {
         border-right: 1px solid lightgrey;
