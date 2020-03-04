@@ -12,7 +12,7 @@ export default function HelpTab() {
                         Hester Street
                     </a>{" "}
                     in partnership with{" "}
-                    <a herf="http://stuartlynn.me/">Stuart Lynn</a>. Hester
+                    <a href="http://stuartlynn.me/">Stuart Lynn</a>. Hester
                     Street is an urban planning, design and development
                     nonprofit that works to ensure neighborhoods are shaped by
                     the people who live in them.
