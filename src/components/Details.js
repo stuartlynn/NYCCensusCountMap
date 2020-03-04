@@ -210,7 +210,13 @@ export default function Details({
                             onClick={() => setShowBoundaryData(true)}
                         >
                             <h2 className={showBoundaryData ? "" : "selected"}>
-                                {featureName}: {feature.properties.geoid}
+                                {featureName}:{" "}
+                                {featureName === "NOCC"
+                                    ? feature.properties.nocc_id
+                                    : feature.properties.geoid}{" "}
+                                {featureName === "NOCC"
+                                    ? feature.properties.neighborhood
+                                    : ""}
                             </h2>
                         </div>
                     )}
@@ -259,7 +265,7 @@ export default function Details({
                                     </span>
                                 </p>
                                 <p>
-                                    Inital Contact Strategy:{" "}
+                                    2020 Census Mail Contact Strategy:{" "}
                                     <span style={{ color: "red" }}>
                                         {contactStrategy(tract.properties)}
                                     </span>

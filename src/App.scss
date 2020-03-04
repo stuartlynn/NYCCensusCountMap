@@ -56,11 +56,22 @@ p {
 .help-tab {
     text-align: left;
     overflow-y: auto;
+    img {
+        width: 100%;
+    }
+    ul.dashed {
+        > li {
+            text-indent: 5px;
+        }
+        li::before {
+            content: "-";
+            text-index: 5px;
+            color: black;
+            margin-right: 5px;
+        }
+    }
 }
 
-.cards::-webkit-scrollbar {
-    display: none;
-}
 .cards {
     display: flex;
     flex-direction: row;
@@ -68,13 +79,12 @@ p {
     overflow-x: auto;
     flex: 1;
     align-items: flex-start;
-    -ms-overflow-style: none;
 
     .card {
         min-width: 350px;
         height: 100%;
         box-sizing: border-box;
-        padding: 20px 10px 10px 20px;
+        padding: 5px 10px 0px 20px;
         //   border: 1px solid black;
         margin-right: 0px;
     }
@@ -203,6 +213,8 @@ p {
 .range-legend-bar {
     height: 15px;
     width: 100%;
+    border: 1px solid grey;
+    box-sizing: border-box;
 }
 
 .range-legend-labels {
@@ -470,7 +482,17 @@ ul {
 }
 .category-entry {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    .category-name {
+        margin-top: -2px;
+        text-align: left;
+        font-weight: 700;
+        p {
+            margin: 2px 0px 5px;
+
+            font-weight: 200;
+        }
+    }
 }
 .category-marker {
     width: 30px;
@@ -517,7 +539,10 @@ ul {
     display: flex;
     flex-direction: row;
     flex-wrap: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    .fact-name {
+        margin-right: 10px;
+    }
     p {
         font-size: 1rem;
     }

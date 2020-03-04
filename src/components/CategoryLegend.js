@@ -12,7 +12,12 @@ export default function CategoryLegend({ categories }) {
                             className="category-marker"
                             style={{ backgroundColor: category.color }}
                         />
-                        {category.name}
+                        <div className="category-name">
+                            {category.name}
+                            {category.sub && (
+                                <p className="category-sub">{category.sub}</p>
+                            )}
+                        </div>
                     </li>
                 ))}
             </ul>

@@ -4,7 +4,7 @@ export default function HelpTab() {
     return (
         <div className="help-tab">
             <section>
-                <h3>About</h3>
+                <h3>ABOUT</h3>
 
                 <p>
                     This interactive map was created by{" "}
@@ -24,17 +24,18 @@ export default function HelpTab() {
                 <p>
                     If you have additional assets, services or neighborhood
                     institutions to contribute to the map, please email{" "}
-                    <a href="mailto:devin@hesterstreet.org">
-                        devin@hesterstreet.org
+                    <a href="2020Census@hesterstreet.org">
+                        2020Census@hesterstreet.org
                     </a>{" "}
                     with the subject line "New interactive map assets". Be sure
                     to include the following information for each asset
                 </p>
-                <ul style={{ listStyleType: "circle" }}>
+                <ul className="dashed">
                     <li>Name </li>
                     <li>Address</li>
                     <li>Layer it should be added to</li>
                 </ul>
+                <img src="imgs/HS_Logo_Blk_RGB.png" />
             </section>
         </div>
     );

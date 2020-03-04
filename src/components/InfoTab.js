@@ -4,7 +4,7 @@ export default function HelpTab() {
     return (
         <div className="help-tab">
             <section>
-                <h3>Info</h3>
+                <h3>INFORMATION</h3>
                 <h3>Context Layers</h3>
                 <p>
                     The base context layers for the map are supplied by
@@ -49,8 +49,11 @@ export default function HelpTab() {
                     not include all services and programs serving these
                     populations. If we are missing any important services in
                     your community, please let us know by emailing{" "}
-                    <a target="_blank" href="mainto:devin@hesterstreet.org">
-                        devin@hesterstreet.org
+                    <a
+                        target="_blank"
+                        href="mainto:2020Census@hesterstreet.org"
+                    >
+                        2020Census@hesterstreet.org
                     </a>
                 </p>
                 <p className="sources">
@@ -90,7 +93,10 @@ export default function HelpTab() {
                     These layers do not include a comprehensive list of all
                     institutions serving your neighborhood populations. If we
                     are missing any important institutions in your community,
-                    please let us know by emailing devin@hesterstreet.org
+                    please let us know by emailing{" "}
+                    <a href="mailto:2020Census@hesterstreet.org">
+                        2020Census@hesterstreet.org
+                    </a>
                 </p>
 
                 <p>

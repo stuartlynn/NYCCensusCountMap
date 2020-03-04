@@ -201,7 +201,7 @@ export function BoundaryLayers() {
         },
         {
             id: "congress_districts",
-            datasetName: "Congress Assembly Districts",
+            datasetName: "Congressional Districts",
             polygons: "congress_assembly_with_vars.geojson",
             labels: "congress_assembly_district_labels.geojson",
             url:

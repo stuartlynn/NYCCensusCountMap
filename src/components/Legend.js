@@ -60,6 +60,7 @@ export default function Legend({
             <div className="content">
                 {tab === "layers" && (
                     <section className="thematic-layer">
+                        <h3>LAYERS</h3>
                         <h3>Neighborhood Information</h3>
                         <Dropdown
                             options={[
@@ -114,19 +115,27 @@ export default function Legend({
                                 categories={[
                                     {
                                         color: "#C2A5CF",
-                                        name: "Internet First, English"
+                                        name: "Internet First, English",
+                                        sub:
+                                            "Housing unit will receive letter to complete Census via online link, in English"
                                     },
                                     {
                                         color: "#9970AB",
-                                        name: "Internet First, Bilingual"
+                                        name: "Internet First, Bilingual",
+                                        sub:
+                                            "Housing unit will receive letter to complete Census via online link, in English and Spanish"
                                     },
                                     {
                                         color: "#A6DBA0",
-                                        name: "Internet Choice, English"
+                                        name: "Internet Choice, English",
+                                        sub:
+                                            "Housing unit will receive letter to complete Census via online link or paper survey, in English"
                                     },
                                     {
                                         color: "#5AAE61",
-                                        name: "Internet Choice, Bilingual"
+                                        name: "Internet Choice, Bilingual",
+                                        sub:
+                                            "Housing unit will receive letter to complete Census via online link or paper survey, in English and Spanish "
                                     }
                                 ]}
                             />
@@ -248,13 +257,13 @@ export default function Legend({
                             <div className="share-buttons">
                                 <CopyToClipboard text={window.location}>
                                     <button className="share-button">
-                                        Copy Link
+                                        Copy Map Link
                                     </button>
                                 </CopyToClipboard>
 
                                 <CopyToClipboard text={shareURL}>
                                     <button className="share-button">
-                                        Copy Link to this view
+                                        Copy Current Map View
                                     </button>
                                 </CopyToClipboard>
                             </div>
