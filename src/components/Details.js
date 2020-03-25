@@ -300,7 +300,7 @@ export default function Details({
                                         )}{" "}
                                         %
                                     </p>
-                                    <p>Last updated 24th March</p>
+                                    <p>Last updated 25th March</p>
                                 </div>
                                 <div className="card comparison">
                                     <p>
@@ -310,7 +310,7 @@ export default function Details({
                                             )}
                                             %{" "}
                                         </span>{" "}
-                                        Self response rate as of 24th March 2020
+                                        Self response rate as of 25th March 2020
                                     </p>
                                     <ProgressBar
                                         pc={displayFeature.properties.CRRALL}
@@ -323,7 +323,7 @@ export default function Details({
                                             )}
                                             %{" "}
                                         </span>{" "}
-                                        Self response rate as of 24th March 2010
+                                        Self response rate as of 25th March 2010
                                     </p>
                                     <ProgressBar
                                         pc={
