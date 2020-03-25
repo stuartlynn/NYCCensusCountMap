@@ -19,7 +19,7 @@ export default function MainPage() {
     const [hardToCountStats, setHardToCountStats] = useState([]);
     const [showFacilities, setShowFacilities] = useState(true);
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
-    const [metric, setMetric] = useState("strategy");
+    const [metric, setMetric] = useState("responseRate");
     const [showENRFU, setShowNRFU] = useState(false);
 
     useEffect(() => {

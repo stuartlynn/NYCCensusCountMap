@@ -65,6 +65,10 @@ export default function Legend({
                         <Dropdown
                             options={[
                                 {
+                                    value: "responseRate",
+                                    label: "2020 Self Response Rate to date"
+                                },
+                                {
                                     value: "strategy",
                                     label: "2020 Census Mail Contact Stategies"
                                 },
@@ -138,6 +142,15 @@ export default function Legend({
                                             "Housing unit will receive letter to complete Census via online link or paper survey, in English and Spanish "
                                     }
                                 ]}
+                            />
+                        )}
+                        {metric === "responseRate" && (
+                            <RangeLegend
+                                name={"Self Response Rate to date(%)"}
+                                min={"0%"}
+                                max={"100%"}
+                                colStart={"#FFFFFF"}
+                                colEnd={"#8f1158"}
                             />
                         )}
                         {metric === "returnCount" && (

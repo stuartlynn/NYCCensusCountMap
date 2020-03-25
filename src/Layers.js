@@ -1,4 +1,13 @@
 export const fillStyles = {
+    responseRate: [
+        "interpolate-lab",
+        ["linear"],
+        ["get", "CRRALL"],
+        0.0,
+        "#FFFFFF",
+        100.0,
+        "#8f1158"
+    ],
     strategy: [
         "match",
         ["get", "strategy_code"],

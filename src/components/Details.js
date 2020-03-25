@@ -8,6 +8,7 @@ import AssetCategoryCard from "./AssetCategoryCard";
 import DetailsSelector from "./DetailsSelector";
 import { useFilteredFacilities } from "../hooks/useFacilities";
 import { saveAs } from "file-saver";
+import ProgressBar from "./ProgressBar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +23,7 @@ export default function Details({
     const [showFacilities, setShowFacilities] = useState(false);
     const [showBoundaryData, setShowBoundaryData] = useState(true);
 
-    const [selectedDetails, setSelectedDetails] = useState("demographics");
+    const [selectedDetails, setSelectedDetails] = useState("census2020");
 
     const facilities = useFilteredFacilities(
         showBoundaryData
@@ -67,6 +68,7 @@ export default function Details({
                       geoid: tract.properties.GEOID
                   }
               };
+    console.log("DISPLAY FEATURE IS ", displayFeature);
     const downloadAssets = useCallback(() => {
         let csv = ["name", "address", "type"].join(",") + "\n";
         csv += facilities
@@ -288,6 +290,23 @@ export default function Details({
                 />
                 {displayFeature && (
                     <div className="cards">
+                        {selectedDetails === "census2020" && (
+                            <>
+                                <div className="card selfresponse">
+                                    <h3>Self Response Rate</h3>
+                                    <p className="bigPC">
+                                        {Math.floor(
+                                            displayFeature.properties.CRRALL
+                                        )}{" "}
+                                        %
+                                    </p>
+                                    <p>Last updated 24th March</p>
+                                    <ProgressBar
+                                        pc={displayFeature.properties.CRRALL}
+                                    />
+                                </div>
+                            </>
+                        )}
                         {selectedDetails === "demographics" && (
                             <>
                                 <div className="card demographics">
