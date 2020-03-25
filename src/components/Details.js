@@ -301,9 +301,57 @@ export default function Details({
                                         %
                                     </p>
                                     <p>Last updated 24th March</p>
+                                </div>
+                                <div className="card comparison">
+                                    <p>
+                                        <span>
+                                            {Math.floor(
+                                                displayFeature.properties.CRRALL
+                                            )}
+                                            %{" "}
+                                        </span>{" "}
+                                        Self response rate as of 24th March 2020
+                                    </p>
                                     <ProgressBar
                                         pc={displayFeature.properties.CRRALL}
                                     />
+                                    <p>
+                                        <span>
+                                            {Math.floor(
+                                                displayFeature.properties
+                                                    .HISTORIC_RESP_RATE
+                                            )}
+                                            %{" "}
+                                        </span>{" "}
+                                        Self response rate as of 24th March 2010
+                                    </p>
+                                    <ProgressBar
+                                        pc={
+                                            displayFeature.properties
+                                                .HISTORIC_RESP_RATE
+                                        }
+                                    />
+                                    {!showBoundaryData && (
+                                        <>
+                                            <p>
+                                                <span>
+                                                    {Math.floor(
+                                                        displayFeature
+                                                            .properties.MRR2010
+                                                    )}
+                                                    %
+                                                </span>
+                                                Final Self response rate in 2010
+                                                census
+                                            </p>
+                                            <ProgressBar
+                                                pc={
+                                                    displayFeature.properties
+                                                        .MRR2010
+                                                }
+                                            />
+                                        </>
+                                    )}
                                 </div>
                             </>
                         )}
