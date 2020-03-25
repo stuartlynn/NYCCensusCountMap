@@ -340,8 +340,8 @@ export default function Details({
                                                             .properties.MRR2010
                                                     )}
                                                     %
-                                                </span>
-                                                Final Self response rate in 2010
+                                                </span>{" "}
+                                                Final self response rate in 2010
                                                 census
                                             </p>
                                             <ProgressBar
