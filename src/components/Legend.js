@@ -148,9 +148,9 @@ export default function Legend({
                             <RangeLegend
                                 name={"Self Response Rate to date(%)"}
                                 min={"0%"}
-                                max={"100%"}
+                                max={"30%"}
                                 colStart={"#FFFFFF"}
-                                colEnd={"#8f1158"}
+                                colEnd={"#faaf12"}
                             />
                         )}
                         {metric === "returnCount" && (

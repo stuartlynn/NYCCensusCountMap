@@ -5,8 +5,8 @@ export const fillStyles = {
         ["get", "CRRALL"],
         0.0,
         "#FFFFFF",
-        100.0,
-        "#8f1158"
+        30.0,
+        "#faaf12"
     ],
     strategy: [
         "match",
