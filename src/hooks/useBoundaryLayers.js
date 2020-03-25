@@ -53,7 +53,7 @@ export default function useBoundaryLayers(
                                     true
                                 ],
                                 0,
-                                0.3
+                                0.2
                             ]
                         },
                         layout: {
@@ -135,9 +135,11 @@ export default function useBoundaryLayers(
     useEffect(() => {
         if (map.current) {
             const updateVisibility = () => {
+                console.log("SELECTED LAYER IS ", selectedLayer);
                 if (
                     map.current.isStyleLoaded() &&
-                    map.current.getLayer(selectedLayer + "-fill")
+                    (map.current.getLayer(selectedLayer + "-fill") ||
+                        selectedLayer === "tracts")
                 ) {
                     console.log(
                         "Actually changing layers ",
