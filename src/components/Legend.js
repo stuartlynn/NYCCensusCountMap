@@ -29,6 +29,7 @@ export default function Legend({
     metric,
     selectedFacilityTypes,
     onSelectFacilityType,
+    onPrint,
     showENRFU,
     onToggleENRFU,
     shareURL
@@ -279,6 +280,22 @@ export default function Legend({
                                         Copy Current Map View
                                     </button>
                                 </CopyToClipboard>
+                            </div>
+
+                            <div
+                                style={{
+                                    marginTop: "20px",
+                                    display: "flex",
+                                    justifyContent: "space-around"
+                                }}
+                            >
+                                <button
+                                    onClick={onPrint}
+                                    className="share-button"
+                                    style={{ width: "200px" }}
+                                >
+                                    Print Map
+                                </button>
                             </div>
                         </div>
                     </section>

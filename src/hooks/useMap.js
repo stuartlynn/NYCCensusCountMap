@@ -14,7 +14,8 @@ export function useMap(mapDivRef, { lnglat, zoom, key }) {
             container: mapDivRef.current, // container id
             style: style, // stylesheet location
             center: lnglat, // starting position [lng, lat]
-            zoom: zoom // starting zoom
+            zoom: zoom, // starting zoom,
+            preserveDrawingBuffer: true
         });
         map.current.addControl(
             new MapboxGeocoder({

@@ -620,3 +620,34 @@ ul {
         font-size: 50px;
     }
 }
+.print {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.print-dialog {
+    width: 100vw;
+    height: 100vh;
+    padding: 50px;
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    z-index: 200;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    .inner {
+        display: flex;
+        flex: 1;
+        background-color: white;
+        border-radius: 5px;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+}

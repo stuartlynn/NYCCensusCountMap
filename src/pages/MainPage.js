@@ -10,6 +10,7 @@ import useFacilitiesLayer from "../hooks/useFacilitiesLayer";
 import Layers, { fillStyles } from "../Layers";
 import ReactGA from "react-ga";
 import queryString from "query-string";
+import PrintDialog from "../components/PrintDialog";
 
 export default function MainPage() {
     const mapDiv = useRef(null);
@@ -21,6 +22,8 @@ export default function MainPage() {
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
     const [metric, setMetric] = useState("responseRate");
     const [showENRFU, setShowNRFU] = useState(false);
+    const [showPrintDialog, setShowPrintDialog] = useState(false);
+    const [mapImage, setMapImage] = useState(null);
 
     useEffect(() => {
         ReactGA.initialize("UA-159011122-1");
@@ -56,6 +59,19 @@ export default function MainPage() {
         key:
             "pk.eyJ1Ijoic3R1YXJ0LWx5bm4iLCJhIjoiM2Q4ODllNmRkZDQ4Yzc3NTBhN2UyNDE0MWY2OTRiZWIifQ.8OEKvgZBCCtDFUXkjt66Pw"
     });
+
+    const tryToPrint = () => {
+        const canvas = document.getElementsByClassName("mapboxgl-canvas")[0];
+        const imageURL = canvas.toDataURL("image/png");
+        setMapImage(imageURL);
+        setShowPrintDialog(true);
+        /*  canvas.toBlob(blob => {
+                debugger;
+                setMapImage(blob);
+                setShowPrintDialog(true);
+            }, "image/png");
+*/
+    };
 
     useEffect(() => {
         const params = queryString.parse(window.location.search);
@@ -186,7 +202,14 @@ export default function MainPage() {
                 showENRFU={showENRFU}
                 onToggleENRFU={setShowNRFU}
                 shareURL={shareURL}
+                onPrint={tryToPrint}
             />
+            {showPrintDialog && (
+                <PrintDialog
+                    mapImage={mapImage}
+                    onClose={() => setShowPrintDialog(false)}
+                />
+            )}
         </div>
     );
 }
