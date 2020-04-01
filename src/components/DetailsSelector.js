@@ -9,13 +9,19 @@ export default function DetailsSelector({ selected, onSelect }) {
                     onClick={() => onSelect("census2020")}
                     className={isSelected("census2020")}
                 >
-                    Census 2020
+                    Census 2020 Live Count
                 </li>
                 <li
                     onClick={() => onSelect("demographics")}
                     className={isSelected("demographics")}
                 >
                     Demographics
+                </li>
+                <li
+                    onClick={() => onSelect("languages")}
+                    className={isSelected("languages")}
+                >
+                    Languages
                 </li>
                 <li
                     onClick={() => onSelect("housing")}

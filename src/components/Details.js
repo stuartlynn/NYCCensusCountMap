@@ -9,6 +9,7 @@ import DetailsSelector from "./DetailsSelector";
 import { useFilteredFacilities } from "../hooks/useFacilities";
 import { saveAs } from "file-saver";
 import ProgressBar from "./ProgressBar";
+import LanguageCard from "./LanguageCard";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
@@ -184,6 +185,28 @@ export default function Details({
             }
         ];
     };
+    const makeLanguage = feature => {
+        const cols = [
+            "speak_only_english",
+            "spanish",
+            "french,_haitian,_or_cajun",
+            "german_or_other_west_germanic_languages",
+            "russian,_polish,_or_other_slavic_languages",
+            "other_indo-european_languages",
+            "korean",
+            "chinese_(incl._mandarin,_cantonese)",
+            "vietnamese",
+            "tagalog_(incl._filipino)",
+            "other_asian_and_pacific_island_languages"
+        ];
+        const data = cols.map(col => ({
+            value:
+                (feature.properties[col] * 100.0) /
+                feature.properties["Languages_Total"],
+            title: col
+        }));
+        return data;
+    };
 
     const makeLEP = feature => {
         const cols = [
@@ -355,6 +378,35 @@ export default function Details({
                                 </div>
                             </>
                         )}
+                        {selectedDetails === "languages" && (
+                            <>
+                                <div className="card english_proficency">
+                                    <PieCard
+                                        title="Limited English Proficency"
+                                        data={makeEnglishData(displayFeature)}
+                                        norm={true}
+                                    />
+                                    <FactCard
+                                        title={""}
+                                        facts={[
+                                            {
+                                                name:
+                                                    "% of people are bilingual",
+                                                value:
+                                                    (displayFeature.properties
+                                                        .bilingual *
+                                                        100.0) /
+                                                    displayFeature.properties
+                                                        .english_total_households
+                                            }
+                                        ]}
+                                    />
+                                </div>
+                                <LanguageCard
+                                    data={makeLanguage(displayFeature)}
+                                />
+                            </>
+                        )}
                         {selectedDetails === "demographics" && (
                             <>
                                 <div className="card demographics">
@@ -418,28 +470,6 @@ export default function Details({
                                                     displayFeature.properties
                                                         .age_less_5
                                                 ).toLocaleString()
-                                            }
-                                        ]}
-                                    />
-                                </div>
-                                <div className="card english_proficency">
-                                    <PieCard
-                                        title="Limited English Proficency"
-                                        data={makeEnglishData(displayFeature)}
-                                        norm={true}
-                                    />
-                                    <FactCard
-                                        title={""}
-                                        facts={[
-                                            {
-                                                name:
-                                                    "% of people are bilingual",
-                                                value:
-                                                    (displayFeature.properties
-                                                        .bilingual *
-                                                        100.0) /
-                                                    displayFeature.properties
-                                                        .english_total_households
                                             }
                                         ]}
                                     />

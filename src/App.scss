@@ -377,7 +377,19 @@ ul {
         font-size: 2rem;
     }
 }
-
+.language-card {
+    ul {
+        box-sizing: border-box;
+        padding: 20px 10px 20px 0px;
+        width: 100%;
+        li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            width: 100%;
+        }
+    }
+}
 .pie-card {
     display: flex;
     flex-direction: column;
