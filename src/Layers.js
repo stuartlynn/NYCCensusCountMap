@@ -63,8 +63,8 @@ export const fillStyles = {
         ["/", ["get", "race_other"], ["get", "race_total"]],
         0.0,
         "#FFFFFF",
-        1.0,
-        "#00000"
+        0.2,
+        "#000000"
     ],
     noInternetPC: [
         "interpolate-lab",

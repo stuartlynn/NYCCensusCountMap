@@ -208,7 +208,7 @@ export default function Legend({
                             <RangeLegend
                                 name={"Other Population (%)"}
                                 min={"0%"}
-                                max={"100%"}
+                                max={"20%"}
                                 colStart={"#FFFFFF"}
                                 colEnd={"#000000"}
                             />
