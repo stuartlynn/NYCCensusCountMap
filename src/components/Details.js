@@ -392,7 +392,7 @@ export default function Details({
                                         facts={[
                                             {
                                                 name:
-                                                    "% of people are bilingual",
+                                                    "% of housholds are bilingual",
                                                 value:
                                                     (displayFeature.properties
                                                         .bilingual *
@@ -402,6 +402,25 @@ export default function Details({
                                             }
                                         ]}
                                     />
+                                </div>
+
+                                <div className="card elp">
+                                    <h3>
+                                        Households with limited English
+                                        proficiency
+                                    </h3>
+                                    <p className="bigPC">
+                                        {Math.floor(
+                                            ((displayFeature.properties
+                                                .english_total_households -
+                                                displayFeature.properties
+                                                    .english_english) *
+                                                100.0) /
+                                                displayFeature.properties
+                                                    .english_total_households
+                                        )}{" "}
+                                        %
+                                    </p>
                                 </div>
                                 <LanguageCard
                                     data={makeLanguage(displayFeature)}
