@@ -55,7 +55,8 @@ export default function Details({
         NOCCs: "NOCC",
         senate_districts: "Senate District",
         police_precincts: "Police Precinct",
-        congress_districts: "Congressional District"
+        congress_districts: "Congressional District",
+        state_assembly_districts: "State Assembly Districts"
     };
 
     const featureName = featureNames[layer];

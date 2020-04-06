@@ -218,6 +218,17 @@ export function BoundaryLayers() {
             nameCol: "geoid",
             nameAlt: null
         },
+
+        {
+            id: "state_assembly_districts",
+            datasetName: "State Assembly Districts",
+            polygons: "state_assembly_districts_with_vars.geojson",
+            labels: "state_assembly_districts_labels.geojson",
+            url:
+                "http://data.cityofnewyork.us/api/geospatial/yusd-j4xi?method=export&format=Shapefile",
+            nameCol: "assem_dist",
+            nameAlt: null
+        },
         {
             id: "senate_districts",
             datasetName: "Senate Districts",
