@@ -328,26 +328,46 @@ export default function Details({
                                 </div>
                                 <div className="card comparison">
                                     <p>
-                                        <span>
+                                        <span
+                                            style={{
+                                                color: "red",
+                                                fontWeight: "bold"
+                                            }}
+                                        >
                                             {Math.floor(
                                                 displayFeature.properties.CRRALL
                                             )}
                                             %{" "}
                                         </span>{" "}
-                                        Self response rate as of 6th April 2020
+                                        <span style={{ fontWeight: "bold" }}>
+                                            Self response rate as of 6th April
+                                            2020
+                                        </span>
+                                        <br />
+                                        22nd day of counting
                                     </p>
                                     <ProgressBar
                                         pc={displayFeature.properties.CRRALL}
                                     />
                                     <p>
-                                        <span>
+                                        <span
+                                            style={{
+                                                color: "red",
+                                                fontWeight: "bold"
+                                            }}
+                                        >
                                             {Math.floor(
                                                 displayFeature.properties
                                                     .HISTORIC_RESP_RATE
                                             )}
                                             %{" "}
                                         </span>{" "}
-                                        Self response rate as of 6th April 2010
+                                        <span style={{ fontWeight: "bold" }}>
+                                            Self response rate as of 5th April
+                                            2010
+                                        </span>
+                                        <br />
+                                        22nd day of counting
                                     </p>
                                     <ProgressBar
                                         pc={
