@@ -188,7 +188,51 @@ export default function Details({
     };
     const makeLanguage = feature => {
         const cols = [
-            "speak_only_english",
+            "Speak only English",
+            "Spanish",
+            "French (incl. Cajun)",
+            "Haitian",
+            "Italian",
+            "Portuguese",
+            "German",
+            "Yiddish, Pennsylvania Dutch or other West Germanic languages",
+            "Greek",
+            "Russian",
+            "Polish",
+            "Serbo-Croatian",
+            "Ukrainian or other Slavic languages",
+            "Armenian",
+            "Persian (incl. Farsi, Dari)",
+            "Gujarati",
+            "Hindi",
+            "Urdu",
+            "Punjabi",
+            "Bengali",
+            "Nepali, Marathi, or other Indic languages",
+            "Other Indo-European languages",
+            "Telugu",
+            "Tamil",
+            "Malayalam, Kannada, or other Dravidian languages",
+            "Chinese (incl. Mandarin, Cantonese)",
+            "Japanese",
+            "Korean",
+            "Hmong",
+            "Vietnamese",
+            "Khmer",
+            "Thai, Lao, or other Tai-Kadai languages",
+            "Other languages of Asia",
+            "Tagalog (incl. Filipino)",
+            "Ilocano, Samoan, Hawaiian, or other Austronesian languages",
+            "Arabic",
+            "Hebrew",
+            "Amharic, Somali, or other Afro-Asiatic languages",
+            "Yoruba, Twi, Igbo, or other languages of Western Africa",
+            "Swahili or other languages of Central, Eastern, and Southern Africa",
+            "Navajo",
+            "Other Native languages of North America",
+            "Other and unspecified languages"
+
+            /*            "speak_only_english",
             "spanish",
             "french,_haitian,_or_cajun",
             "german_or_other_west_germanic_languages",
@@ -199,11 +243,13 @@ export default function Details({
             "vietnamese",
             "tagalog_(incl._filipino)",
             "other_asian_and_pacific_island_languages"
+
+*/
         ];
         const data = cols.map(col => ({
             value:
                 (feature.properties[col] * 100.0) /
-                feature.properties["Languages_Total"],
+                feature.properties["language_total_pop"],
             title: col
         }));
         return data;
@@ -419,29 +465,26 @@ export default function Details({
                                                         100.0) /
                                                     displayFeature.properties
                                                         .english_total_households
+                                            },
+                                            {
+                                                name:
+                                                    "% of housholds with limited english proficency",
+                                                value: Math.floor(
+                                                    ((displayFeature.properties
+                                                        .english_total_households -
+                                                        displayFeature
+                                                            .properties
+                                                            .english_english) *
+                                                        100.0) /
+                                                        displayFeature
+                                                            .properties
+                                                            .english_total_households
+                                                )
                                             }
                                         ]}
                                     />
                                 </div>
 
-                                <div className="card elp">
-                                    <h3>
-                                        Households with limited English
-                                        proficiency
-                                    </h3>
-                                    <p className="bigPC">
-                                        {Math.floor(
-                                            ((displayFeature.properties
-                                                .english_total_households -
-                                                displayFeature.properties
-                                                    .english_english) *
-                                                100.0) /
-                                                displayFeature.properties
-                                                    .english_total_households
-                                        )}{" "}
-                                        %
-                                    </p>
-                                </div>
                                 <LanguageCard
                                     data={makeLanguage(displayFeature)}
                                 />

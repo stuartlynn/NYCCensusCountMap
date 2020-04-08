@@ -5,7 +5,7 @@ export default function LanguageCard({ data }) {
         .sort((a, b) => (a.value < b.value ? 1 : -1))
         .slice(0, 5);
 
-    const renames = {
+    /* const renames = {
         speak_only_english: "English",
         spanish: "Spanish",
         "french,_haitian,_or_cajun": "French Haitian or Cajun",
@@ -19,15 +19,15 @@ export default function LanguageCard({ data }) {
         "tagalog_(incl._filipino)": "Tagalog (including Filipino)",
         other_asian_and_pacific_island_languages:
             "Other Asian and Pacific Island"
-    };
+};*/
     return (
         <div className="language-card card">
-            <h2>Top 5 Spoken Languages</h2>
+            <h2>Top Household Languages</h2>
 
             <ul>
                 {sorted_data.map(({ title, value }) => (
                     <li className="language-entry">
-                        <span>{renames[title]}</span>
+                        <span>{title}</span>
                         <span>{Math.floor(value)}%</span>
                     </li>
                 ))}
