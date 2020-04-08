@@ -117,7 +117,7 @@ export default function Details({
         const properties = feature.properties;
 
         return [
-            { name: "English", value: properties.english_english },
+            //  { name: "English", value: properties.english_english },
             { name: "Asian Languages", value: properties.english_asian },
             { name: "Spanish", value: properties.english_spanish },
             { name: "European Languages", value: properties.english_european },
@@ -459,16 +459,18 @@ export default function Details({
                                             {
                                                 name:
                                                     "% of housholds are bilingual",
-                                                value:
+                                                value: Math.floor(
                                                     (displayFeature.properties
                                                         .bilingual *
                                                         100.0) /
-                                                    displayFeature.properties
-                                                        .english_total_households
+                                                        displayFeature
+                                                            .properties
+                                                            .english_total_households
+                                                )
                                             },
                                             {
                                                 name:
-                                                    "% of housholds with limited english proficency",
+                                                    "% of housholds have limited english proficency",
                                                 value: Math.floor(
                                                     ((displayFeature.properties
                                                         .english_total_households -

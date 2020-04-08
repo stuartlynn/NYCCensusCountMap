@@ -5,7 +5,7 @@ export const fillStyles = {
         ["get", "CRRALL"],
         0.0,
         "#FFFFFF",
-        50.0,
+        70.0,
         "#faaf12"
     ],
     strategy: [

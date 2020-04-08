@@ -149,7 +149,7 @@ export default function Legend({
                             <RangeLegend
                                 name={"Self Response Rate to date(%)"}
                                 min={"0%"}
-                                max={"50%"}
+                                max={"70%"}
                                 colStart={"#FFFFFF"}
                                 colEnd={"#faaf12"}
                             />
