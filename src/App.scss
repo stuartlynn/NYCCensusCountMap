@@ -272,14 +272,20 @@ p {
 .info {
     position: absolute;
     top: 20px;
-    height: 150px;
     text-align: left;
     width: $sidebar-width;
-    h3 {
-        font-size: 1rem;
-    }
     p {
         margin-top: 5px;
+        display: none;
+    }
+    @media screen and( min-height: 858px) {
+        height: 150px;
+        p {
+            display: block;
+        }
+    }
+    h3 {
+        font-size: 1rem;
     }
 }
 .Legend .content {
@@ -291,9 +297,14 @@ p {
     padding: 0px;
     position: absolute;
     z-index: 100;
-    top: calc(150px + 20px + 20px);
+    top: calc(45px + 20px + 20px);
+    height: calc(100vh - 380px);
+    @media screen and( min-height: 858px) {
+        top: calc(150px + 20px + 20px);
+        height: calc(100vh - 490px);
+    }
     background-color: white;
-    height: calc(100vh - 490px);
+
     width: $sidebar-width;
     display: flex;
     flex-direction: column;

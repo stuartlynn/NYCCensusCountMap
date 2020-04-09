@@ -7,12 +7,14 @@ import FacilitiesSelector from "./FacilitiesSelector";
 import HelpTab from "./HelpTab";
 import InfoTab from "./InfoTab";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import OutreachTab from "./OutreachTab";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faInfoCircle,
     faLayerGroup,
     faQuestionCircle,
+    faExclamationCircle,
     faList
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -35,7 +37,6 @@ export default function Legend({
     shareURL
 }) {
     const [tab, setTab] = useState("layers");
-    console.log("ENRFU ", showENRFU);
     return (
         <div className="Legend overlay">
             <div className="tabs">
@@ -44,6 +45,15 @@ export default function Legend({
                     onClick={() => setTab("layers")}
                 >
                     <FontAwesomeIcon icon={faLayerGroup} />
+                </div>
+                <div
+                    className={tab === "outreach" ? "selected" : ""}
+                    onClick={() => setTab("outreach")}
+                >
+                    <FontAwesomeIcon
+                        style={{ color: "red" }}
+                        icon={faInfoCircle}
+                    />
                 </div>
                 <div
                     className={tab === "info" ? "selected" : ""}
@@ -300,6 +310,7 @@ export default function Legend({
                         </div>
                     </section>
                 )}
+                {tab === "outreach" && <OutreachTab />}
 
                 {tab === "info" && <InfoTab />}
                 {tab === "questions" && <HelpTab />}
