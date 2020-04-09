@@ -386,11 +386,11 @@ export default function Details({
                                             %{" "}
                                         </span>{" "}
                                         <span style={{ fontWeight: "bold" }}>
-                                            Self response rate as of 8th April
+                                            Self response rate as of 9th April
                                             2020
                                         </span>
                                         <br />
-                                        24th day of counting
+                                        25th day of counting
                                     </p>
                                     <ProgressBar
                                         pc={displayFeature.properties.CRRALL}
@@ -409,11 +409,11 @@ export default function Details({
                                             %{" "}
                                         </span>{" "}
                                         <span style={{ fontWeight: "bold" }}>
-                                            Self response rate as of 7th April
+                                            Self response rate as of 8th April
                                             2010
                                         </span>
                                         <br />
-                                        24th day of counting
+                                        25th day of counting
                                     </p>
                                     <ProgressBar
                                         pc={
