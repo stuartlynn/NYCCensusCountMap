@@ -103,7 +103,7 @@ export const fillStyles = {
     ],
     returnCount: [
         "step",
-        ["get", "MRR2010"],
+        ["get", "resp_2010"],
         "#b95356",
         60,
         "#ee5658",

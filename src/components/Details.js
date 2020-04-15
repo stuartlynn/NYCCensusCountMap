@@ -231,20 +231,6 @@ export default function Details({
             "Navajo",
             "Other Native languages of North America",
             "Other and unspecified languages"
-
-            /*            "speak_only_english",
-            "spanish",
-            "french,_haitian,_or_cajun",
-            "german_or_other_west_germanic_languages",
-            "russian,_polish,_or_other_slavic_languages",
-            "other_indo-european_languages",
-            "korean",
-            "chinese_(incl._mandarin,_cantonese)",
-            "vietnamese",
-            "tagalog_(incl._filipino)",
-            "other_asian_and_pacific_island_languages"
-
-*/
         ];
         const data = cols.map(col => ({
             value:
@@ -333,7 +319,7 @@ export default function Details({
                                 <p>
                                     Mail return rate 2010:{" "}
                                     <span style={{ color: "red" }}>
-                                        {tract.properties.MRR2010}%
+                                        {tract.properties.resp_2010}%
                                     </span>
                                 </p>
                                 <p>
@@ -427,7 +413,8 @@ export default function Details({
                                                 <span>
                                                     {Math.floor(
                                                         displayFeature
-                                                            .properties.MRR2010
+                                                            .properties
+                                                            .resp_2010
                                                     )}
                                                     %
                                                 </span>{" "}
@@ -437,7 +424,7 @@ export default function Details({
                                             <ProgressBar
                                                 pc={
                                                     displayFeature.properties
-                                                        .MRR2010
+                                                        .resp_2010
                                                 }
                                             />
                                         </>
