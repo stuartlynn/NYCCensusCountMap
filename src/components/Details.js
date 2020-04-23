@@ -356,7 +356,7 @@ export default function Details({
                                         )}{" "}
                                         %
                                     </p>
-                                    <p>Last updated 21th April</p>
+                                    <p>Last updated 23rd April</p>
                                 </div>
                                 <div className="card comparison">
                                     <p>
@@ -372,11 +372,11 @@ export default function Details({
                                             %{" "}
                                         </span>{" "}
                                         <span style={{ fontWeight: "bold" }}>
-                                            Self response rate as of 21st April
+                                            Self response rate as of 23st April
                                             2020
                                         </span>
                                         <br />
-                                        37th day of counting
+                                        39th day of counting
                                     </p>
                                     <ProgressBar
                                         pc={displayFeature.properties.CRRALL}
@@ -395,11 +395,11 @@ export default function Details({
                                             %{" "}
                                         </span>{" "}
                                         <span style={{ fontWeight: "bold" }}>
-                                            Self response rate as of 20th April
+                                            Self response rate as of 22nd April
                                             2010
                                         </span>
                                         <br />
-                                        37th day of counting
+                                        39th day of counting
                                     </p>
                                     <ProgressBar
                                         pc={
