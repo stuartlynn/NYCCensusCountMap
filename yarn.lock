@@ -11211,10 +11211,10 @@ react-scripts@3.3.0:
   optionalDependencies:
     fsevents "2.1.2"
 
-react-select-search@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-select-search/-/react-select-search-1.0.2.tgz#33628076261226adb33da7fd76b9c9058020793a"
-  integrity sha512-XfGhBjbJ9f4VIqAu3GAKNL/jlvJFMyI8fJgBFJjxwaUywvZGzvkSZeWWBsmmBPajPdw0GkP2O43zm1qI6MntYg==
+react-select-search@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-select-search/-/react-select-search-1.2.0.tgz#c2a9c04caab6501b20cb85a6d4954adf3d0d909d"
+  integrity sha512-OGswXMcj9IPnnbU+RdNmROrRm8bG2lGYMt56KAANrMi1jACLAo7mhh9zBCm4EB6d/E9tftP9y+l3o+4TzHPtSQ==
   optionalDependencies:
     fuse.js "^3.4.5"
 

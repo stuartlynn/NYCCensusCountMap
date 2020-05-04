@@ -1,6 +1,6 @@
 import React from "react";
 import SelectSearch from "react-select-search";
-import "react-select-search/style.css";
+import "./selectSearch.css";
 import { useCCFs } from "../hooks/useCCFs";
 
 export default function CCFSearch({ selected, setSelected }) {
