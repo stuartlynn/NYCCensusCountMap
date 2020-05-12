@@ -28,6 +28,7 @@ export default function MainPage() {
 
     const outreachTargets = useOutreachTargets();
     if (outreachTargets > 0) {
+        console.log('outreach targets ', outreachTargets)
         debugger;
     }
     useEffect(() => {
