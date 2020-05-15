@@ -58,37 +58,41 @@ def main():
 
     datasets = [
         {
-            'filename': 'noccs_with_vars.geojson',
+            'filepath': os.path.join(project_directory, 'public', 'census_tracts.geojson'),
+            'sheet': 'By Census Tract'
+        },
+        {
+            'filepath': os.path.join(boundaries_directory, 'noccs_with_vars.geojson'),
             'sheet': 'By NOCC',
         },
         {
-            'filename': 'school_districts_with_vars.geojson',
+            'filepath': os.path.join(boundaries_directory, 'school_districts_with_vars.geojson'),
             'sheet': 'By School District'
         },
         {
-            'filename': 'police_precincts_with_vars.geojson',
+            'filepath': os.path.join(boundaries_directory, 'police_precincts_with_vars.geojson'),
             'sheet': 'By Police Precinct'
         },
         {
-            'filename': 'city_council_district_with_vars.geojson',
+            'filepath': os.path.join(boundaries_directory, 'city_council_district_with_vars.geojson'),
             'sheet': 'By Council District',
         },
         {
-            'filename': 'congress_assembly_with_vars.geojson',
+            'filepath': os.path.join(boundaries_directory, 'community_districts_vars.geojson'),
+            'sheet': 'By Community District',
+        },
+        {
+            'filepath': os.path.join(boundaries_directory, 'congress_assembly_with_vars.geojson'),
             'sheet': 'By Congressional District'
         },
         {
-            'filename': 'state_assembly_districts_with_vars.geojson',
+            'filepath': os.path.join(boundaries_directory, 'state_assembly_districts_with_vars.geojson'),
             'sheet': 'By State Assembly District'
         },
         {
-            'filename': 'senate_districts_with_vars.geojson',
+            'filepath': os.path.join(boundaries_directory, 'senate_districts_with_vars.geojson'),
             'sheet': 'By Senate District'
-        },
-        # {
-        #     'filename': 'ntas_with_vars.geojson',
-        #     'sheet': None
-        # },
+        }
     ]
 
     credential_filepath = os.path.join(project_directory, CREDENTIAL_FILE)
@@ -98,12 +102,12 @@ def main():
     sheet = service.spreadsheets()
 
     for dataset in datasets:
-        gj_filepath = os.path.join(boundaries_directory, dataset['filename'])
-        with open(gj_filepath) as f:
+        with open(dataset['filepath']) as f:
             gj = json.load(f)
 
         df = pd.DataFrame([
             feature['properties'] for feature in gj['features']])
+        df.rename(columns={'GEOID': 'geoid'}, inplace=True)
 
         # Race statistics
         df['Total Population'] = df['total_population']
@@ -129,16 +133,35 @@ def main():
         # Young age statistics
         df['Population 5 Years or Younger'] = df['age_less_5'] / df['age_total']
 
-        # TODO: I'm unsure of the geojson property to sheet column mapping for a few columns
+        if 'resp_2010' in df.columns:
+            df['2010 Final Self-Response Rate (HTC)'] = df['resp_2010']
+        else:
+            df['2010 Final Self-Response Rate (HTC)'] = '-'
+
+        # Mail Contact Strategy
+        contact_strategy = {
+            0: 'Internet First, English',
+            1: 'Internet First, Bilingual',
+            2: 'Internet Choice, English',
+            3: 'Internet Choice, Bilingual'
+        }
+        if 'strategy_code' in df.columns:
+            df['Mail Contact Strategy'] = df['strategy_code'].apply(lambda x: contact_strategy[x])
+        else:
+            df['Mail Contact Strategy'] = '-'
+
         df['?'] = '-'
         columns_to_export = [
             'geoid',
-            '?', '?', '?', '?',
+            'CRRALL', '?', '2010 Final Self-Response Rate (HTC)', 'Mail Contact Strategy',
             'Total Population', 'Black Population', 'Latinx Population', 'Asian Population',
             'White Population', 'Other Population', 'People of Color Population',
             'Population With Internet Access', 'Population with Low English Proficiency',
             'Population 5 Years or Younger'
         ]
+
+        indices_to_drop = (df[df['total_population'] == 0]).index
+        df.drop(indices_to_drop, inplace=True)
 
         data = {
             'values': df[columns_to_export].to_numpy().tolist()
