@@ -88,6 +88,12 @@ p {
         //   border: 1px solid black;
         margin-right: 0px;
     }
+
+    .CCFCard{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     .basic {
         span {
             font-weight: bold;

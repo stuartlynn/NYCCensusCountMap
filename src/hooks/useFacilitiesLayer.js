@@ -92,25 +92,24 @@ export default function useFacilitiesLayer(map, visible, selectedTypes) {
     }, [map, facilities]);
 
     useEffect(() => {
-        types.forEach(type => {
-            map.current.setLayoutProperty(
-                `facilities: ${type}`,
-                "visibility",
-                selectedTypes.includes(type) ? "visible" : "none"
-            );
-        });
-    }, [selectedTypes, map, types]);
 
-    useEffect(() => {
-        if (map.current && map.current.loaded()) {
-            console.log("Toggling visible on facilities");
-            map.current.setLayoutProperty(
-                `facilities`,
-                "visibility",
-                visible ? "visible" : "none"
-            );
+        const setVisibility = (shouldBeVisable)=>{
+            if (map.current && map.current.loaded()) {
+                types.forEach( type=>{
+                    map.current.setLayoutProperty(
+                        `facilities: ${type}`,
+                        "visibility",
+                        shouldBeVisable && selectedTypes.includes(type) ? "visible" : "none"
+                    );
+                    })
+            }
+            else{
+                setTimeout(()=>setVisibility(shouldBeVisable),200)
+            }
         }
-    }, [map, visible]);
+        setVisibility(visible);
+       
+    }, [map, visible, types,selectedTypes]);
 
     return facilities;
 }

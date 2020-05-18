@@ -27,6 +27,11 @@ export default function Legend({
     onSelectBoundary,
     showFacilities,
     onShowFacilitiesChange,
+    selectedCCF, onSelectedCCF,
+    selectedOutreachTypes,
+    onSelectOutreachTypes,
+    tab,
+    onTabChanged,
     onSelectMetric,
     metric,
     selectedFacilityTypes,
@@ -36,34 +41,35 @@ export default function Legend({
     onToggleENRFU,
     shareURL
 }) {
-    const [tab, setTab] = useState("layers");
+
+
     return (
         <div className="Legend overlay">
             <div className="tabs">
                 <div
                     className={tab === "layers" ? "selected" : ""}
-                    onClick={() => setTab("layers")}
+                    onClick={() => onTabChanged("layers")}
                 >
                     <FontAwesomeIcon icon={faLayerGroup} />
                 </div>
                 <div
                     className={tab === "outreach" ? "selected" : ""}
-                    onClick={() => setTab("outreach")}
+                    onClick={() => onTabChanged("outreach")}
                 >
                     <FontAwesomeIcon
                         style={{ color: "red" }}
-                        icon={faInfoCircle}
+                        icon={faExclamationCircle}
                     />
                 </div>
                 <div
                     className={tab === "info" ? "selected" : ""}
-                    onClick={() => setTab("info")}
+                    onClick={() => onTabChanged("info")}
                 >
                     <FontAwesomeIcon icon={faInfoCircle} />
                 </div>
                 <div
                     className={tab === "questions" ? "selected" : ""}
-                    onClick={() => setTab("questions")}
+                    onClick={() => onTabChanged("questions")}
                 >
                     <FontAwesomeIcon icon={faQuestionCircle} />
                 </div>
@@ -310,7 +316,12 @@ export default function Legend({
                         </div>
                     </section>
                 )}
-                {tab === "outreach" && <OutreachTab />}
+                {tab === "outreach" && <OutreachTab 
+                    selectedOutreachTypes={selectedOutreachTypes} 
+                    onSelectOutreachTypes={onSelectOutreachTypes}
+                    selectedCCF={selectedCCF}
+                    onSelectedCCF={onSelectedCCF}
+                />}
 
                 {tab === "info" && <InfoTab />}
                 {tab === "questions" && <HelpTab />}

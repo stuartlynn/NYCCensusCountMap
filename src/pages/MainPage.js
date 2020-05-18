@@ -8,10 +8,13 @@ import { useGeoJSONLayer } from "../hooks/useGeoJSONLayer";
 import useBoundaryLayers from "../hooks/useBoundaryLayers";
 import useFacilitiesLayer from "../hooks/useFacilitiesLayer";
 import useOutreachTargets from "../hooks/useOutreachTargets";
+import useOutreachLayers from '../hooks/useOutreachLayers'
 import Layers, { fillStyles } from "../Layers";
 import ReactGA from "react-ga";
 import queryString from "query-string";
 import PrintDialog from "../components/PrintDialog";
+import { CCFDetails } from "../components/CCFDetails";
+import useCCFAssignments from '../hooks/useCCFAssignments'
 
 export default function MainPage() {
     const mapDiv = useRef(null);
@@ -19,18 +22,25 @@ export default function MainPage() {
     const [selectedTract, setSelectedTract] = useState(null);
     const [selectedFeature, setSelectedFeature] = useState(null);
     const [hardToCountStats, setHardToCountStats] = useState([]);
-    const [showFacilities, setShowFacilities] = useState(true);
+    const [selectedCCF, setSelectedCCF] = useState(null)
+
+    const [popupFeature, setPopupFeature] = useState(null)
+
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
+    const [selectedOutreachTypes, setSelectedOutreachTypes]= useState([]);
     const [metric, setMetric] = useState("responseRate");
     const [showENRFU, setShowNRFU] = useState(false);
     const [showPrintDialog, setShowPrintDialog] = useState(false);
-    const [mapImage, setMapImage] = useState(null);
+    const [showOutreach, setShowOutreach] = useState(false)
+    const [showFacilities, setShowFacilities] = useState(true);
 
+    const [mapImage, setMapImage] = useState(null);
+    const [tab, setTab] = useState("layers");
+
+
+    useCCFAssignments()
     const outreachTargets = useOutreachTargets();
-    if (outreachTargets > 0) {
-        console.log('outreach targets ', outreachTargets)
-        debugger;
-    }
+
     useEffect(() => {
         ReactGA.initialize("UA-159011122-1");
         ReactGA.pageview(window.location.pathname + window.location.search);
@@ -66,7 +76,7 @@ export default function MainPage() {
         style: "mapbox://styles/mapbox/light-v10",
         key:
             "pk.eyJ1Ijoic3R1YXJ0LWx5bm4iLCJhIjoiM2Q4ODllNmRkZDQ4Yzc3NTBhN2UyNDE0MWY2OTRiZWIifQ.8OEKvgZBCCtDFUXkjt66Pw"
-    });
+    },popupFeature);
 
     const tryToPrint = () => {
         const canvas = document.getElementsByClassName("mapboxgl-canvas")[0];
@@ -80,6 +90,18 @@ export default function MainPage() {
             }, "image/png");
 */
     };
+
+    const toggleSelectedOutreachTypes = (types)=>{
+            let newList = [...selectedOutreachTypes];
+            types.forEach(type => {
+                if (newList.includes(type)) {
+                    newList = newList.filter(t => t !== type);
+                } else {
+                    newList = [...newList, type];
+                }
+            });
+            setSelectedOutreachTypes(newList);
+    }
 
     useEffect(() => {
         const params = queryString.parse(window.location.search);
@@ -136,9 +158,16 @@ export default function MainPage() {
         }
     };
 
+
+    const setTractIfActive = useCallback( (tract)=>{ 
+        if(tab==='layers'){ 
+            setSelectedTract(tract)
+        }
+    },[tab])
+
     const GeojsonLayer = useGeoJSONLayer(map, "HTC", {
         ...style,
-        onClick: setSelectedTract,
+        onClick: setTractIfActive,
         selection: selectedTract,
         visible: true
     });
@@ -167,6 +196,28 @@ export default function MainPage() {
         selectedFacilityTypes
     );
 
+    const outreach = useOutreachLayers(
+        map,
+        outreachTargets,
+        showOutreach,
+        selectedOutreachTypes,
+        setPopupFeature
+    )
+
+
+    useEffect(()=>{
+        if(tab==='layers'){
+            console.log("SWITCHING TO layers")
+            setShowFacilities(true)
+            setShowOutreach(false)
+        }
+        if(tab ==='outreach'){
+            console.log("SWITCHING TO outreach", )
+            setShowFacilities(false)
+            setShowOutreach(true)
+        }
+    },[tab])
+
     let shareURL = `${window.location.origin}${process.env.PUBLIC_URL}?layer=${selectedBoundary}&metric=${metric}`;
     if (selectedFeature) {
         shareURL += `&boundaryID=${selectedFeature.id}`;
@@ -190,12 +241,16 @@ export default function MainPage() {
                 <div ref={searchBox} />
             </div>
             <div className="details overlay">
-                <Details
-                    feature={selectedFeature}
-                    tract={selectedTract}
-                    layer={selectedBoundary}
-                    facilityTypes={selectedFacilityTypes}
-                />{" "}
+                {tab==='layers' ? 
+                    <Details
+                        feature={selectedFeature}
+                        tract={selectedTract}
+                        layer={selectedBoundary}
+                        facilityTypes={selectedFacilityTypes}
+                        tab={tab} />
+                    :
+                    <CCFDetails selectedCCF={selectedCCF}/>
+                }
             </div>
             <Legend
                 boundaries={boundaryLayers}
@@ -205,12 +260,18 @@ export default function MainPage() {
                 onShowFacilitiesChange={setShowFacilities}
                 selectedFacilityTypes={selectedFacilityTypes}
                 onSelectFacilityType={onToggleFacilityType}
+                selectedCCF= {selectedCCF}
+                onSelectedCCF={setSelectedCCF}
+                selectedOutreachTypes={selectedOutreachTypes}
+                onSelectOutreachTypes={toggleSelectedOutreachTypes}
                 metric={metric}
                 onSelectMetric={setMetric}
                 showENRFU={showENRFU}
                 onToggleENRFU={setShowNRFU}
                 shareURL={shareURL}
                 onPrint={tryToPrint}
+                tab = {tab}
+                onTabChanged = {setTab}
             />
             {showPrintDialog && (
                 <PrintDialog

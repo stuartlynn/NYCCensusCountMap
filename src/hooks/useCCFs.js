@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
+import Papa from 'papaparse'
 
 export function useCCFs() {
     const [CCFs, setCCFs] = useState([]);
     useEffect(() => {
-        fetch(`${process.env.PUBLIC_URL}/CCFAwardees.csv`)
-            .then(r => r.text())
-            .then(result => {
-                const parsed_result = result.split("\n").map(r => ({
-                    name: r.split(",")[0],
-                    address: r.split(",")[1],
-                    lat: parseFloat(r.split(",")[2]),
-                    lng: parseFloat(r.split(",")[3])
-                }));
-                setCCFs(parsed_result);
-            })
-            .catch(() => alert("failed to get ccfs"));
+        Papa.parse(`${process.env.PUBLIC_URL}/CCFAwardees.csv`, {
+            download:true,
+            header:true,
+            complete: function(results) {
+                console.log("Outreach CCF names ", results)
+                setCCFs(results.data.map(d => ({
+                    name : d['Org Name'], 
+                    address:d['Contact Address w/o Unit'],
+                    latitude: d.latitude,
+                    longitude: d.longitude
+                })));
+            }
+        });
     }, []);
 
     return CCFs;

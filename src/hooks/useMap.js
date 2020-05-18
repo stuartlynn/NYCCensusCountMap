@@ -5,17 +5,21 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css";
 import style from "../map_style";
 
-export function useMap(mapDivRef, { lnglat, zoom, key }) {
+export function useMap(mapDivRef, { lnglat, zoom, key }, popupFeature) {
     const [mapLoaded, setMapLoaded] = useState(false);
     mapboxgl.accessToken = key;
     const map = useRef(null);
+    const popup =  useRef(null)
+    const spriteURL =  `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : window.location.href}outreach_icons/sp`
     useEffect(() => {
         map.current = new mapboxgl.Map({
             container: mapDivRef.current, // container id
-            style: style, // stylesheet location
+            style: {...style, sprite:spriteURL}, // stylesheet location
             center: lnglat, // starting position [lng, lat]
             zoom: zoom, // starting zoom,
-            preserveDrawingBuffer: true
+            preserveDrawingBuffer: true,
+            // sprite:"/outreach_icons/sp"
+
         });
         map.current.addControl(
             new MapboxGeocoder({
@@ -27,6 +31,26 @@ export function useMap(mapDivRef, { lnglat, zoom, key }) {
         map.current.addControl(new mapboxgl.NavigationControl());
         window.map = map;
     }, [mapDivRef]);
+
+
+    useEffect(()=>{
+        if(popupFeature){
+            console.log('popup feature ', popupFeature)
+            popup.current= new mapboxgl.Popup()
+            .setLngLat(popupFeature.coordinates)
+            .setHTML(`
+                <h3>To claim this asset, enter this code in to this form</h3>
+                <h2>${popupFeature.data.unique_id}</h2>
+             `)
+            .addTo(map.current);
+        }
+        else{
+            if(popup.current){
+                popup.current.remove()
+                popup.current=null
+            }
+        }
+    },[popupFeature])
 
     const zoomToBounds = bounds => {
         if (map.current) {
