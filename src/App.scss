@@ -92,7 +92,9 @@ p {
     .CCFCard{
         display:flex;
         flex-direction: column;
-        justify-content: space-between;
+        p{
+            flex:1
+        }
     }
     .basic {
         span {

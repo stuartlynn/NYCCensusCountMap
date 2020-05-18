@@ -16,19 +16,19 @@ export function CCFDetails({selectedCCF}){
                 <div className='cards'>
                     <div className='card CCFCard'>
                         <h2>{selectedCCF.name} Outreach progress</h2>
-                        <h3>No Community Assets Cliamed</h3>
+                        <p>No Community Assets Cliamed</p>
                     </div>
                 </div>
                 <div className='cards'>
                     <div className='card'>
                         <h2>Asset Types</h2>
-                        <h3>No Community Assets Claimed</h3>
+                        <p>No Community Assets Claimed</p>
                     </div> 
                 </div>
                 <div className='cards'>
                     <div className='card'>
                         <h2>Borough Outreached</h2>
-                        <h3>No Community Assets Cliamed</h3>
+                        <p>No Community Assets Cliamed</p>
                     </div>
                 </div>
             </div>

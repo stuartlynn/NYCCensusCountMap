@@ -36,7 +36,7 @@ export function useMap(mapDivRef, { lnglat, zoom, key }, popupFeature) {
     useEffect(()=>{
         if(popupFeature){
             console.log('popup feature ', popupFeature)
-            popup.current= new mapboxgl.Popup()
+            popup.current= new mapboxgl.Popup({ offset: 25 })
             .setLngLat(popupFeature.coordinates)
             .setHTML(`
                 <h3>To claim this asset, enter this code in to this form</h3>

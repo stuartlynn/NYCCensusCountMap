@@ -9,9 +9,9 @@ function OutreachAssetsSection({ title, options, selected, onSelect }) {
 
     const onSelectAll = selectAll => {
         if (selectAll) {
-            onSelect(options.filter(o => !selected.includes(o.layer)));
+            onSelect(options.filter(o => !selected.includes(o.layer)).map(o=>o.layer));
         } else {
-            onSelect(options.filter(o => selected.includes(o.layer)));
+            onSelect(options.filter(o => selected.includes(o.layer)).map(o=>o.layer));
         }
     };
     return (

@@ -10,8 +10,7 @@ export default function useFacilities() {
     return facilities;
 }
 
-export function useFilteredFacilities(id, layer, types) {
-    const facilities = useFacilities();
+export function useFilteredFacilities(facilities, id, layer, types) {
     console.log("filtering facilities by ", id, layer, types);
     const layerIDs = {
         cd: "community_district_id",

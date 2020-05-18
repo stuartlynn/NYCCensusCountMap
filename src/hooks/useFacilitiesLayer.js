@@ -32,8 +32,7 @@ function loadAllImages(map) {
     );
 }
 
-export default function useFacilitiesLayer(map, visible, selectedTypes) {
-    const facilities = useFacilities();
+export default function useFacilitiesLayer(map,facilities, visible, selectedTypes) {
     const types = facilities
         ? facilities.features.reduce((set, f) => {
               set.add(f.properties.asset_type);

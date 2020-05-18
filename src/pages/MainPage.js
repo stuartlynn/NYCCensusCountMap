@@ -15,6 +15,7 @@ import queryString from "query-string";
 import PrintDialog from "../components/PrintDialog";
 import { CCFDetails } from "../components/CCFDetails";
 import useCCFAssignments from '../hooks/useCCFAssignments'
+import useFacilities from "../hooks/useFacilities";
 
 export default function MainPage() {
     const mapDiv = useRef(null);
@@ -190,8 +191,11 @@ export default function MainPage() {
         }
     );
 
-    const facilities = useFacilitiesLayer(
+    const facilities = useFacilities()
+
+    useFacilitiesLayer(
         map,
+        facilities,
         showFacilities,
         selectedFacilityTypes
     );
@@ -247,6 +251,7 @@ export default function MainPage() {
                         tract={selectedTract}
                         layer={selectedBoundary}
                         facilityTypes={selectedFacilityTypes}
+                        facilities={facilities}
                         tab={tab} />
                     :
                     <CCFDetails selectedCCF={selectedCCF}/>

@@ -17,6 +17,7 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 export default function Details({
     feature,
     onSelectFacility,
+    facilities,
     layer,
     tract,
     facilityTypes
@@ -26,7 +27,8 @@ export default function Details({
 
     const [selectedDetails, setSelectedDetails] = useState("census2020");
 
-    const facilities = useFilteredFacilities(
+    const filteredFacilities = useFilteredFacilities(
+        facilities,
         showBoundaryData
             ? feature
                 ? feature.properties.geoid
@@ -73,7 +75,7 @@ export default function Details({
     console.log("DISPLAY FEATURE IS ", displayFeature);
     const downloadAssets = useCallback(() => {
         let csv = ["name", "address", "type"].join(",") + "\n";
-        csv += facilities
+        csv += filteredFacilities
             .map(f => [f.name, f.address, f.asset_type].join(","))
             .join("\n");
         var blob = new Blob([csv], { type: "text/plain;charset=utf-8" });
@@ -82,7 +84,7 @@ export default function Details({
         console.log(boundaryType, boundaryId, facilities, displayFeature);
 
         saveAs(blob, `assets_for_${boundaryType}-${boundaryId}.csv`);
-    }, [facilities, displayFeature]);
+    }, [filteredFacilities, displayFeature]);
 
     const makeAgeData = feature => {
         const properties = feature.properties;
@@ -598,7 +600,7 @@ export default function Details({
                                         <AssetCategoryCard
                                             title={type}
                                             key={type}
-                                            assets={facilities.filter(
+                                            assets={filteredFacilities.filter(
                                                 f => f.asset_type === type
                                             )}
                                         />

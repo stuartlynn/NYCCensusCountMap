@@ -36,7 +36,9 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "predeploy": "yarn  build",
+        "predeploy-stage": "PUBLIC_URL=https://stuartlynn.github.io/CensusMapStage yarn build",
+        "deploy-stage": "yarn run predeploy-stage && gh-pages --remote stage -d build && rm -rf build",
+        "predeploy": "yarn build",
         "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
