@@ -10,7 +10,7 @@ export function useMap(mapDivRef, { lnglat, zoom, key }, popupFeature) {
     mapboxgl.accessToken = key;
     const map = useRef(null);
     const popup =  useRef(null)
-    const spriteURL =  `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : window.location.href}outreach_icons/sp`
+    const spriteURL =  `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL+"/" : window.location.href}outreach_icons/sp`
     useEffect(() => {
         map.current = new mapboxgl.Map({
             container: mapDivRef.current, // container id
