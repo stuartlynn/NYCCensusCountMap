@@ -24,6 +24,14 @@ export default function Details({
     const [showFacilities, setShowFacilities] = useState(false);
     const [showBoundaryData, setShowBoundaryData] = useState(true);
 
+    const today =new Date()
+    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][today.getUTCMonth()]
+    const nth = (n)=>{
+        return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+    }
+
+    const todayString = `${nth(today.getDate())} of ${month} ${today.getFullYear()}`
+
     const [selectedDetails, setSelectedDetails] = useState("census2020");
 
     const facilities = useFilteredFacilities(
@@ -356,7 +364,7 @@ export default function Details({
                                         )}{" "}
                                         %
                                     </p>
-                                    <p>Last updated 17th May</p>
+                                    <p>Last updated ${todayString}</p>
                                 </div>
                                 <div className="card comparison">
                                     <p>
@@ -372,11 +380,8 @@ export default function Details({
                                             %{" "}
                                         </span>{" "}
                                         <span style={{ fontWeight: "bold" }}>
-                                            Self response rate as of 17th of May
-                                            2020
+                                            Self response rate as of {todayString}
                                         </span>
-                                        <br />
-                                        63th day of counting
                                     </p>
                                     <ProgressBar
                                         pc={displayFeature.properties.CRRALL}
