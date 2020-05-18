@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from datetime import datetime
 import json
+import os
 
 
 tracts = gp.read_file('../public/CensusTractsAllVariables.geojson')
@@ -197,6 +198,35 @@ disability = disability.assign(GEOID=disability.id.str.split("US").str[-1].astyp
 disability[['hearing_difficulty','vision_difficulty','cognative_difficulty','ambulatory_difficulty','self_care_difficulty','independent_living_difficulty']]
 new_tracts= new_tracts.join(disability,how='inner')
 
+## 2010 resp rate 
+
+with open("NewData/census_2020_response_rate.json") as f:
+    data = json.load(f)
+    data = pd.DataFrame(data[1:],columns=data[0])
+    data = data.assign(GEO_ID = data.GEO_ID.str.replace('1400000US',''), resp_2010 = pd.to_numeric(data.FSRR2010,errors='coerce'))
+
+def translate_counts_to_2010(rates):
+    relationship = pd.read_csv('~/Projects/NYC_Census_2020_response_rates/data/geo/rr_tract_rel.txt', dtype={'TRACTCE10':str, "TRACTCE20":str, 'COUNTYFP10':str, 'COUNTYFP20':str, 'GEOID10' :str, 'GEOID20': str}) 
+    merged = (pd.merge(
+        relationship, 
+        rates.assign(
+            GEO_ID_SHORT=rates.GEO_ID.str.replace('1400000US','')
+        ), 
+        left_on="GEOID20", 
+        right_on='GEO_ID_SHORT',
+        how='inner'))
+
+    counts_for_2010 = (merged.assign(
+        resp_2010 = merged.resp_2010 * merged.HUCURPCT_T10.div(100.0), 
+       ).groupby('GEOID10')
+        .sum()[['resp_2010']])
+
+    counts_for_2010 = counts_for_2010.reset_index().rename(columns={"GEOID10":"GEOID"})
+    return counts_for_2010
+    
+result = translate_counts_to_2010(data)
+    
+new_tracts = new_tracts.join(result.set_index(result.GEOID.astype('int'))['resp_2010'])
 
 ### Response Rates
 
@@ -244,10 +274,8 @@ relationship_2000_to_2010_cols=[
 
 relationship_2000_to_2010 = pd.read_csv('ny36trf.txt', names=relationship_2000_to_2010_cols, dtype={'GEOID00':str, 'GEOID10':str})
 relationship_2000_to_2010.head()
-
-day = 'April\n 2'
 historic_resp  = pd.read_excel('Final2010ParticipationRates.xlsx',sheet_name='Tract&Public Housing',skiprows=3)
-historic_resp=historic_resp.assign(RESP_RATE = (historic_resp['April 12']))# + historic_resp['April\n 2'])/2)
+historic_resp=historic_resp.assign(RESP_RATE = (historic_resp['April 28']))# + historic_resp['April\n 2'])/2)
 # relationship_2000_to_2010 = relationship_2000_to_2010[relationship_2000_to_2010.HUPCT10==100]
 merged = pd.merge( relationship_2000_to_2010 ,  historic_resp, left_on=['COUNTY00','TRACT00'], right_on =['COUNTY','Tract'],how='inner')
 
@@ -362,7 +390,9 @@ def generate_boundary_level(boundary,census_tracts,boundary_id):
        'Yoruba, Twi, Igbo, or other languages of Western Africa',
        'Swahili or other languages of Central, Eastern, and Southern Africa',
        'Navajo', 'Other Native languages of North America',
-       'Other and unspecified languages'
+       'Other and unspecified languages',
+       'resp_2010'
+
   
   ]
 
@@ -467,3 +497,4 @@ fids = [
 
 for fid in fids:
     assign_id_file(fid)
+

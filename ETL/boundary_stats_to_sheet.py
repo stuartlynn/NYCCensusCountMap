@@ -12,7 +12,7 @@ By Congressional District
 By State Assembly District
 By Senate District
 
-pip install --upgrade google-api-python-client google-auth-httplib2
+pip install
 
 Ref:
     * https://api.census.gov/data/2020/dec/responserate/variables.html
@@ -43,10 +43,10 @@ from google.auth.credentials import Credentials
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 # TODO: Update to Hester Street's sheet id
-SPREADSHEET_ID = '1w2LU4UpQIeiBLgt1rXnkVb8N4IARdQh4fzOii2ko90M'
+SPREADSHEET_ID = '1sqWSj4DlQsMbMh4x5qDt2i0FlW77aJtJpOESO79HAGQ'
 # TODO: Create credentials on appropriate GCS account. We can use mine (amit's)
 #       if needed.
-CREDENTIAL_FILE = 'hester-street-census-project-f17e736d942e.json'
+CREDENTIAL_FILE = 'ETL/creds/hester-street-census-project-f17e736d942e.json'
 
 
 def main():
@@ -89,10 +89,10 @@ def main():
             'filepath': os.path.join(boundaries_directory, 'state_assembly_districts_with_vars.geojson'),
             'sheet': 'By State Assembly District'
         },
-        {
-            'filepath': os.path.join(boundaries_directory, 'senate_districts_with_vars.geojson'),
-            'sheet': 'By Senate District'
-        }
+        # {
+        #     'filepath': os.path.join(boundaries_directory, 'senate_districts_with_vars.geojson'),
+        #     'sheet': 'By Senate District'
+        # }
     ]
 
     credential_filepath = os.path.join(project_directory, CREDENTIAL_FILE)
@@ -136,9 +136,9 @@ def main():
         if 'resp_2010' in df.columns:
             df['2010 Final Self-Response Rate (HTC)'] = df['resp_2010']
         else:
+            print("Missing resp_2010 for ", dataset['filepath'])
             df['2010 Final Self-Response Rate (HTC)'] = '-'
-
-        # Mail Contact Strategy
+        
         contact_strategy = {
             0: 'Internet First, English',
             1: 'Internet First, Bilingual',
