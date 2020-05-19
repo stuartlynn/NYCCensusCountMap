@@ -169,6 +169,16 @@ export function BoundaryLayers() {
             nameAlt: "ntacode"
         },
         {
+            id: "",
+            datasetName: "Zipcodes",
+            polygons: "zipcodes_with_vars.geojson",
+            labels: "zipcodes_labels.geojson",
+            url:
+                "http://data.cityofnewyork.us/api/geospatial/cpf4-rkhq?method=export&format=Shapefile",
+            nameCol: "zipcode",
+            nameAlt: "zipcode"
+        },
+        {
             id: "sd",
             datasetName: "School Districts",
             polygons: "school_districts_with_vars.geojson",

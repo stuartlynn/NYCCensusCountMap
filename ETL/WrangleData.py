@@ -5,7 +5,7 @@ from pathlib import Path
 from zipfile import ZipFile
 import matplotlib.pyplot as plt
 import numpy as np
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import os
 
@@ -206,7 +206,7 @@ with open("NewData/census_2020_response_rate.json") as f:
     data = data.assign(GEO_ID = data.GEO_ID.str.replace('1400000US',''), resp_2010 = pd.to_numeric(data.FSRR2010,errors='coerce'))
 
 def translate_counts_to_2010(rates):
-    relationship = pd.read_csv('~/Projects/NYC_Census_2020_response_rates/data/geo/rr_tract_rel.txt', dtype={'TRACTCE10':str, "TRACTCE20":str, 'COUNTYFP10':str, 'COUNTYFP20':str, 'GEOID10' :str, 'GEOID20': str}) 
+    relationship = pd.read_csv('../../NYC_Census_2020_response_rates/data/geo/rr_tract_rel.txt', dtype={'TRACTCE10':str, "TRACTCE20":str, 'COUNTYFP10':str, 'COUNTYFP20':str, 'GEOID10' :str, 'GEOID20': str}) 
     merged = (pd.merge(
         relationship, 
         rates.assign(
@@ -230,9 +230,9 @@ new_tracts = new_tracts.join(result.set_index(result.GEOID.astype('int'))['resp_
 
 ### Response Rates
 
-today = datetime.today().strftime("%Y-%m-%d")
+today = (datetime.today()- timedelta(hours=15) ).strftime("%Y-%m-%d")
 
-resp_rates = pd.read_csv(f'../..//NYC_Census_2020_response_rates/data/counts_adjusted_for_2010/{today}.csv')
+resp_rates = pd.read_csv(f'../../NYC_Census_2020_response_rates/data/counts_adjusted_for_2010/{today}.csv')
 resp_rates=resp_rates.set_index('GEOID')
 new_tracts = new_tracts.join(resp_rates,how='inner')
 
@@ -326,6 +326,7 @@ senate_districts = gp.read_file('../public/boundaries/ss.geojson')
 police_precincts = gp.read_file('../public/boundaries/pp.geojson')
 noccs = gp.read_file('../ETL/NewData/nocc_boundaries.shp').to_crs('EPSG:4326').dropna(subset=['boro_code'])
 state_assembly_districts = gp.read_file('../public/boundaries/sa.geojson').to_crs('EPSG:4326')
+zipcodes = gp.read_file("../public/boundaries/zipcodes.geojson")
 
 noccs=noccs.assign(geoid = noccs.boro_code.astype(int).astype(str)  + noccs.NCode.str[1:] )
 
@@ -447,7 +448,7 @@ police_precincts_with_vars = generate_boundary_level(police_precincts,all_joined
 noccs_with_vars = generate_boundary_level(noccs,all_joined,'geoid')
 noccs_with_vars = noccs_with_vars.set_index('geoid').assign(neighborhood= noccs.set_index('geoid').Neighborho, nocc_id= noccs.set_index('geoid').NCode).reset_index()
 state_assembly_districts_with_vars = generate_boundary_level(state_assembly_districts,all_joined,'assem_dist')
-
+zipcodes_with_vars = generate_boundary_level(zipcodes,all_joined,'ZIPCODE')
 
 community_districts_with_vars.to_file('../public/boundaries/community_districts_vars.geojson',driver='GeoJSON')
 city_council_district_with_vars.to_file('../public/boundaries/city_council_district_with_vars.geojson',driver='GeoJSON')
@@ -458,7 +459,7 @@ senate_districts_with_vars.to_file('../public/boundaries/senate_districts_with_v
 police_precincts_with_vars.to_file('../public/boundaries/police_precincts_with_vars.geojson', driver='GeoJSON')
 noccs_with_vars.to_file('../public/boundaries/noccs_with_vars.geojson',driver='GeoJSON')
 state_assembly_districts_with_vars.to_file('../public/boundaries/state_assembly_districts_with_vars.geojson',driver='GeoJSON')
-
+zipcodes_with_vars.to_file("../public/boundaries/zipcodes_with_vars.geojson", driver='GeoJSON')
 
 ### Make sure the files have ids
 
@@ -492,7 +493,8 @@ fids = [
     '../public/boundaries/senate_districts_labels.geojson',
     '../public/boundaries/police_precincts_labels.geojson',
     '../public/boundaries/noccs_labels.geojson',
-    '../public/boundaries/state_assembly_districts_labels.geojson'
+    '../public/boundaries/state_assembly_districts_labels.geojson',
+    '../public/boundaries/zipcodes_with_vars.geojson'
 ]
 
 for fid in fids:
