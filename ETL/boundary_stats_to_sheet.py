@@ -89,6 +89,10 @@ def main():
             'filepath': os.path.join(boundaries_directory, 'state_assembly_districts_with_vars.geojson'),
             'sheet': 'By State Assembly District'
         },
+        {
+            'filepath': os.path.join(boundaries_directory, 'zipcodes_with_vars.geojson'),
+            'sheet': 'By Zip Code'
+        },
         # {
         #     'filepath': os.path.join(boundaries_directory, 'senate_districts_with_vars.geojson'),
         #     'sheet': 'By Senate District'
