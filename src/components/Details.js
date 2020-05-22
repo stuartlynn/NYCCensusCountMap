@@ -244,7 +244,7 @@ export default function Details({
         const data = cols.map(col => ({
             value:
                 (feature.properties[col] * 100.0) /
-                feature.properties["language_total_pop"],
+                (cols.reduce( (total,col) => total + feature.properties[col], 0 )),
             title: col
         }));
         return data;
