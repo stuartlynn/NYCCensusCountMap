@@ -70,10 +70,10 @@ export default function MainPage() {
     };
 
     const { map, zoomToBounds } = useMap(mapDiv, {
-        lnglat: [-73.9625463540349, 40.67728661754935],
-        zoom: 15,
-        //lnglat: [-73.9920330193022, 40.75078660435196],
-        //      zoom: 10,
+        // lnglat: [-73.9625463540349, 40.67728661754935],
+        // zoom: 15,
+        lnglat: [-73.9920330193022, 40.75078660435196],
+        zoom: 10,
         style: "mapbox://styles/mapbox/light-v10",
         key:
             "pk.eyJ1Ijoic3R1YXJ0LWx5bm4iLCJhIjoiM2Q4ODllNmRkZDQ4Yzc3NTBhN2UyNDE0MWY2OTRiZWIifQ.8OEKvgZBCCtDFUXkjt66Pw"

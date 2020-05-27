@@ -26,6 +26,11 @@ export default function OutreactTab({ selectedCCF, onSelectedCCF, selectedOutrea
                 selected={selectedOutreachTypes}
                 onSelected={onSelectOutreachTypes}
             />
+
+            <p style={{fontWeight:700}}>If you have or plan to do outreach to a business, click on it's icon and follow the link or click here:</p>
+            <a target='_blank' className='share-link' href='https://hstcensus2020.formstack.com/forms/cff_grantee_business_outreach_tracker'>
+                <button className='share-button'>Tell us about outreach efforts</button>
+            </a>
         </div>
     );
 }
