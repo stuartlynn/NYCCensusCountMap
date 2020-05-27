@@ -142,8 +142,7 @@ export default function OutreachAssetsSelector({ selected, onSelected }) {
             title: "Social Services",
             options: [
                 {name:"Homeless Shelters and congregate care facilities", layer:'homelessshelters_nyc'},
-                {name:"Senior Services", layer: 'seniorservices_nyc_geocoded'},
-                {name:"Auto Repair Shops", layer:'autorepairshops_nyc_geocoded'}
+                {name:"Senior Services", layer: 'seniorservices_nyc_geocoded'}
             ]
         },
         {
