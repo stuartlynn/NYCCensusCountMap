@@ -119,7 +119,7 @@ export default function OutreachAssetsSelector({ selected, onSelected }) {
 
         {
             title: "Laundromats",
-            options: ["Laundromats"]
+            options: [{name:"Laundromats", layer:'laundromats_nyc'}]
         },
 
         {

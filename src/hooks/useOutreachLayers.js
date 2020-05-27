@@ -16,7 +16,8 @@ const name_fields = {
     liquor_winestores_nyc_geocoded:'premise_name',
     nyc_gas_station_locations_geoclient_enriched: "station_name",
     post_offices:"name",
-    seniorservices_nyc_geocoded :"program_name"
+    seniorservices_nyc_geocoded :"program_name",
+    laundromats_nyc: 'business_name'
 }
 
 const type_map = {
@@ -32,7 +33,8 @@ const type_map = {
     liquor_winestores_nyc_geocoded:'food_and_supplies',
     nyc_gas_station_locations_geoclient_enriched: "misc",
     post_offices:"social_services",
-    seniorservices_nyc_geocoded :"social_services"
+    seniorservices_nyc_geocoded :"social_services",
+    laundromats_nyc:'laundry'
 }
 
 

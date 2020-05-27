@@ -12,7 +12,7 @@ export default function useOutreachTargets() {
         "foodkitchens_nyc",
         "homelessshelters_nyc",
         "hospitalsandhealthclinics_nyc",
-        // "landromats_nyc",
+        "laundromats_nyc",
         "liquor_winestores_nyc_geocoded",
         "nyc_gas_station_locations_geoclient_enriched",
         "post_offices",
