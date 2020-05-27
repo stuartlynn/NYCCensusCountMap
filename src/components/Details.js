@@ -365,7 +365,7 @@ export default function Details({
                                         )}{" "}
                                         %
                                     </p>
-                                    <p>Last updated ${todayString}</p>
+                                    <p>Last updated {todayString}</p>
                                 </div>
                                 <div className="card comparison">
                                     <p>
