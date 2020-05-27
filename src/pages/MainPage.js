@@ -135,12 +135,6 @@ export default function MainPage() {
         visible: true
     });
 
-    const EarlyNRFULocations = useGeoJSONLayer(map, "early_nrfu", {
-        ...Layers.EarlyNRFU,
-        visible: showENRFU
-    });
-
-    // BoundaryLayers().forEach(layer => {
     const boundaryLayers = useBoundaryLayers(
         map,
         selectedBoundary,
