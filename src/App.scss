@@ -579,7 +579,17 @@ ul {
     flex-direction: row;
     justify-content: space-between;
 }
-.share-button {
+
+.add-facility{
+    p{
+        font-weight: 700;
+    }
+    .share-link{
+        width:80%;
+        margin-bottom:10px;
+    }
+}
+.share-button, .share-link {
     box-shadow: inset 0px 1px 0px 0px #9acc85;
     background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
     background-color: #74ad5a;
