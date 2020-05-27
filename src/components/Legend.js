@@ -249,6 +249,17 @@ export default function Legend({
                             selected={selectedFacilityTypes}
                             onSelected={onSelectFacilityType}
                         />
+
+                        <div className="add-facility">
+                            <p>Do you know of assets that are not represented on this map? We would love to add them!</p>
+                            <a className='share-link' target="_blank" href='https://docs.google.com/forms/d/e/1FAIpQLSfnFfLxkdTU8Boyh-4PA4EFqVUBS12mmKU82PvyemF5yFWUUw/viewform'>
+                                Submit One Community Asset
+                            </a>
+
+                            <a className='share-link' target="_blank" href='https://docs.google.com/forms/d/e/1FAIpQLSdoLCIuO221nhFETKvKPNqzEuo6NImcaw2tivKQX_Jre60t6Q/viewform'>
+                                Submit Multiple Community Assets
+                            </a>
+                        </div>
                       
                         <div className="share">
                             <h3>Share</h3>
