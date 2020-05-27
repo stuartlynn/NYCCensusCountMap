@@ -169,8 +169,8 @@ export function BoundaryLayers() {
             nameAlt: "ntacode"
         },
         {
-            id: "",
-            datasetName: "Zipcodes",
+            id: "ZipCodes",
+            datasetName: "Zip codes",
             polygons: "zipcodes_with_vars.geojson",
             labels: "zipcodes_labels.geojson",
             url:

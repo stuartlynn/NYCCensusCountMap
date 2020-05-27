@@ -65,7 +65,7 @@ export default function Details({
         police_precincts: "Police Precinct",
         congress_districts: "Congressional District",
         state_assembly_districts: "State Assembly Districts",
-        ZipCodes: "Zipcode"
+        ZipCodes: "Zip Code"
     };
 
     const featureName = featureNames[layer];
