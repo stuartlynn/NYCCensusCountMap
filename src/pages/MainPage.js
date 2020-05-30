@@ -49,6 +49,7 @@ export default function MainPage() {
                 newList = [...newList, type];
             }
         });
+        console.log('HERE', newList)
         setSelectedFacilityTypes(newList);
     };
 
@@ -130,6 +131,13 @@ export default function MainPage() {
 
     const GeojsonLayer = useGeoJSONLayer(map, "HTC", {
         ...style,
+        onClick: setSelectedTract,
+        selection: selectedTract,
+        visible: true
+    });
+
+    const NYCHALocations = useGeoJSONLayer(map, "NYCHA", {
+        ...Layers.NYCHA,
         onClick: setSelectedTract,
         selection: selectedTract,
         visible: true

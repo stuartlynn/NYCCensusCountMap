@@ -69,8 +69,7 @@ export default function FacilitiesSelector({ selected, onSelected }) {
                 "Senior Centers",
                 "Mental Health Services",
                 "Hospitals and Rehab Centers",
-                "LGBTQ Centers and Services",
-                "NYCHA Developments"
+                "LGBTQ Centers and Services"
             ]
         },
 
