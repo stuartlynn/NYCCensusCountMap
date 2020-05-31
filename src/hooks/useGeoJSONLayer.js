@@ -75,14 +75,9 @@ export function useGeoJSONLayer(
             const setVisibility = () => {
                 if (map.current.loaded()) {
                     map.current.setLayoutProperty(
-                        `early_nrfu-fill`,
-                        "visibility",
-                        visible ? "visible" : "none"
-                    );
-                    map.current.setLayoutProperty(
-                        `early_nrfu-line`,
-                        "visibility",
-                        visible ? "visible" : "none"
+                        'NYCHA-fill',
+                        'visibility',
+                        visible ? 'visible' : 'none'
                     );
                 } else {
                     if (visibilityChangeTimeout.current) {
