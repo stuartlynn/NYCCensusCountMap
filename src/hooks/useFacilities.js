@@ -22,7 +22,8 @@ export function useFilteredFacilities(id, layer, types) {
         police_precincts: "precinct_id",
         congress_districts: "cong_dist_id",
         senate_districts: "st_sen_dist_id",
-        NOCCs: "noccs_id"
+        NOCCs: "noccs_id",
+        ZipCodes:'zipcode_id'
     };
     return useMemo(() => {
         return id

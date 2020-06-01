@@ -14,7 +14,8 @@ export default function AssetCategoryCard({ assets, title }) {
         "Mental Health Services": "Dot_MentalHealth.png",
         "Community-Based Organizations": "Dot_CBO.png",
         "Public Libraries": "Dot_Libraries.png",
-        "Head Start and Early Head Start": "Dot_HeadStart.png"
+        "Head Start and Early Head Start": "Dot_HeadStart.png",
+        "Robin Hood Partners": "Dot_RobinHood.png"
     };
 
     const width = Math.max(300, 300 * Math.ceil(assets.length / 3));

@@ -78,7 +78,8 @@ export default function FacilitiesSelector({ selected, onSelected }) {
             options: [
                 "Community-Based Organizations",
                 "Faith-Based Organizations",
-                "Community Centers and YMCA's"
+                "Community Centers and YMCA's",
+                "Robin Hood Partners"
             ]
         }
     ];

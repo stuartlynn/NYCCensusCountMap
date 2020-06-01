@@ -14,7 +14,8 @@ function loadAllImages(map) {
         "Dot_CommunityCenters.png",
         "Dot_MentalHealth.png",
         "Dot_CBO.png",
-        "Dot_Libraries.png"
+        "Dot_Libraries.png",
+        "Dot_RobinHood.png"
     ];
     return Promise.all(
         images.map(
