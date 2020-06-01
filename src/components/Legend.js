@@ -30,12 +30,11 @@ export default function Legend({
     selectedFacilityTypes,
     onSelectFacilityType,
     onPrint,
-    showENRFU,
-    onToggleENRFU,
+    showNYCHA,
+    onToggleNYCHA,
     shareURL
 }) {
     const [tab, setTab] = useState("layers");
-    console.log("ENRFU ", showENRFU);
     return (
         <div className="Legend overlay">
             <div className="tabs">
@@ -249,6 +248,26 @@ export default function Legend({
                             selected={selectedFacilityTypes}
                             onSelected={onSelectFacilityType}
                         />
+
+                        <div className="NYCHA">
+                            <h3>NYC Housing Authority</h3>
+                            <div className="nycha-selector">
+                                <div
+                                    className="category-marker"
+                                    style={{
+                                        backgroundColor: "green"
+                                    }}
+                                />
+                                <input
+                                    type="checkbox"
+                                    checked={showNYCHA}
+                                    onChange={() => {
+                                        onToggleNYCHA(!showNYCHA);
+                                    }}
+                                />
+                                <p>Show NYC Housing Authority Locations</p>
+                            </div>
+                        </div>
 
                         <div className="add-facility">
                             <p>Do you know of assets that are not represented on this map? We would love to add them!</p>

@@ -21,7 +21,7 @@ export default function MainPage() {
     const [showFacilities, setShowFacilities] = useState(true);
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
     const [metric, setMetric] = useState("responseRate");
-    const [showENRFU, setShowNRFU] = useState(false);
+    const [showNYCHA, onToggleNYCHA] = useState(false);
     const [showPrintDialog, setShowPrintDialog] = useState(false);
     const [mapImage, setMapImage] = useState(null);
 
@@ -81,9 +81,6 @@ export default function MainPage() {
         if (params.metric) {
             setMetric(params.metric);
         }
-        if (params.nrfu) {
-            setShowNRFU(params.nrfu === "yes");
-        }
         if (params.boundaryID) {
             const zoomToFeature = () => {
                 if (
@@ -133,6 +130,13 @@ export default function MainPage() {
         onClick: setSelectedTract,
         selection: selectedTract,
         visible: true
+    });
+
+    const NYCHALocations = useGeoJSONLayer(map, "NYCHA", {
+        ...Layers.NYCHA,
+        onClick: setSelectedTract,
+        selection: selectedTract,
+        visible: showNYCHA
     });
 
     const boundaryLayers = useBoundaryLayers(
@@ -193,8 +197,8 @@ export default function MainPage() {
                 onSelectFacilityType={onToggleFacilityType}
                 metric={metric}
                 onSelectMetric={setMetric}
-                showENRFU={showENRFU}
-                onToggleENRFU={setShowNRFU}
+                showNYCHA={showNYCHA}
+                onToggleNYCHA={onToggleNYCHA}
                 shareURL={shareURL}
                 onPrint={tryToPrint}
             />

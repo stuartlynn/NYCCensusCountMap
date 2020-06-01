@@ -153,6 +153,13 @@ export default {
             "fill-color": "blue",
             "fill-opacity": 0.7
         }
+    },
+    NYCHA: {
+        url: `${process.env.PUBLIC_URL}/boundaries/nyc-housing-authority.geojson`,
+        paintFill: {
+            "fill-color": "green",
+            "fill-opacity": 0.7
+        }
     }
 };
 
