@@ -11,26 +11,42 @@ export default function OutreactTab({ selectedCCF, onSelectedCCF, selectedOutrea
     return (
         <div className="outreach-tab">
             <h3>Outreach</h3>
+            <p className='outreach-step'><span>Step 1</span>: Select a Census Grantee</p>
             <CCFSearch selected={selectedCCF} onSelected={onSelectedCCF} />
             <h3>COVID-19 Community Assets</h3>
-            <div className='key' style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-                <Unclaimed style={{width:'50px', height:'50px'}}/>
-                <p>Unclaimed Asset</p>
-                <Claimed  style={{width:'50px', height:'50px'}}/>
-                <p>Outreach Pending</p>
-                <Done  style={{width:'50px', height:'50px'}}/>
-                <p>Outreach Compleated</p>
+
+
+            <p className='outreach-step'><span>Step 2</span>: Review Outreach Icons</p>
+            <div className='key'>
+                <div className='icon'>
+                    <Unclaimed style={{width:'70px', height:'98px'}}/>
+                    <p>Unclaimed Asset</p>
+                </div>
+                <div className='icon'>
+                    <Claimed  style={{width:'70px', height:'98px'}}/>
+                    <p>Claimed Asset: Outreach Pending</p>
+                </div>
+
+                <div className='icon'>
+                    <Done  style={{width:'70px', height:'98px'}}/>
+                    <p>Claimed Asset: Outreach Compleated</p>
+                </div>
             </div>
-            <p style={{textAlign:'left', fontWeight:700}}>A change from grey to a color signifies a CCF Grantee has commited to do census outreach at that location.</p>
+
+            <p className='outreach-step'><span>Step 3</span>: Select Buisness Categories</p>
+
             <OutreactAssetsSelector
                 selected={selectedOutreachTypes}
                 onSelected={onSelectOutreachTypes}
             />
 
-            <p style={{fontWeight:700}}>If you have or plan to do outreach to a business, click on it's icon and follow the link or click here:</p>
-            <a target='_blank' className='share-link' href='https://hstcensus2020.formstack.com/forms/cff_grantee_business_outreach_tracker'>
-                <button className='share-button'>Tell us about outreach efforts</button>
-            </a>
+            <p className='outreach-step'>
+                <span>Step 4</span>: Review Map and Buisness Locations For Outreach
+            </p>
+
+            <p className='outreach-step'>
+                <span>Step 5</span>: Claim Buisness for Outreach
+            </p>
         </div>
     );
 }

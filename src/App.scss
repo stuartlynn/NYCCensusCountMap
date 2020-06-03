@@ -633,6 +633,28 @@ ul {
     }
 }
 
+.outreach-tab{
+    .key{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+        
+        p{
+            text-align: center;
+            
+            max-width:70px;
+        }
+    }
+}
+
+.outreach-step{
+    text-align: left;
+    span{
+        font-weight: bold;
+    }
+}
+
 .selfresponse,
 .elp {
     display: flex;
