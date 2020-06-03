@@ -19,16 +19,16 @@ export default function OutreactTab({ selectedCCF, onSelectedCCF, selectedOutrea
             <p className='outreach-step'><span>Step 2</span>: Review Outreach Icons</p>
             <div className='key'>
                 <div className='icon'>
-                    <Unclaimed style={{width:'70px', height:'98px'}}/>
+                    <Unclaimed style={{width:'47px', height:'63px'}}/>
                     <p>Unclaimed Asset</p>
                 </div>
                 <div className='icon'>
-                    <Claimed  style={{width:'70px', height:'98px'}}/>
+                    <Claimed  style={{width:'47px', height:'63px'}}/>
                     <p>Claimed Asset: Outreach Pending</p>
                 </div>
 
                 <div className='icon'>
-                    <Done  style={{width:'70px', height:'98px'}}/>
+                    <Done  style={{width:'47px', height:'63px'}}/>
                     <p>Claimed Asset: Outreach Compleated</p>
                 </div>
             </div>
