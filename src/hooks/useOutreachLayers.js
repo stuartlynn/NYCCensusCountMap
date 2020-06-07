@@ -60,7 +60,20 @@ const colors=[
 const unclaimedColor=  "484949"
 
 const generateICON = (claimedBy,pending,type)=>{
-    return `${type_map[type]}_${claimedBy ? claimedBy : unclaimedColor}${pending ? '_alert' : ''}`
+    let iconType = 'unclaimed'
+    if(claimedBy && pending){
+        iconType = 'pending'
+    }
+    if( claimedBy && !pending){
+        iconType ='done'
+    }
+
+    let color = unclaimedColor
+    if(claimedBy){
+        color = claimedBy
+    }
+    
+    return `${iconType}_${type_map[type]}_${color}`
 }
 export default function useOutreachLayer(map, outreachTragets, visible, selectedTypes, onClick) {
     const types = Object.keys(outreachTragets)
