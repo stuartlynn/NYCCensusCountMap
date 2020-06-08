@@ -20,7 +20,7 @@ export default function CCFSearch({ selected, onSelected }) {
             <SelectSearch
                 options={options.map(d=> ({name:d.name, value:d.name}))}
                 name="CCF"
-                placeholder="Select CCF"
+                placeholder="Select Grantee"
                 onChange={(option)=>{
                     onSelected(options.find(o=>o.name===option))
                 }}

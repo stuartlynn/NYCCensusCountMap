@@ -9,14 +9,13 @@ export function CCFDetails({selectedCCF}){
          setSelectedTab('CCF')
         }
     },[selectedCCF])
-    console.log("SELECTED CCF IS ", selectedCCF)
         return <>
             <div className="overview">
                 <div className ='boundary-type-selector'>
                     <div className={`boundary-type-selector-type ${selectedTab === 'UserGuide' && 'selected'}`}
                         onClick ={()=>setSelectedTab('UserGuide')}
                     >
-                        <h2 style={{boxSizing:'border-box', padding:'20px'}}>User guide</h2>
+                        <h2 style={{boxSizing:'border-box', padding:'20px'}}>User Guide</h2>
                     </div>
                     {selectedCCF ?
                         <div className={`boundary-type-selector-type ${selectedTab === 'CCF' && 'selected'}`}
