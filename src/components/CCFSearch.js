@@ -12,13 +12,14 @@ export default function CCFSearch({ selected, onSelected }) {
     //     { name: "Test5", value: "t5" }
     // ];
     const options = useCCFs();
+
     return (
         <div className="cff-search">
             {options.length > 0  ?
             
        
             <SelectSearch
-                options={options.map(d=> ({name:d.name, value:d.name}))}
+                options={options.sort((op)=>op.name).map(d=> ({name:d.name, value:d.name}))}
                 name="CCF"
                 placeholder="Select Grantee"
                 onChange={(option)=>{
