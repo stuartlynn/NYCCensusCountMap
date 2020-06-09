@@ -40,8 +40,8 @@ export function useMap(mapDivRef, { lnglat, zoom, key }, popupFeature) {
             .setLngLat(popupFeature.coordinates)
             .setHTML(`
                 <h3><a target="_blank" href="https://hstcensus2020.formstack.com/forms/cff_grantee_business_outreach_tracker">Click here</a> to claim this asset for outreach!</h3>
-                <h3 style='font-weight:700'>Buisness ID: ${popupFeature.data.unique_id}</h3>
-                <h3>Please copy Buisness ID.</h3>
+                <h3 style='font-weight:700'>Business ID: ${popupFeature.data.unique_id}</h3>
+                <h3>Please copy Business ID.</h3>
              `)
             .addTo(map.current);
         }
