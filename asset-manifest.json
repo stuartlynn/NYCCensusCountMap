@@ -1,29 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.4516ffa0.chunk.css",
-    "main.js": "/static/js/main.dbdbe124.chunk.js",
-    "main.js.map": "/static/js/main.dbdbe124.chunk.js.map",
+    "main.css": "/static/css/main.e124aedd.chunk.css",
+    "main.js": "/static/js/main.d00c7c7a.chunk.js",
+    "main.js.map": "/static/js/main.d00c7c7a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.278af6e7.js",
     "runtime-main.js.map": "/static/js/runtime-main.278af6e7.js.map",
     "static/css/2.76609786.chunk.css": "/static/css/2.76609786.chunk.css",
-    "static/js/2.4a8ee8f1.chunk.js": "/static/js/2.4a8ee8f1.chunk.js",
-    "static/js/2.4a8ee8f1.chunk.js.map": "/static/js/2.4a8ee8f1.chunk.js.map",
+    "static/js/2.c15d742c.chunk.js": "/static/js/2.c15d742c.chunk.js",
+    "static/js/2.c15d742c.chunk.js.map": "/static/js/2.c15d742c.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.b54695500f2dd7937c95ba31a63ff784.js": "/precache-manifest.b54695500f2dd7937c95ba31a63ff784.js",
+    "precache-manifest.4bdb03a65fab2cf6241c0a8d063ed519.js": "/precache-manifest.4bdb03a65fab2cf6241c0a8d063ed519.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.76609786.chunk.css.map": "/static/css/2.76609786.chunk.css.map",
-    "static/css/main.4516ffa0.chunk.css.map": "/static/css/main.4516ffa0.chunk.css.map",
-    "static/js/2.4a8ee8f1.chunk.js.LICENSE.txt": "/static/js/2.4a8ee8f1.chunk.js.LICENSE.txt",
-    "static/media/App.scss": "/static/media/GT-America-Standard-Regular.ac9e5f9b.otf",
-    "static/media/laundry_484949.cf5e0e7e.svg": "/static/media/laundry_484949.cf5e0e7e.svg",
-    "static/media/laundry_A44098.74872ed9.svg": "/static/media/laundry_A44098.74872ed9.svg",
-    "static/media/laundry_A44098_alert.2b2a2c6b.svg": "/static/media/laundry_A44098_alert.2b2a2c6b.svg"
+    "static/css/main.e124aedd.chunk.css.map": "/static/css/main.e124aedd.chunk.css.map",
+    "static/js/2.c15d742c.chunk.js.LICENSE.txt": "/static/js/2.c15d742c.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/static/media/GT-America-Standard-Regular.ac9e5f9b.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.278af6e7.js",
     "static/css/2.76609786.chunk.css",
-    "static/js/2.4a8ee8f1.chunk.js",
-    "static/css/main.4516ffa0.chunk.css",
-    "static/js/main.dbdbe124.chunk.js"
+    "static/js/2.c15d742c.chunk.js",
+    "static/css/main.e124aedd.chunk.css",
+    "static/js/main.d00c7c7a.chunk.js"
   ]
 }
