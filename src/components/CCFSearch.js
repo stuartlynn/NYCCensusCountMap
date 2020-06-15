@@ -12,6 +12,8 @@ export default function CCFSearch({ selected, onSelected }) {
     //     { name: "Test5", value: "t5" }
     // ];
     const options = useCCFs();
+    const sorted_options= options.filter(op=>op.name!=='NYC Census 2020 Field Team').sort((op)=>op.name).map(d=> ({name:d.name, value:d.name}))
+    const fieldTeam = {name:'NYC Census 2020 Field Team', value:'NYC Census 2020 Field Team'}            
 
     return (
         <div className="cff-search">
@@ -19,7 +21,7 @@ export default function CCFSearch({ selected, onSelected }) {
             
        
             <SelectSearch
-                options={options.sort((op)=>op.name).map(d=> ({name:d.name, value:d.name}))}
+                options={[fieldTeam, ...sorted_options]}
                 name="CCF"
                 placeholder="Select Grantee"
                 onChange={(option)=>{

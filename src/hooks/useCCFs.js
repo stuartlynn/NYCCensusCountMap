@@ -9,12 +9,12 @@ export function useCCFs() {
             header:true,
             complete: function(results) {
                 console.log("Outreach CCF names ", results)
-                setCCFs(results.data.map(d => ({
+                setCCFs(['NYC Census 2020 Field Team', ...results.data.map(d => ({
                     name : d['Org Name'], 
                     address:d['Contact Address w/o Unit'],
                     latitude: d.latitude,
                     longitude: d.longitude
-                })));
+                }))]);
             }
         });
     }, []);
