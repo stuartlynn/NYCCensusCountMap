@@ -75,55 +75,114 @@ const generateICON = (claimedBy,pending,type)=>{
     
     return `${iconType}_${type_map[type]}_${color}`
 }
-export default function useOutreachLayer(map, outreachTragets, visible, selectedTypes, onClick) {
+
+function generateOutreachData(targets,assignments,ccfs,type){
+    const features = targets['features']
+    const newFeatures = features.map((feature)=>{
+        const assignment = assignments.find(assignment => parseInt(assignment['Business ID #']) === feature.id )
+        
+        if(assignment){
+            const ccf = ccfs.find(c=>c.name === assignment['CCF Grantee'])
+            const icon = generateICON(ccf.color,assignment.Status.includes('Outreach in progress'),type)
+            return {
+                ...feature,
+                properties: {...feature.properties, icon : icon},
+            }
+        }
+        else{
+            return{
+                ...feature,
+                properties:{...feature.properties, icon: generateICON(null,false, type)}
+            }
+        }
+    })
+    return {
+        features:newFeatures,
+        type:'FeatureCollection'
+    }
+}
+
+export default function useOutreachLayer(
+    map, 
+    outreachTragets, 
+    visible, 
+    selectedTypes, 
+    onClick, 
+    assignments, 
+    ccfs) {
     const types = Object.keys(outreachTragets)
 
+    useEffect(()=>{
+        if(ccfs && assignments){
+            console.log("UPDATING DATA")
+            types.forEach(type=>{
+              const source  = map.current.getSource(`outreach_source: ${type}`)
+              if(source){
+                source.setData(generateOutreachData(outreachTragets[type],assignments, ccfs, type))
+              }
+            })
+            map.current.triggerRepaint()
+        }
+    },[map,outreachTragets,assignments, types,ccfs])
 
     useEffect(() => {
         if (map.current && outreachTragets) {
             map.current.on("load", () => {
                     types.forEach(type => {
-                        map.current.addLayer({
-                            id: `outreach: ${type}`,
-                            type: "symbol",
-                            source: {
-                                type: "geojson",
-                                data: outreachTragets[type]
-                            },
-                            layout: {
-                                "icon-image":generateICON(null,false, type), // ["get", "icon"],
-                                "icon-size": 0.4,
-                                "text-field": ['get',name_fields[type]],
-                                "text-font": [
-                                    "Open Sans Semibold",
-                                    "Arial Unicode MS Bold"
-                                ],
-                                "text-offset": [0, 2],
-                                "text-size": 13,
-                                "text-anchor": "top",
-                                //'icon-allow-overlap': true,
-                                //              'text-allow-overlap': true,
-                                // visibility: selectedTypes.includes(type)
-                                //     ? "visible"
-                                //     : "none"
-                                visibility: visible ? 'visible' :'none'
-                            },
-                            //    filter: ['match', ['get', 'asset_type'], types, true, false],
+                        console.log(`outreach: ${type}`)
+                        if(!map.current.getSource(`outreach_source: ${type}`)){
+                            try{
+                                const source = map.current.addSource(
+                                    `outreach_source: ${type}`,
+                                    {
+                                        type: "geojson",
+                                        data: generateOutreachData(outreachTragets[type],assignments, ccfs, type)
+                                    }
+                                )
+                                map.current.addLayer({
+                                    id: `outreach: ${type}`,
+                                    type: "symbol",
+                                    source: `outreach_source: ${type}`,
+                                    layout: {
+                                        "icon-image": ['get','icon'], // ["get", "icon"],
+                                        "icon-size": 0.4,
+                                        "text-field": ['get',name_fields[type]],
+                                        "text-font": [
+                                            "Open Sans Semibold",
+                                            "Arial Unicode MS Bold"
+                                        ],
+                                        "text-offset": [0, 2],
+                                        "text-size": 13,
+                                        "text-anchor": "top",
+                                        //'icon-allow-overlap': true,
+                                        //              'text-allow-overlap': true,
+                                        // visibility: selectedTypes.includes(type)
+                                        //     ? "visible"
+                                        //     : "none"
+                                        visibility: visible ? 'visible' :'none'
+                                    },
+                                    //    filter: ['match', ['get', 'asset_type'], types, true, false],
 
-                            paint: {
-                                "text-color": "rgba(255,255,255,1)",
-                                "text-halo-color": "rgba(10, 10, 10, 0.8)",
-                                "text-halo-width": 1,
-                                "text-halo-blur": 0
+                                    paint: {
+                                        "text-color": "rgba(255,255,255,1)",
+                                        "text-halo-color": "rgba(10, 10, 10, 0.8)",
+                                        "text-halo-width": 1,
+                                        "text-halo-blur": 0
+                                    }
+                                });
+                                map.current.on('click',  `outreach: ${type}`, (e)=>{
+                                    if(e.features.length >0){
+                                        console.log("clicked feacture ", e.features[0])
+                                        const coordinates = e.features[0].geometry.coordinates.slice();
+                                        const data = e.features[0].properties
+                                        onClick({coordinates,data})
+                                    }
+                                })
                             }
-                        });
-                        map.current.on('click',  `outreach: ${type}`, (e)=>{
-                            if(e.features.length >0){
-                                const coordinates = e.features[0].geometry.coordinates.slice();
-                                const data = e.features[0].properties
-                                onClick({coordinates,data})
+                            catch{
+                                console.log("SOMETHING WENT WRONG SETTING UP LAYER")
                             }
-                        })
+                        }
                     });
             });
         }
@@ -133,24 +192,21 @@ export default function useOutreachLayer(map, outreachTragets, visible, selected
 
     useEffect(() => {
 
-        const setVisibility = (shouldBeVisable)=>{
-            if (map.current && map.current.loaded()) {
-                console.log("Toggling visible on facilities");
-                console.log("CHANGING SELECTED TYPES ", selectedTypes)
-                types.forEach( type=>{
+        const setVisibility = (layer, shouldBeVisable)=>{
+                if (map.current && map.current.loaded() && map.current.getLayer(`outreach: ${layer}`)) {
                     map.current.setLayoutProperty(
-                        `outreach: ${type}`,
+                        `outreach: ${layer}`,
                         "visibility",
-                        shouldBeVisable && selectedTypes.includes(type) ? 'visible' : 'none' 
-                    );
-                    })
+                        shouldBeVisable && selectedTypes.includes(layer) ? 'visible' : 'none' 
+                    )
+                }
+                else{
+                   console.log("waiting")
+                     setTimeout(()=>setVisibility(layer,shouldBeVisable),200)
+                }
             }
-            else{
-                console.log("waiting")
-                setTimeout(()=>setVisibility(shouldBeVisable),200)
-            }
-        }
-        setVisibility(visible);
+            
+        types.forEach(type => setVisibility(type,visible));
        
     }, [map, visible, selectedTypes,types]);
 

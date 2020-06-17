@@ -70,34 +70,34 @@ export function useGeoJSONLayer(
         }
     }, [selection]);
 
-    useEffect(() => {
-        if (map.current) {
-            const setVisibility = () => {
-                if (map.current.loaded()) {
-                    map.current.setLayoutProperty(
-                        `early_nrfu-fill`,
-                        "visibility",
-                        visible ? "visible" : "none"
-                    );
-                    map.current.setLayoutProperty(
-                        `early_nrfu-line`,
-                        "visibility",
-                        visible ? "visible" : "none"
-                    );
-                } else {
-                    if (visibilityChangeTimeout.current) {
-                        clearTimeout(visibilityChangeTimeout.current);
-                        visibilityChangeTimeout.current = null;
-                    }
-                    visibilityChangeTimeout.current = setTimeout(
-                        setVisibility,
-                        200
-                    );
-                }
-            };
-            setVisibility();
-        }
-    }, [map, visible]);
+    // useEffect(() => {
+    //     if (map.current) {
+    //         const setVisibility = () => {
+    //             if (map.current.loaded()) {
+    //                 map.current.setLayoutProperty(
+    //                     `early_nrfu-fill`,
+    //                     "visibility",
+    //                     visible ? "visible" : "none"
+    //                 );
+    //                 map.current.setLayoutProperty(
+    //                     `early_nrfu-line`,
+    //                     "visibility",
+    //                     visible ? "visible" : "none"
+    //                 );
+    //             } else {
+    //                 if (visibilityChangeTimeout.current) {
+    //                     clearTimeout(visibilityChangeTimeout.current);
+    //                     visibilityChangeTimeout.current = null;
+    //                 }
+    //                 visibilityChangeTimeout.current = setTimeout(
+    //                     setVisibility,
+    //                     200
+    //                 );
+    //             }
+    //         };
+    //         setVisibility();
+    //     }
+    // }, [map, visible]);
 
     useEffect(() => {
         if (map.current) {

@@ -30,7 +30,8 @@ export default function useOutreachTargets() {
                         ...a,
                         features: a.features.map(f => ({
                             ...f,
-                            properties: { ...f.properties, type: t }
+                            properties: { ...f.properties, type: t },
+                            id: f.properties.unique_id
                         }))
                     }))
             )

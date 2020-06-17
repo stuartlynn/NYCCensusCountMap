@@ -14,8 +14,10 @@ import ReactGA from "react-ga";
 import queryString from "query-string";
 import PrintDialog from "../components/PrintDialog";
 import { CCFDetails } from "../components/CCFDetails";
-import useCCFAssignments from '../hooks/useCCFAssignments'
 import useFacilities from "../hooks/useFacilities";
+import {useCCFs} from "../hooks/useCCFs";
+
+import useCCFAssignments from '../hooks/useCCFAssignments'
 
 export default function MainPage() {
     const mapDiv = useRef(null);
@@ -37,9 +39,11 @@ export default function MainPage() {
 
     const [mapImage, setMapImage] = useState(null);
     const [tab, setTab] = useState("layers");
+    const ccfAssigments = useCCFAssignments()
+    const ccfs = useCCFs(
 
-
-    useCCFAssignments()
+    )
+    // useCCFAssignments()
     const outreachTargets = useOutreachTargets();
 
     useEffect(() => {
@@ -205,7 +209,9 @@ export default function MainPage() {
         outreachTargets,
         showOutreach,
         selectedOutreachTypes,
-        setPopupFeature
+        setPopupFeature,
+        ccfAssigments,
+        ccfs
     )
 
 

@@ -7,7 +7,6 @@ import {ReactComponent as Done}  from '../icons/laundry_A44098.svg'
 
 
 export default function OutreactTab({ selectedCCF, onSelectedCCF, selectedOutreachTypes, onSelectOutreachTypes }) {
-
     return (
         <div className="outreach-tab">
             <h3>Outreach</h3>
