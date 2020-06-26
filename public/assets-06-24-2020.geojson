@@ -1,0 +1,2546 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Charter Schools",
+        "Name of Space": "Achievement First Bushwick Elementary School",
+        "Street Address": "125 Covert St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "125",
+        "Street": "Covert St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91004699999999,
+          40.688805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Charter Schools",
+        "Name of Space": "Achievement First University Prep HS",
+        "Street Address": "35 Starr St. ",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "35",
+        "Street": "Starr St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.928096,
+          40.700259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "Arts and Literacy @ P.S. 123K",
+        "Street Address": "100 Irving Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "100",
+        "Street": "Irving Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.922575,
+          40.703905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Be Electric Studios",
+        "Street Address": "1298 Willoughby Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1298",
+        "Street": "Willoughby Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.921724,
+          40.705189000000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "Beacon School at P.S. 291K",
+        "Street Address": "231 Palmetto Street",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.9,
+        "Accuracy Type": "rooftop",
+        "Number": "231",
+        "Street": "Palmetto St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.915174,
+          40.6955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "Bible Life Holiness Ministry",
+        "Street Address": "-",
+        "City": "-",
+        "State": "-",
+        "Zip Code": "-",
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.0,
+        "Accuracy Type": "-",
+        "Number": "-",
+        "Street": "-",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "-",
+        "State.1": "-",
+        "County": "-",
+        "Zip": "-",
+        "Country": "-",
+        "Source": "-"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Bizzarre Bar Bushwick",
+        "Street Address": "12 Jefferson St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11206.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "12",
+        "Street": "Jefferson St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11206.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.934744,
+          40.697389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "BK Rot",
+        "Street Address": "1278 Myrtle Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "range_interpolation",
+        "Number": "1278",
+        "Street": "Myrtle Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92593000000001,
+          40.697868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Bushwick Arts Collective",
+        "Street Address": "St Nicholas Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "street_center",
+        "Number": "-",
+        "Street": "St Nicholas Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.916696,
+          40.704671000000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Charter Schools",
+        "Name of Space": "Bushwick Ascend Middle School",
+        "Street Address": "2 Aberdeen St ",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "2",
+        "Street": "Aberdeen St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.906711,
+          40.681061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Charter Schools",
+        "Name of Space": "Bushwick Campus High School",
+        "Street Address": "400 Irving Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "400",
+        "Street": "Irving Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91138199999999,
+          40.69709
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community Schools",
+        "Name of Space": "Bushwick Community High School",
+        "Street Address": "231 Palmetto St.",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "231",
+        "Street": "Palmetto St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.915174,
+          40.6955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "Bushwick Housing Independence Project ",
+        "Street Address": "144 Bleecker St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "144",
+        "Street": "Bleecker St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92009,
+          40.696111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Charter Schools",
+        "Name of Space": "Bushwick Leaders High School",
+        "Street Address": "797 Bushwick Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "797",
+        "Street": "Bushwick Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.927719,
+          40.695048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Bushwick Park",
+        "Street Address": "Putnam Avenue, between Knickerbocker and Irving Street",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.28,
+        "Accuracy Type": "intersection",
+        "Number": "-",
+        "Street": "Putnam Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.910303,
+          40.6967
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "CAPICU Poerty",
+        "Street Address": "-",
+        "City": "-",
+        "State": "-",
+        "Zip Code": "-",
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.0,
+        "Accuracy Type": "-",
+        "Number": "-",
+        "Street": "-",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "-",
+        "State.1": "-",
+        "County": "-",
+        "Zip": "-",
+        "Country": "-",
+        "Source": "-"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "Church of God Prophecy",
+        "Street Address": "1243 Bushwick Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1243",
+        "Street": "Bushwick Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91469000000001,
+          40.687749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "Churches United for Fair Housing",
+        "Street Address": "7 Marcus Garvey Blvd",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11206.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "7",
+        "Street": "Marcus Garvey Blvd",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11206.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.941245,
+          40.699801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "Clarke Percy",
+        "Street Address": "86 Granite St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "86",
+        "Street": "Granite St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.906173,
+          40.684009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "Coalition for Hispanic Family Services",
+        "Street Address": "315 Wyckoff Ave # 4",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "315",
+        "Street": "Wyckoff Ave",
+        "Unit Type": "Ste",
+        "Unit Number": "4",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.911838,
+          40.700092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Company XIV",
+        "Street Address": "383 Troutman St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "383",
+        "Street": "Troutman St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.923478,
+          40.706111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "Concerned Citizens of Grove Street Garden",
+        "Street Address": "72 Grove Street,",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11211.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.9,
+        "Accuracy Type": "range_interpolation",
+        "Number": "72",
+        "Street": "Grove St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.921538,
+          40.692506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Public Libraries",
+        "Name of Space": "DeKalb Public Library",
+        "Street Address": "790 Bushwick Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11211.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.9,
+        "Accuracy Type": "rooftop",
+        "Number": "790",
+        "Street": "Bushwick Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.928342,
+          40.694877000000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Senior Centers",
+        "Name of Space": "Diana H. Jones Senior Center",
+        "Street Address": "9 Noll Street",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11206.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "9",
+        "Street": "Noll St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11206.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.935865,
+          40.700203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "East Brooklyn Congregations",
+        "Street Address": "551 Vandalia Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11239.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.9,
+        "Accuracy Type": "rooftop",
+        "Number": "551",
+        "Street": "Vandalia Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11208.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.872465,
+          40.656278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Charter Schools",
+        "Name of Space": "EBC High School",
+        "Street Address": "1155 Dekalb Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1155",
+        "Street": "Dekalb Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.929147,
+          40.694627000000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "Education Little Monsters",
+        "Street Address": "-",
+        "City": "-",
+        "State": "-",
+        "Zip Code": "-",
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.0,
+        "Accuracy Type": "-",
+        "Number": "-",
+        "Street": "-",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "-",
+        "State.1": "-",
+        "County": "-",
+        "Zip": "-",
+        "Country": "-",
+        "Source": "-"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "El Puente",
+        "Street Address": "311 CENTRAL AVE",
+        "City": "Brooklyn",
+        "State": "NY ",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "311",
+        "Street": "Central Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.920243,
+          40.695436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Evergreens Cemetery",
+        "Street Address": "1629 Bushwick Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1629",
+        "Street": "Bushwick Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90343,
+          40.684065999999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "Family Services Network of New York",
+        "Street Address": "1420 Bushwick Avenue ",
+        "City": "Brooklyn ",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1420",
+        "Street": "Bushwick Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.909222,
+          40.684121000000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Freedom Triangle",
+        "Street Address": "Bushwick Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "street_center",
+        "Number": "-",
+        "Street": "Bushwick Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.924925,
+          40.693436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Goodwin Community Garden",
+        "Street Address": "48 Goodwin Place",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11211.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.9,
+        "Accuracy Type": "range_interpolation",
+        "Number": "48",
+        "Street": "Goodwin Pl",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.924266,
+          40.69155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Green Central Knoll Park",
+        "Street Address": "55-65 Evergreen Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11206.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.9,
+        "Accuracy Type": "range_interpolation",
+        "Number": "55",
+        "Street": "Evergreen Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11206.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.933255,
+          40.701367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Hope Ballfield",
+        "Street Address": "249 Grove St,",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "range_interpolation",
+        "Number": "249",
+        "Street": "Grove St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.917023,
+          40.697475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Senior Centers",
+        "Name of Space": "Hope Gardens Senior Center",
+        "Street Address": "195 LINDEN ST",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.9,
+        "Accuracy Type": "rooftop",
+        "Number": "195",
+        "Street": "Linden St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.917526,
+          40.695531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "House of Yes",
+        "Street Address": "2 Wyckoff Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "2",
+        "Street": "Wyckoff Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.923523,
+          40.706841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "I.S. 291K",
+        "Street Address": "231 Palmetto St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "231",
+        "Street": "Palmetto St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.915174,
+          40.6955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "I.S. 383K",
+        "Street Address": "1300 Greene Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1300",
+        "Street": "Greene Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.919535,
+          40.697801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "Iglesia Pentecostal El Calvario",
+        "Street Address": "1374 Myrtle Ave, Brooklyn, NY 11237",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1374",
+        "Street": "Myrtle Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.920598,
+          40.698462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "Iglesia Cristiana Tabernaculo De Reunion",
+        "Street Address": "358 Central Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "358",
+        "Street": "Central Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.919226,
+          40.694582000000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Public Libraries",
+        "Name of Space": "Irving Public Library",
+        "Street Address": "360 Irving Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "360",
+        "Street": "Irving Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.912152,
+          40.697542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Irving Square Park ",
+        "Street Address": "Knickerbocker Avenue, Weirfield St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "street_center",
+        "Number": "-",
+        "Street": "Knickerbocker Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.906118,
+          40.691571
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Knickerbocker Plaza",
+        "Street Address": "Knickerbocker Plaza",
+        "City": "-",
+        "State": "-",
+        "Zip Code": "-",
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "place",
+        "Number": "-",
+        "Street": "-",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Plaza",
+        "State.1": "ND",
+        "County": "Mountrail County",
+        "Zip": 58771.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.03019499999999,
+          48.065743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Living Gallery",
+        "Street Address": "1094 Broadway",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11211.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.9,
+        "Accuracy Type": "rooftop",
+        "Number": "1094",
+        "Street": "Broadway",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.930599,
+          40.694207
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Madison Square Community Garden",
+        "Street Address": "974 Madison St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "range_interpolation",
+        "Number": "974",
+        "Street": "Madison St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91911999999999,
+          40.688886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Make the Road Garden",
+        "Street Address": "-",
+        "City": "-",
+        "State": "-",
+        "Zip Code": "-",
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.0,
+        "Accuracy Type": "-",
+        "Number": "-",
+        "Street": "-",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "-",
+        "State.1": "-",
+        "County": "-",
+        "Zip": "-",
+        "Country": "-",
+        "Source": "-"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "Make the Road New York",
+        "Street Address": "301 GROVE ST",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "301",
+        "Street": "Grove St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.915796,
+          40.698415999999995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Maria Hernandez Park",
+        "Street Address": "Knickerbocker Ave & Starr St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "intersection",
+        "Number": "-",
+        "Street": "Knickerbocker Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.925389,
+          40.70281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Mural at Bushwick Campus \"Time Flies\"",
+        "Street Address": "-",
+        "City": "-",
+        "State": "-",
+        "Zip Code": "-",
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.0,
+        "Accuracy Type": "-",
+        "Number": "-",
+        "Street": "-",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "-",
+        "State.1": "-",
+        "County": "-",
+        "Zip": "-",
+        "Country": "-",
+        "Source": "-"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "My Voice Theater ",
+        "Street Address": "1474 Gates Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1474",
+        "Street": "Gates Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91402099999999,
+          40.697496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "NurtureArt",
+        "Street Address": "56 Bogart St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11206.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "56",
+        "Street": "Bogart St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11206.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.933269,
+          40.705690000000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Onderdonk House",
+        "Street Address": "1820 Flushing Ave",
+        "City": "Ridgewood ",
+        "State": "NY",
+        "Zip Code": 11385.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1820",
+        "Street": "Flushing Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Ridgewood",
+        "State.1": "NY",
+        "County": "Queens County",
+        "Zip": 11385.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.920046,
+          40.710955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Opening Act",
+        "Street Address": "-",
+        "City": "-",
+        "State": "-",
+        "Zip Code": "-",
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.0,
+        "Accuracy Type": "-",
+        "Number": "-",
+        "Street": "-",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "-",
+        "State.1": "-",
+        "County": "-",
+        "Zip": "-",
+        "Country": "-",
+        "Source": "-"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "Opportunity for a Better Tomorrow",
+        "Street Address": "280 Wyckoff Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "280",
+        "Street": "Wyckoff Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.912022,
+          40.699923999999996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "Our Lady of Lourdes Roman Catholic Church",
+        "Street Address": "89 Furman Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "89",
+        "Street": "Furman Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.906002,
+          40.683347999999995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "P.S. /I.S. 384K Frances E. Carter",
+        "Street Address": "242 Cooper St.",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "242",
+        "Street": "Cooper St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.904894,
+          40.690113000000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "P.S. 106K",
+        "Street Address": "1328 Putnam Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1328",
+        "Street": "Putnam Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.912909,
+          40.693884999999995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "P.S. 123K Suydam",
+        "Street Address": "100 Irving Ave.",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "100",
+        "Street": "Irving Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.922575,
+          40.703905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "P.S. 396K",
+        "Street Address": "394 Harman St.",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "range_interpolation",
+        "Number": "394",
+        "Street": "Harman St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91697099999999,
+          40.701865000000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "P.S. 75K",
+        "Street Address": "95 Grove St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "95",
+        "Street": "Grove St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.921042,
+          40.693102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "K-12 (NYC Public Schools)",
+        "Name of Space": "P.S./I.S. 045K Horace E. Greene School",
+        "Street Address": "84 Schaefer St. ",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11207.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "84",
+        "Street": "Schaefer St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11207.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.910451,
+          40.686839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "People's Garden",
+        "Street Address": "1237-1241 Greene Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11211.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 0.8,
+        "Accuracy Type": "range_interpolation",
+        "Number": "1237",
+        "Street": "Greene Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.921165,
+          40.696743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Senior Centers",
+        "Name of Space": "Ridgewood Bushwick Citizen",
+        "Street Address": "143 Himrod St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "143",
+        "Street": "Himrod St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.922719,
+          40.697359000000006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Senior Centers",
+        "Name of Space": "Ridgewood Bushwick Senior Center",
+        "Street Address": "319 Stanhope St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "319",
+        "Street": "Stanhope St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91838800000001,
+          40.702962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Senior Centers",
+        "Name of Space": "Ridgewood Bushwick Senior Citizen H",
+        "Street Address": "533 Bushwick Ave #A",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11206.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "533",
+        "Street": "Bushwick Ave",
+        "Unit Type": "Apt",
+        "Unit Number": "A",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11206.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.935745,
+          40.699839000000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "RiseBoro Youth Center",
+        "Street Address": "1474 Gates Ave",
+        "City": "Brooklyn",
+        "State": "NY ",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1474",
+        "Street": "Gates Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91402099999999,
+          40.697496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Secret Project Robot",
+        "Street Address": "1186 Broadway ",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1186",
+        "Street": "Broadway",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92750600000001,
+          40.692444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "South Bushwick Reformed Church",
+        "Street Address": "855 Bushwick Ave",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "855",
+        "Street": "Bushwick Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.926063,
+          40.694146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "St. Barbara's Church",
+        "Street Address": "138 BLEEKER STREET | BUSHWICK, BROOKLYN, NY 11221",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "138",
+        "Street": "Bleecker St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.920181,
+          40.696001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "St. Brigid Church",
+        "Street Address": "409 Linden St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "409",
+        "Street": "Linden St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.912017,
+          40.701109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Faith-Based Organizations",
+        "Name of Space": "St. Joseph's Patron Roman Catholic Church",
+        "Street Address": "185 Suydam St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11221.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "185",
+        "Street": "Suydam St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11221.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92594799999999,
+          40.700098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Still Waters",
+        "Street Address": "286 Stanhope St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "286",
+        "Street": "Stanhope St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.918809,
+          40.702197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "The Bushwick Starr",
+        "Street Address": "207 Starr St",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "207",
+        "Street": "Starr St",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92336800000001,
+          40.705021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Cultural Institution",
+        "Name of Space": "Tiger Strikes Asteroid",
+        "Street Address": "1329 Willoughby Ave #2a ",
+        "City": "Brooklyn",
+        "State": "NY",
+        "Zip Code": 11237.0,
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "1329",
+        "Street": "Willoughby Ave",
+        "Unit Type": "#",
+        "Unit Number": "2A",
+        "City.1": "Brooklyn",
+        "State.1": "NY",
+        "County": "Kings County",
+        "Zip": 11237.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92119,
+          40.706043
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Park/Plaza",
+        "Name of Space": "Wyckoff Plaza",
+        "Street Address": "Wyckoff Plaza",
+        "City": "-",
+        "State": "-",
+        "Zip Code": "-",
+        "Phone Number": "-",
+        "Email": "-",
+        "Hours of Operation": "-",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "place",
+        "Number": "-",
+        "Street": "-",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Plaza",
+        "State.1": "ND",
+        "County": "Mountrail County",
+        "Zip": 58771.0,
+        "Country": "US",
+        "Source": "TIGER/Line\u00ae dataset from the US Census Bureau"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.03019499999999,
+          48.065743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Community-Based Organizations",
+        "Name of Space": "HAUP",
+        "Street Address": "197-17 Hillside",
+        "City": "Hollis",
+        "State": "NY",
+        "Zip Code": 11423.0,
+        "Phone Number": "347-527-3776",
+        "Email": "info@haupinc.org",
+        "Hours of Operation": "9am - 5pm",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "197-17",
+        "Street": "Hillside Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Hollis",
+        "State.1": "NY",
+        "County": "Queens County",
+        "Zip": 11423.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.765182,
+          40.718676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Asset Type": "Food Kitchens and Pantries",
+        "Name of Space": "Word Of Life International, Inc.",
+        "Street Address": "830 Union Avenue",
+        "City": "Bronx",
+        "State": "NY",
+        "Zip Code": 10459.0,
+        "Phone Number": "718-861-5678",
+        "Email": "wol.bronx@gmail.com",
+        "Hours of Operation": "Saturdays: 9am - 2pm",
+        "Accuracy Score": 1.0,
+        "Accuracy Type": "rooftop",
+        "Number": "830",
+        "Street": "Union Ave",
+        "Unit Type": "-",
+        "Unit Number": "-",
+        "City.1": "Bronx",
+        "State.1": "NY",
+        "County": "Bronx County",
+        "Zip": 10459.0,
+        "Country": "US",
+        "Source": "City of New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.903033,
+          40.819606
+        ]
+      }
+    }
+  ]
+}
