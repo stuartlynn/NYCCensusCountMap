@@ -167,12 +167,35 @@ interfaith = interfaith.assign(geometry = interfaith.apply(lambda x: Point(x.Lon
 interfaith = interfaith.assign(asset_type='Faith-Based Organizations', 
                                icon='Dot_FBO.png', 
                                address = interfaith.apply(lambda x: ','.join([str(x['Address (1)']), str(x['Address (2)']), str(x['Zip Code'])]),axis=1),
-                               name = "Grantee Name")
+                               name = interfaith["Grantee Name"])
 head_stsart = gp.GeoDataFrame(interfaith[['name','asset_type','address','geometry','icon']],crs={"init":'epsg:4326'})
 all_point_data.append(interfaith)
 
+
+## Add in the new data
+new_assets = gp.read_file('../public/assets-06-24-2020.geojson')
+new_assets = new_assets.assign(address = new_assets.apply(lambda x : ','.join([ str(x['Street Address']), str(x['City']), str(x['Zip Code'])]),axis=1), 
+                                name = new_assets['Name of Space'])
+
+type_conversion = {
+    'K-12 (NYC Public Schools)' : 'PUBLIC_K12' ,
+    'Faith-Based Organizations' : 'FaithBasedOrganizations_Layer' , 
+    'Community-Based Organizations': 'CommunityBasedOrganizations_Layer' ,
+    'Public Libraries' :  'Public_Libraries', 
+    'Senior Centers' :  'Senior_Centers', 
+    'Food Kitchens and Pantries' : 'Food_kitchens_and_food_pantries'
+}
+new_assets = new_assets[new_assets['Asset Type'].isin(type_conversion.keys())]
+new_assets = new_assets.assign(asset_type = new_assets['Asset Type'].apply(lambda x: type_conversion[x]),
+                               icon = new_assets['Asset Type'].apply(lambda x: dot_layers[type_conversion[x]]['icon']))
+all_point_data.append(new_assets)
+
 ## Join all the data 
 pois = gp.GeoDataFrame(pd.concat(all_point_data))
+
+## narrow down rows
+pois = gp.GeoDataFrame(pois[['name', 'address','icon','asset_type', 'geometry']], crs='EPSG:4326')
+pois = pois.dropna(subset=['geometry'])
 
 ## Join to get boundary ids
 pois = gp.sjoin( pois, tracts[['GEOID','geometry']], op='within',how='inner').rename(columns={"GEOID":'census_tract_id'}).drop('index_right',axis=1)
@@ -185,5 +208,6 @@ pois = gp.sjoin( pois, congress_assembly_districts[['cong_dist','geometry']], op
 pois = gp.sjoin( pois, senate_districts[['st_sen_dist','geometry']], op='within',how='inner').rename(columns={"st_sen_dist":'st_sen_dist_id'}).drop('index_right',axis=1)
 pois = gp.sjoin( pois, police_precincts[['precinct','geometry']], op='within',how='inner').rename(columns={"precinct":'precinct_id'}).drop('index_right',axis=1)
 pois = gp.sjoin( pois, zipcodes[['ZIPCODE','geometry']], op='within', how='inner').rename(columns={'ZIPCODE': 'zipcode_id'}).drop('index_right', axis=1)
+
 ## Write out the results.
 pois.drop_duplicates().to_file('../public/facilities.geojson',driver='GeoJSON')
