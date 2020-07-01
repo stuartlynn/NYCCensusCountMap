@@ -126,10 +126,10 @@ export default function useOutreachLayer(
     },[map,outreachTragets,assignments, types,ccfs])
 
     useEffect(() => {
-        if (map.current && outreachTragets) {
+        if (map.current && outreachTragets && Object.keys(outreachTragets).length > 0 ) {
             map.current.on("load", () => {
                     types.forEach(type => {
-                        console.log(`outreach: ${type}`)
+                        console.log(`adding outreach layer outreach: ${type}`)
                         if(!map.current.getSource(`outreach_source: ${type}`)){
                             try{
                                 const source = map.current.addSource(
@@ -201,7 +201,7 @@ export default function useOutreachLayer(
                     )
                 }
                 else{
-                   console.log("waiting")
+                   console.log("waiting ", map.current, map.current.loaded(), map.current.getLayer(`outreach: ${layer}`))
                      setTimeout(()=>setVisibility(layer,shouldBeVisable),200)
                 }
             }
