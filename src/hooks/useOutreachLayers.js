@@ -201,7 +201,6 @@ export default function useOutreachLayer(
                     )
                 }
                 else{
-                   console.log("waiting ", map.current, map.current.loaded(), map.current.getLayer(`outreach: ${layer}`))
                      setTimeout(()=>setVisibility(layer,shouldBeVisable),200)
                 }
             }
