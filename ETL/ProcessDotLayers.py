@@ -123,7 +123,7 @@ dot_layers = {
   
 }
 
-[ {layer['lname']:  layer['icon']} for key, layer in dot_layers.items()]
+icon_lookup = [ {layer['lname']:  layer['icon']} for key, layer in dot_layers.items()]
 tracts = gp.read_file('../public/census_tracts.geojson')
 
 def join_address(x,cols):
@@ -189,6 +189,19 @@ new_assets = new_assets[new_assets['Asset Type'].isin(type_conversion.keys())]
 new_assets = new_assets.assign(asset_type = new_assets['Asset Type'].apply(lambda x: type_conversion[x]),
                                icon = new_assets['Asset Type'].apply(lambda x: dot_layers[type_conversion[x]]['icon']))
 all_point_data.append(new_assets)
+
+## Add new data as of Sept 2020 
+new_new_assets = pd.read_csv('NewData/dot_layers/Interactive Map Asset Additions Mastersheet - Single Asset Responses 1.csv')
+new_new_assets = new_new_assets.assign(
+    asset_type= new_new_assets['Asset Type'], 
+    icon= new_new_assets['Asset Type'].apply(lambda x: icon_lookup[x] if x in icon_lookup else 'Dot_FBO.png'), 
+    address= new_new_assets.apply(lambda x: ','.join([str(x['Address (Street)']), str(x['City']), str(x['Zip Code'])]),axis=1), 
+    geometry = new_new_assets.apply(lambda x: Point(x['Longitude'], x['Latitude']), axis=1),
+    name = new_new_assets['Name of Institution, Organization, or Service']
+)
+
+new_new_assets = gp.GeoDataFrame(new_new_assets[['asset_type','icon','address','geometry']],crs='EPSG:4326')
+all_point_data.append(new_new_assets)
 
 ## Join all the data 
 pois = gp.GeoDataFrame(pd.concat(all_point_data))
