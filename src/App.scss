@@ -709,3 +709,25 @@ ul {
         padding: 20px;
     }
 }
+.card.participation{
+    p{
+        color:red;
+        font-size:25px;
+    }
+
+    .participation-grid{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+    }
+
+}
+
+    .participation-explanation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }

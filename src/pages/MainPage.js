@@ -2,22 +2,20 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useMap } from "../hooks/useMap";
 import Legend from "../components/Legend";
 import Details from "../components/Details";
+import VotingDetails from "../components/VotingDetails";
 import Papa from "papaparse";
 import * as turf from "@turf/turf";
 import { useGeoJSONLayer } from "../hooks/useGeoJSONLayer";
 import useBoundaryLayers from "../hooks/useBoundaryLayers";
 import useFacilitiesLayer from "../hooks/useFacilitiesLayer";
-import useOutreachTargets from "../hooks/useOutreachTargets";
-import useOutreachLayers from '../hooks/useOutreachLayers'
+import useVotingTargets from "../hooks/useVotingTargets";
+import useVotingLayers from "../hooks/useVotingLayers";
 import Layers, { fillStyles } from "../Layers";
 import ReactGA from "react-ga";
 import queryString from "query-string";
 import PrintDialog from "../components/PrintDialog";
-import { CCFDetails } from "../components/CCFDetails";
 import useFacilities from "../hooks/useFacilities";
-import {useCCFs} from "../hooks/useCCFs";
 
-import useCCFAssignments from '../hooks/useCCFAssignments'
 
 export default function MainPage() {
     const mapDiv = useRef(null);
@@ -25,26 +23,22 @@ export default function MainPage() {
     const [selectedTract, setSelectedTract] = useState(null);
     const [selectedFeature, setSelectedFeature] = useState(null);
     const [hardToCountStats, setHardToCountStats] = useState([]);
-    const [selectedCCF, setSelectedCCF] = useState(null)
+    // const [selectedCCF, setSelectedCCF] = useState(null)
 
     const [popupFeature, setPopupFeature] = useState(null)
 
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
-    const [selectedOutreachTypes, setSelectedOutreachTypes]= useState([]);
+    const [selectedVotingTypes, setSelectedVotingTypes]= useState([]);
     const [metric, setMetric] = useState("responseRate");
+    const [votingMetric, selectVotingMetric] = useState("participationScore");
     const [showENRFU, setShowNRFU] = useState(false);
     const [showPrintDialog, setShowPrintDialog] = useState(false);
     const [showOutreach, setShowOutreach] = useState(false)
     const [showFacilities, setShowFacilities] = useState(true);
+    const [selectedElectoralDistrict, setSelectedElectoralDistrict] = useState(null)
 
     const [mapImage, setMapImage] = useState(null);
-    const [tab, setTab] = useState("layers");
-    const ccfAssigments = useCCFAssignments()
-    const ccfs = useCCFs(
-
-    )
-    // useCCFAssignments()
-    const outreachTargets = useOutreachTargets();
+    const [tab, setTab] = useState("voting");
 
     useEffect(() => {
         ReactGA.initialize("UA-159011122-1");
@@ -96,8 +90,8 @@ export default function MainPage() {
 */
     };
 
-    const toggleSelectedOutreachTypes = (types)=>{
-            let newList = [...selectedOutreachTypes];
+    const toggleSelectedVotingTypes= (types)=>{
+            let newList = [...selectedVotingTypes];
             types.forEach(type => {
                 if (newList.includes(type)) {
                     newList = newList.filter(t => t !== type);
@@ -105,7 +99,7 @@ export default function MainPage() {
                     newList = [...newList, type];
                 }
             });
-            setSelectedOutreachTypes(newList);
+            setSelectedVotingTypes(newList);
     }
 
     useEffect(() => {
@@ -163,6 +157,22 @@ export default function MainPage() {
         }
     };
 
+    const votingStyle={
+        ...Layers.voting,
+        ...{
+            paintFill:{"fill-color": fillStyles[votingMetric]},
+            paintLine:{"line-opacity": 0.2}
+        }
+    }
+
+    const VotingLater = useGeoJSONLayer(
+            map,'voting',
+        {
+            ...votingStyle,
+            visible:showOutreach,
+            onClick:setSelectedElectoralDistrict 
+        }
+    )
 
     const setTractIfActive = useCallback( (tract)=>{ 
         if(tab==='layers'){ 
@@ -174,7 +184,7 @@ export default function MainPage() {
         ...style,
         onClick: setTractIfActive,
         selection: selectedTract,
-        visible: true
+        visible:!showOutreach 
     });
 
     // const EarlyNRFULocations = useGeoJSONLayer(map, "early_nrfu", {
@@ -204,15 +214,9 @@ export default function MainPage() {
         selectedFacilityTypes
     );
 
-    const outreach = useOutreachLayers(
-        map,
-        outreachTargets,
-        showOutreach,
-        selectedOutreachTypes,
-        setPopupFeature,
-        ccfAssigments,
-        ccfs
-    )
+    const votingTargets = useVotingTargets();
+    useVotingLayers(map, votingTargets, showOutreach, selectedVotingTypes,setPopupFeature )
+    console.log("Voting targets are ", votingTargets)
 
 
     useEffect(()=>{
@@ -221,7 +225,7 @@ export default function MainPage() {
             setShowFacilities(true)
             setShowOutreach(false)
         }
-        if(tab ==='outreach'){
+        if(tab ==='voting'){
             console.log("SWITCHING TO outreach", )
             setShowFacilities(false)
             setShowOutreach(true)
@@ -260,7 +264,13 @@ export default function MainPage() {
                         facilities={facilities}
                         tab={tab} />
                     :
-                    <CCFDetails selectedCCF={selectedCCF}/>
+                    //<CCFDetails selectedCCF={selectedCCF} assignments={ccfAssigments} outreachTargets={outreachTargets}/>
+                    <VotingDetails 
+                        electoralDistrict={selectedElectoralDistrict}
+                        feature={selectedFeature}
+                        layer={selectedBoundary}
+
+                    />
                 }
             </div>
             <Legend
@@ -271,12 +281,14 @@ export default function MainPage() {
                 onShowFacilitiesChange={setShowFacilities}
                 selectedFacilityTypes={selectedFacilityTypes}
                 onSelectFacilityType={onToggleFacilityType}
-                selectedCCF= {selectedCCF}
-                onSelectedCCF={setSelectedCCF}
-                selectedOutreachTypes={selectedOutreachTypes}
-                onSelectOutreachTypes={toggleSelectedOutreachTypes}
+                // selectedCCF= {selectedCCF}
+                // onSelectedCCF={setSelectedCCF}
+                selectedVotingTypes={selectedVotingTypes}
+                onSelectVotingTypes={toggleSelectedVotingTypes}
                 metric={metric}
                 onSelectMetric={setMetric}
+                votingMetric={votingMetric}
+                onSelectVotingMetric={selectVotingMetric}
                 showENRFU={showENRFU}
                 onToggleENRFU={setShowNRFU}
                 shareURL={shareURL}

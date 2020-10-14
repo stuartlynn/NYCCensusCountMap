@@ -7,7 +7,7 @@ import FacilitiesSelector from "./FacilitiesSelector";
 import HelpTab from "./HelpTab";
 import InfoTab from "./InfoTab";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import OutreachTab from "./OutreachTab";
+import VotingTab from "./VotingTab";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,6 +15,7 @@ import {
     faLayerGroup,
     faQuestionCircle,
     faExclamationCircle,
+    faVoteYea,
     faList
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,15 +28,16 @@ export default function Legend({
     onSelectBoundary,
     showFacilities,
     onShowFacilitiesChange,
-    selectedCCF, onSelectedCCF,
-    selectedOutreachTypes,
-    onSelectOutreachTypes,
+    selectedVotingTypes,
+    onSelectVotingTypes,
     tab,
     onTabChanged,
     onSelectMetric,
     metric,
     selectedFacilityTypes,
     onSelectFacilityType,
+    votingMetric,
+    onSelectVotingMetric,
     onPrint,
     showENRFU,
     onToggleENRFU,
@@ -53,12 +55,12 @@ export default function Legend({
                     <FontAwesomeIcon icon={faLayerGroup} />
                 </div>
                 <div
-                    className={tab === "outreach" ? "selected" : ""}
-                    onClick={() => onTabChanged("outreach")}
+                    className={tab === "voting" ? "selected" : ""}
+                    onClick={() => onTabChanged("voting")}
                 >
                     <FontAwesomeIcon
                         style={{ color: "red" }}
-                        icon={faExclamationCircle}
+                        icon={faVoteYea}
                     />
                 </div>
                 <div
@@ -300,11 +302,11 @@ export default function Legend({
                         </div>
                     </section>
                 )}
-                {tab === "outreach" && <OutreachTab 
-                    selectedOutreachTypes={selectedOutreachTypes} 
-                    onSelectOutreachTypes={onSelectOutreachTypes}
-                    selectedCCF={selectedCCF}
-                    onSelectedCCF={onSelectedCCF}
+                {tab === "voting" && <VotingTab 
+                    selected={selectedVotingTypes} 
+                    onSelected={onSelectVotingTypes}
+                    votingMetric={votingMetric}
+                    onSelectVotingMetric={onSelectVotingMetric}
                 />}
 
                 {tab === "info" && <InfoTab />}

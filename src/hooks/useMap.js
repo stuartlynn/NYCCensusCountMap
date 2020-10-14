@@ -36,12 +36,14 @@ export function useMap(mapDivRef, { lnglat, zoom, key }, popupFeature) {
     useEffect(()=>{
         if(popupFeature){
             console.log('popup feature ', popupFeature)
+            const {data} = popupFeature;
             popup.current= new mapboxgl.Popup({ offset: 25 })
             .setLngLat(popupFeature.coordinates)
             .setHTML(`
-                <h3><a target="_blank" href="https://hstcensus2020.formstack.com/forms/cff_grantee_business_outreach_tracker">Click here</a> to claim this asset for outreach!</h3>
-                <h3 style='font-weight:700'>Business ID: ${popupFeature.data.unique_id}</h3>
-                <h3>Please copy Business ID.</h3>
+                <h3>${data.asset_type}</h3>
+                <h3>${data.Name}</h3>
+                <h3>${data.Address}</h3>
+                <h3>${[data.City, data.State, data['Zip Code']].join(',')}
              `)
             .addTo(map.current);
         }

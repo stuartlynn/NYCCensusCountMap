@@ -147,7 +147,6 @@ export default function useBoundaryLayers(
                         layers
                     );
                     Object.entries(layers).forEach(([id, layer]) => {
-                        console.log("comparing ", id, selectedLayer);
                         map.current.setFeatureState(
                             {
                                 source: layer.id + "_source",

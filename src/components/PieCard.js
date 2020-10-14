@@ -33,6 +33,7 @@ const renderCustomizedLabel = ({
 const RADIAN = Math.PI / 180;
 export default function PieCard({ data, title }) {
     const colData = data.map((d, i) => ({ ...d, color: colors[i % 5] }));
+    console.log('column data ',colData)
     const width = 110;
     const height = 110;
     const buffer = 5;
@@ -44,6 +45,7 @@ export default function PieCard({ data, title }) {
                     width={width + buffer}
                     height={height + buffer}
                     data={colData}
+                    dataKey={'value'}
                 >
                     <Pie
                         data={colData}
@@ -53,10 +55,10 @@ export default function PieCard({ data, title }) {
                         label={renderCustomizedLabel}
                         outerRadius={width / 2}
                         isAnimationActive={false}
-                        fill="#8884d8"
+                        fill={'color'}
                     >
                         {colData.map((entry, index) => (
-                            <Cell fill={entry.color} />
+                            <Cell fill={`#${entry.color}`} />
                         ))}
                     </Pie>
                 </PieChart>
@@ -65,7 +67,7 @@ export default function PieCard({ data, title }) {
                         <li className="label">
                             <span
                                 className="bar"
-                                style={{ backgroundColor: colors[index] }}
+                                style={{ backgroundColor:`#${colors[index]}` }}
                             />
                             <span className="label-text">{entry.name}</span>
                         </li>
