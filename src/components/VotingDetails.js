@@ -46,6 +46,9 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
     }
     const featureName = featureNames[layer];
 
+    const dataFeature = showBoundaryData && feature ? feature : electoralDistrict
+
+    console.log("data feature is ",dataFeature)
 
     const makeAgeData = (ed)=>{
         const p= ed.properties
@@ -156,7 +159,7 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
                             </h2>
                         </div>
                     )}
-                    {electoralDistrict && (
+                    { electoralDistrict && (
                         <div
                             className={`boundary-type-selector-type ${
                                 showBoundaryData ? "selected" : ""
@@ -179,7 +182,7 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
                         <div className='card participation'>
                                 <h2>Participation Score</h2>
                             <div className='participation-grid'>
-                        <p>{electoralDistrict.properties.weighted_participation.toLocaleString({ maximumSignificantDigits: 1 })} % </p>
+                        <p>{dataFeature.properties.weighted_participation.toLocaleString({ maximumSignificantDigits: 1 })} % </p>
                         <h3>Weighted Score</h3>
                             </div>
 
@@ -214,7 +217,7 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
                                 <h2></h2>
                                 <PieCard 
                                 title ={'Party Affiliation'}
-                                data={makePartyChoiceData(electoralDistrict)}
+                                data={makePartyChoiceData(dataFeature)}
                                 norm={false}
                                 />
                                 <FactCard
@@ -234,7 +237,7 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
                                 <h2></h2>
                                 <PieCard 
                                 title ={'Voting age'}
-                                data={makeAgeData(electoralDistrict)}
+                                data={makeAgeData(dataFeature)}
                                 norm={false}
                                 />
                         </div>
