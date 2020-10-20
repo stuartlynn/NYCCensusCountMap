@@ -282,7 +282,6 @@ export default function MainPage() {
                         feature={selectedFeature}
                         layer={selectedBoundary}
                         votingLocations={votingTargets}
-
                     />
                 }
             </div>

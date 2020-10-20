@@ -221,7 +221,7 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
                                     title=''
                                     facts={[
                                         {
-                                            name: "% of resisted voters who reported an affiliation",
+                                            name: "% of registered voters who reported an affiliation",
                                             value:10// electoralDistrict.pc_with_affiliation
                                         }
                                     ]}

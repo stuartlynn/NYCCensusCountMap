@@ -139,7 +139,7 @@ export default function useBoundaryLayers(
                 if (
                     map.current.isStyleLoaded() &&
                     (map.current.getLayer(selectedLayer + "-fill") ||
-                        selectedLayer === "tracts")
+                        selectedLayer === "tracts" || selectedLayer === 'eds')
                 ) {
                     console.log(
                         "Actually changing layers ",
