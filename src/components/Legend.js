@@ -306,6 +306,7 @@ export default function Legend({
                     onSelected={onSelectVotingTypes}
                     votingMetric={votingMetric}
                     onSelectVotingMetric={onSelectVotingMetric}
+                    selectedBoundary ={selectedBoundary}
                     onSelectBoundary={onSelectBoundary}
                     boundaries={boundaries}
                 />}

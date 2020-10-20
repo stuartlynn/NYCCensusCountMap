@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {ReactComponent as EarlyVotingIcon}  from '../icons/earlyvoting.svg'
 import {ReactComponent as PollingSitesIcon}  from '../icons/electiondayvoting.svg'
 import {ReactComponent as USPSIcon}  from '../icons/mailinvoting.svg'
@@ -10,7 +10,13 @@ import CategoryLegend from "./CategoryLegend";
 
 
 export default function VotingTab({ selected, onSelected, onSelectVotingMetric, boundaries,votingMetric, onSelectBoundary, selectedBoundary}) {
-    const allowed = ['state_assembly_districts','congress_districts', 'senate_districts']
+    const allowed = ['eds','state_assembly_districts','congress_districts', 'senate_districts']
+
+    useEffect(()=>{
+        if(selectedBoundary &&!allowed.includes(selectedBoundary)){
+            onSelectBoundary('state_assembly_districts')
+        }
+    },[selectedBoundary])
     const votingBoundaries = Object.entries(boundaries).reduce((r,b)=> allowed.includes(b[0]) ? {...r, [b[0]]: b[1]} : r, {} )
     return (
         <div className="outreach-tab">
