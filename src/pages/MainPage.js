@@ -15,6 +15,7 @@ import ReactGA from "react-ga";
 import queryString from "query-string";
 import PrintDialog from "../components/PrintDialog";
 import useFacilities from "../hooks/useFacilities";
+import CategoryLegend from "../components/CategoryLegend";
 
 
 export default function MainPage() {
@@ -30,7 +31,7 @@ export default function MainPage() {
     const [selectedFacilityTypes, setSelectedFacilityTypes] = useState([]);
     const [selectedVotingTypes, setSelectedVotingTypes]= useState([]);
     const [metric, setMetric] = useState("responseRate");
-    const [votingMetric, selectVotingMetric] = useState("participationScore");
+    const [votingMetric, selectVotingMetric] = useState("weightedScore");
     const [showENRFU, setShowNRFU] = useState(false);
     const [showPrintDialog, setShowPrintDialog] = useState(false);
     const [showOutreach, setShowOutreach] = useState(false)
@@ -160,8 +161,7 @@ export default function MainPage() {
     const votingStyle={
         ...Layers.voting,
         ...{
-            paintFill:{"fill-color": fillStyles[votingMetric]},
-            paintLine:{"line-opacity": 0.2}
+            paintFill:{"fill-color": fillStyles[votingMetric]}
         }
     }
 
@@ -170,7 +170,8 @@ export default function MainPage() {
         {
             ...votingStyle,
             visible:showOutreach,
-            onClick:setSelectedElectoralDistrict 
+            onClick:setSelectedElectoralDistrict,
+            selection:selectedElectoralDistrict
         }
     )
 
@@ -240,6 +241,16 @@ export default function MainPage() {
         <div className="main-page">
             <div className="map" ref={mapDiv} />
             <div className="info overlay">
+                {tab==='voting' &&
+                <>
+                <h2>Atlas Vote NYC</h2>
+                <p>
+                    This open source platform is a tool to support community-focused ‘Get Out The Vote’ (GOTV) efforts for upcoming elections. Use this map to identify polling locations and visualize geographically relevant data for neighborhood outreach. 
+                </p>
+                </>}
+
+                {tab==='layers' &&
+                <>
                 <h2>NYC CENSUS 2020 INTERACTIVE MAP</h2>
                 <p>
                     This map is a tool to identify community-based assets, learn
@@ -252,7 +263,8 @@ export default function MainPage() {
                     information about the map and how to submit data for your
                     neighborhood click on the "?" below.
                 </p>
-                <div ref={searchBox} />
+                </>}
+
             </div>
             <div className="details overlay">
                 {tab==='layers' ? 
@@ -269,6 +281,7 @@ export default function MainPage() {
                         electoralDistrict={selectedElectoralDistrict}
                         feature={selectedFeature}
                         layer={selectedBoundary}
+                        votingLocations={votingTargets}
 
                     />
                 }

@@ -1,9 +1,11 @@
 import { pointGrid } from '@turf/turf'
 import React, {useState} from 'react'
+import FactCard from './FactCard'
 import PieCard from './PieCard'
 import VotingDetailsSelector from './VotingDetailsSelector'
+import VotingLocationCard from './VotingLocationCard'
 
-export default function VotingDetails({electoralDistrict,feature,layer}){
+export default function VotingDetails({electoralDistrict,feature,layer, votingLocations}){
     console.log("selected ED ", electoralDistrict)
     const [details, setDetails] = useState('participation')
     const [showBoundaryData, setShowBoundaryData] = useState(false )
@@ -19,8 +21,31 @@ export default function VotingDetails({electoralDistrict,feature,layer}){
         congress_districts: "Congressional District",
         state_assembly_districts: "State Assembly Districts"
     };
+    const layerIDs = {
+        cd: "community_district_id",
+        tracts: "census_tract_id",
+        cc: "city_council_district_id",
+        sd: "school_district_id",
+        nta: "nta_id",
+        police_precincts: "precinct_id",
+        congress_districts: "cong_dist_id",
+        senate_districts: "st_sen_dist_id",
+        NOCCs: "noccs_id"
+    };
 
+    let votingLocs = [] 
+    if(votingLocations && votingLocations.features){
+        if(showBoundaryData && feature){
+            votingLocs = votingLocations.features.filter(vl=>vl.properties[layerIDs[layer]] === feature.properties.geoid)
+            votingLocs = votingLocs.map(vl => vl.properties)
+        }
+        else if (!showBoundaryData && electoralDistrict){
+            votingLocs = votingLocations.features.filter(vl=>vl.properties.elect_dist_id==electoralDistrict.properties.elect_dist)
+            votingLocs = votingLocs.map(vl => vl.properties)
+        }
+    }
     const featureName = featureNames[layer];
+
 
     const makeAgeData = (ed)=>{
         const p= ed.properties
@@ -95,7 +120,7 @@ export default function VotingDetails({electoralDistrict,feature,layer}){
             },
             {
                 name:"Other",
-                value: 1- p.GRE + p.DEM + p.REP
+                value: 1- (p.GRE + p.DEM + p.REP)
             }
         ]
 
@@ -138,7 +163,7 @@ export default function VotingDetails({electoralDistrict,feature,layer}){
                             }`}
                             onClick={() => setShowBoundaryData(false)}
                         >
-                            <h2>Electoral District: {electoralDistrict.properties.GEOID}</h2>
+                            <h2>Electoral District: {electoralDistrict.properties.elect_dist}</h2>
                         </div>
                     )}
                 </div>
@@ -154,48 +179,56 @@ export default function VotingDetails({electoralDistrict,feature,layer}){
                         <div className='card participation'>
                                 <h2>Participation Score</h2>
                             <div className='participation-grid'>
-                        <p>{electoralDistrict.properties.participation_score_2018.toLocaleString({ maximumSignificantDigits: 1 })} % </p>
-                        <h3>Unweighted Score</h3>
                         <p>{electoralDistrict.properties.weighted_participation.toLocaleString({ maximumSignificantDigits: 1 })} % </p>
                         <h3>Weighted Score</h3>
                             </div>
 
                         </div>
                         <div className='card participation-explanation'>
-                            Developed by NYC Votes. Voter Participation shows two scores:
-                            unweighted and weighted. The weighted score counts people who were
-                            eligible for multiple elections more importaint than those who were
-                            eligible for less elections. The unweighted score marks all eligible voters 
-                            as equally important. To learn more about these Voter Participation scores, 
-                            click here.
+                           The Voter Participation score ranks NYC residents’ previous election participation. 
+                           This weighted score places higher importance on longer term residents compared to residents 
+                           who recently moved to NYC. This score was developed by NYC Votes under the NYC Campaign Finance Board. 
+                           To learn more about the Voter Participation Score, <a target="_blank" href='https://nyccfb.maps.arcgis.com/apps/View/index.html?appid=8c71e276366d4368890dc792c046015e&extent=-74.4730,40.5190,-73.4843,40.8922'>click here</a>. 
                         </div>
                         </>
                          }
                         {details === 'registration' &&
                         <>
-                        <div className='card registered'>
+                        {/* <div className='card registered'>
                                 <h2></h2>
                                 <PieCard 
                                 title ={'Voting Population Registered to Vote'}
                                 data={makeRegData(electoralDistrict)}
                                 norm={false}
                                 />
-                        </div>
-                        <div className='card party'>
+                        </div> */}
+                        {/* <div className='card party'>
                                 <h2></h2>
                                 <PieCard 
                                 title ={'Party Affiliation'}
                                 data={makePartyData(electoralDistrict)}
                                 norm={false}
                                 />
-                        </div>
+                        </div> */}
                         <div className='card affiliaction-choice'>
                                 <h2></h2>
                                 <PieCard 
-                                title ={'Affiliation Choice'}
+                                title ={'Party Affiliation'}
                                 data={makePartyChoiceData(electoralDistrict)}
                                 norm={false}
                                 />
+                                <FactCard
+                                    title=''
+                                    facts={[
+                                        {
+                                            name: "% of resisted voters who reported an affiliation",
+                                            value:10// electoralDistrict.pc_with_affiliation
+                                        }
+                                    ]}
+                                      
+                                />
+
+
                         </div>
                         <div className='card age'>
                                 <h2></h2>
@@ -208,6 +241,20 @@ export default function VotingDetails({electoralDistrict,feature,layer}){
                         
                         </>
                          }
+                         {details ==='locations' &&
+                         <>
+                            <VotingLocationCard title={"Early Voting"}
+                            assets={votingLocs.filter(vl => vl.asset_type==='Early Polling Location')}
+                            />
+                            <VotingLocationCard title={"Mail in voting"}
+                            assets={votingLocs.filter(vl => vl.asset_type==='USPS Dropbox')}
+                            />
+                            <VotingLocationCard title={"Election Day Voting"}
+                            assets={votingLocs.filter(vl => vl.asset_type==='Polling Location')}
+                            />
+                            </>
+                         }
+
                     </div>
                 </div>
             

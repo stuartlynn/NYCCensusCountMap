@@ -117,18 +117,52 @@ export const fillStyles = {
     weightedScore:[
         "step",
         ["get","weighted_participation"],
-        "#5A1846",
+        "#E6FAFA",
         10.23,
-        '#900C3F',
+        '#C1E5E6',
         11.76,
-        '#C70039',
+        '#9DD0D4',
         13.22,
-        '#E3611C',
+        '#75BBC1',
         14.89,
-        '#F1920E',
+        '#4BA7AF',
         17.11,
-        '#FFC300', 
+        '#00939C', 
         35.77,
+        ['rgba', 0,0,0,0]
+    ],
+    pc_registered_democrat:[
+        "step",
+        ["get","DEM"],
+        '#EFF3FF',
+        0.17,
+        '#C6DBEF',
+        0.33,
+        '#9ECAE1',
+        0.5,
+        '#6BAED6',
+        0.67,
+        '#3182BD',
+        0.83,
+        "#08519C",
+        1.0,
+        ['rgba', 0,0,0,0]
+    ],
+    pc_registered_republican:[
+        "step",
+        ["get","REP"],
+        '#FFC300', 
+        0.08,
+        '#F1920E',
+        0.15,
+        '#E3611C',
+        0.23,
+        '#C70039',
+        0.3,
+        '#F1920E',
+        0.38,
+        "#5A1846",
+        0.45,
         ['rgba', 0,0,0,0]
     ],
     participationScore:[
@@ -230,7 +264,8 @@ export default {
                 ],
                 3,
                 1
-            ]
+            ],
+            "line-opacity":0.7
         }
 
         }

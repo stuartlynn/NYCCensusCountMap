@@ -14,7 +14,6 @@ export default function HelpTab() {
             <section>
                 <h3>Asset Layers</h3>
                 <h4>Educational Assets </h4>
-
                 <p>
                     These layers identify the location of educational
                     facilities. Children are a historically undercounted
@@ -111,9 +110,33 @@ export default function HelpTab() {
                     United Way of New York City, New York Immigration Coalition,
                     and Hester Street Partner databases in NYC.
                 </p>
+
+                <h4>GOTV Polling + Dropbox Locations></h4>
+                <p>
+            GOTV Polling + Dropbox Locations
+        These layers identify the locations for Early and Election Day voting polling sites, as well as USPS Dropboxes for mail-in voting. 
+</p>
+<p>
+    Sources: {" "} 
+    <a href='https://www.voteearlyny.org/'>VoteEarlyNYC</a>, 
+    <a href='https://data.cityofnewyork.us/City-Government/Voting-Poll-Sites-Map/utqd-4534'>NYC Open Data</a>, 
+    <a href='https://drive.google.com/drive/folders/1Cku6IjjL7MP_QEzPO_BwQa6ESoGnn87A?usp=sharing'>USPS Dropbox Locator</a>
+</p>
+
             </section>
             <section>
-                <h3>Census 2020 Info Layers</h3>
+                <h2>GOTV Layers</h2>
+                <h4>Voter Participation Score</h4>
+                <p>
+                   The voter participation score ranks NYC residents’ previous election participation. This weighted score places higher importance on longer term residents compared to residents who recently moved to NYC. This score was developed by NYC Votes under the NYC Campaign Finance Board. Source: <a href='https://nyccfb.maps.arcgis.com/apps/View/index.html?appid=8c71e276366d4368890dc792c046015e&extent=-74.4730,40.5190,-73.4843,40.8922' target="_blank">NYC Votes Participation Score Map</a> 
+                </p>
+                <h4>Democrat vs Republican</h4>
+                <p>
+                    This data layer is a comparison between registered voters who have affiliated themselves with either the Democrat or Republican parties. This data can be used to identify target audiences for either party. Note: Gaps in the data suggest registered voters are not affiliated with either party or are not affiliated with any party. Source: NYS Board of Elections
+                </p>
+            </section>
+            <section>
+                <h3>Demographic Layers</h3>
 
                 <h4>Mail Contact Strategy</h4>
 

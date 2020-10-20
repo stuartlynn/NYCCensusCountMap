@@ -44,16 +44,9 @@ export default function Legend({
     shareURL
 }) {
 
-
     return (
         <div className="Legend overlay">
             <div className="tabs">
-                <div
-                    className={tab === "layers" ? "selected" : ""}
-                    onClick={() => onTabChanged("layers")}
-                >
-                    <FontAwesomeIcon icon={faLayerGroup} />
-                </div>
                 <div
                     className={tab === "voting" ? "selected" : ""}
                     onClick={() => onTabChanged("voting")}
@@ -62,6 +55,12 @@ export default function Legend({
                         style={{ color: "red" }}
                         icon={faVoteYea}
                     />
+                </div>
+                <div
+                    className={tab === "layers" ? "selected" : ""}
+                    onClick={() => onTabChanged("layers")}
+                >
+                    <FontAwesomeIcon icon={faLayerGroup} />
                 </div>
                 <div
                     className={tab === "info" ? "selected" : ""}
@@ -79,13 +78,13 @@ export default function Legend({
             <div className="content">
                 {tab === "layers" && (
                     <section className="thematic-layer">
-                        <h3>LAYERS</h3>
+                        <h3>DEMOGRAPHIC LAYERS</h3>
                         <h3>Neighborhood Information</h3>
                         <Dropdown
                             options={[
                                 {
                                     value: "responseRate",
-                                    label: "2020 Self Response Rate to date"
+                                    label: "2020 Census Self Response Rate (%)"
                                 },
                                 {
                                     value: "strategy",
@@ -307,6 +306,8 @@ export default function Legend({
                     onSelected={onSelectVotingTypes}
                     votingMetric={votingMetric}
                     onSelectVotingMetric={onSelectVotingMetric}
+                    onSelectBoundary={onSelectBoundary}
+                    boundaries={boundaries}
                 />}
 
                 {tab === "info" && <InfoTab />}
