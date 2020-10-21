@@ -28,7 +28,8 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
         nta: "nta_id",
         police_precincts: "precinct_id",
         congress_districts: "cong_dist_id",
-        state_assembly_districts: "sen_dist_id",
+        state_assembly_districts: "st_sen_dist_id",
+        senate_districts:'sen_dist_id',
         NOCCs: "noccs_id"
     };
 
@@ -38,7 +39,6 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
             votingLocs = votingLocations.features.filter(vl=>vl.properties[layerIDs[layer]] === `${feature.properties.geoid}`)
             votingLocs = votingLocs.map(vl => vl.properties)
 
-            debugger
         }
         else if (!showBoundaryData && electoralDistrict){
             votingLocs = votingLocations.features.filter(vl=>vl.properties.elect_dist_id==electoralDistrict.properties.elect_dist)
