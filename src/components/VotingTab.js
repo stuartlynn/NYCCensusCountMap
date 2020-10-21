@@ -35,16 +35,12 @@ export default function VotingTab({ selected, onSelected, onSelectVotingMetric, 
                                 },
                                 {
                                     value:'pc_registered_democrat', 
-                                    label: "Percent of affiliated voters registered as Democrat"
+                                    label: "Affiliated Voters Registered Democrat (%)"
                                 },
                                 {
                                     value:'pc_registered_republican', 
-                                    label: "Percent of affiliated voters registered as Republican"
-                                },
-                                {
-                                    value: "percent_registered",
-                                    label: "Percent Regiestered"
-                                },
+                                    label: "Affiliated Voters Registered Republican (%)"
+                                }
                             ]}
                             onChange={a => onSelectVotingMetric(a.value)}
                             value={votingMetric}
@@ -85,26 +81,26 @@ export default function VotingTab({ selected, onSelected, onSelectVotingMetric, 
                 <CategoryLegend
                             categories={[
                             {color:"#EFF3FF",
-                            name: "0 - 17%"
+                            name: "0% - 17%"
                             },
                             {
                             color: '#C6D8EF',
-                            name: "17 - 33%"
+                            name: "17% - 33%"
                             },
                             {
                             color: '#9ECAE1',
-                            name: "33 - 50%"
+                            name: "33% - 50%"
                             },{
                             color: '#6BAED6',
-                            name: "50 - 67%"
+                            name: "50% - 67%"
                             },
                             {
                             color: '#3182BD',
-                            name: '67 - 83%'
+                            name: '67% - 83%'
                             },
                             {
                             color:   '#08519C', 
-                            name:   "83 - 100%"
+                            name:   "83% - 100%"
                             }
                             ]}
                            /> 
@@ -114,26 +110,26 @@ export default function VotingTab({ selected, onSelected, onSelectVotingMetric, 
                 <CategoryLegend
                             categories={[
                             {color:"#FFC300",
-                            name: "0 - 8%"
+                            name: "0% - 8%"
                             },
                             {
                             color: '#F1920E',
-                            name: "8 - 15%"
+                            name: "8% - 15%"
                             },
                             {
                             color: '#E3611C',
-                            name: "15 - 23%"
+                            name: "15% - 23%"
                             },{
                             color: '#C70039',
-                            name: "23 - 30%"
+                            name: "23% - 30%"
                             },
                             {
                             color: '#F1920E',
-                            name: '30 - 45%'
+                            name: '30% - 45%'
                             },
                             {
                             color:   '#5A1846', 
-                            name:   "83 - 100%"
+                            name:   "83% - 100%"
                             }
                             ]}
                            /> 

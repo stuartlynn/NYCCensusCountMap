@@ -261,6 +261,7 @@ export default function Legend({
                             selectedBoundary={selectedBoundary}
                             onSelect={onSelectBoundary}
                             boundaries={boundaries}
+                            defaultValue={{label:'Census Tracts', value:'tracts'}}
                         />
                         <FacilitiesSelector
                             selected={selectedFacilityTypes}

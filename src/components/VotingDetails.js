@@ -1,4 +1,3 @@
-import { pointGrid } from '@turf/turf'
 import React, {useState} from 'react'
 import FactCard from './FactCard'
 import PieCard from './PieCard'
@@ -29,15 +28,17 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
         nta: "nta_id",
         police_precincts: "precinct_id",
         congress_districts: "cong_dist_id",
-        senate_districts: "st_sen_dist_id",
+        state_assembly_districts: "sen_dist_id",
         NOCCs: "noccs_id"
     };
 
     let votingLocs = [] 
     if(votingLocations && votingLocations.features){
         if(showBoundaryData && feature){
-            votingLocs = votingLocations.features.filter(vl=>vl.properties[layerIDs[layer]] === feature.properties.geoid)
+            votingLocs = votingLocations.features.filter(vl=>vl.properties[layerIDs[layer]] === `${feature.properties.geoid}`)
             votingLocs = votingLocs.map(vl => vl.properties)
+
+            debugger
         }
         else if (!showBoundaryData && electoralDistrict){
             votingLocs = votingLocations.features.filter(vl=>vl.properties.elect_dist_id==electoralDistrict.properties.elect_dist)
@@ -188,10 +189,11 @@ export default function VotingDetails({electoralDistrict,feature,layer, votingLo
 
                         </div>
                         <div className='card participation-explanation'>
-                           The Voter Participation score ranks NYC residents’ previous election participation. 
+                           <p>The Voter Participation score ranks NYC residents’ previous election participation. 
                            This weighted score places higher importance on longer term residents compared to residents 
                            who recently moved to NYC. This score was developed by NYC Votes under the NYC Campaign Finance Board. 
                            To learn more about the Voter Participation Score, <a target="_blank" href='https://nyccfb.maps.arcgis.com/apps/View/index.html?appid=8c71e276366d4368890dc792c046015e&extent=-74.4730,40.5190,-73.4843,40.8922'>click here</a>. 
+                           </p>
                         </div>
                         </>
                          }

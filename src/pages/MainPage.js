@@ -241,30 +241,10 @@ export default function MainPage() {
         <div className="main-page">
             <div className="map" ref={mapDiv} />
             <div className="info overlay">
-                {tab==='voting' &&
-                <>
-                <h2>Atlas Vote NYC</h2>
+                <h2>ATLAS:VOTE NYC</h2>
                 <p>
                     This open source platform is a tool to support community-focused ‘Get Out The Vote’ (GOTV) efforts for upcoming elections. Use this map to identify polling locations and visualize geographically relevant data for neighborhood outreach. 
                 </p>
-                </>}
-
-                {tab==='layers' &&
-                <>
-                <h2>NYC CENSUS 2020 INTERACTIVE MAP</h2>
-                <p>
-                    This map is a tool to identify community-based assets, learn
-                    about historically undercounted communities, and visualize
-                    geographically relevant Census data for 2020 Census efforts.
-                </p>
-                <p>
-                    If you are creating an outreach strategy to get your
-                    neighborhood counted, this tool can help! For more
-                    information about the map and how to submit data for your
-                    neighborhood click on the "?" below.
-                </p>
-                </>}
-
             </div>
             <div className="details overlay">
                 {tab==='layers' ? 

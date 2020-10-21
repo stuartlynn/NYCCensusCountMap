@@ -288,7 +288,7 @@ p {
         display: none;
     }
     @media screen and( min-height: 858px) {
-        height: 150px;
+        height: 111px;
         p {
             display: block;
         }
@@ -309,8 +309,8 @@ p {
     top: calc(45px + 20px + 20px);
     height: calc(100vh - 380px);
     @media screen and( min-height: 858px) {
-        top: calc(150px + 20px + 20px);
-        height: calc(100vh - 490px);
+        top: calc(111px + 20px + 20px);
+        height: calc(100vh - 450px);
     }
     background-color: white;
 
@@ -732,4 +732,5 @@ ul {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        max-width:500px;
     }
