@@ -283,16 +283,10 @@ p {
     top: 20px;
     text-align: left;
     width: $sidebar-width;
-    p {
-        margin-top: 5px;
-        display: none;
-    }
-    @media screen and( min-height: 858px) {
-        height: 131px;
+        height: 135px;
         p {
             display: block;
         }
-    }
     h3 {
         font-size: 1rem;
     }
@@ -306,12 +300,8 @@ p {
     padding: 0px;
     position: absolute;
     z-index: 100;
-    top: calc(45px + 20px + 20px);
-    height: calc(100vh - 380px);
-    @media screen and( min-height: 858px) {
-        top: calc(130px + 20px + 20px);
-        height: calc(100vh - 472px);
-    }
+        top: calc(121px + 20px + 20px);
+        height: calc(100vh - 450px);
     background-color: white;
 
     width: $sidebar-width;
