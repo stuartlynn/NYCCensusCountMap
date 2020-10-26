@@ -124,16 +124,20 @@ export default function VotingTab({ selected, onSelected, onSelectVotingMetric, 
                             name: "23% - 30%"
                             },
                             {
-                            color: '#F1920E',
-                            name: '30% - 45%'
+                            color: '#900C3F',
+                            name: '30% - 38%'
                             },
                             {
-                            color:   '#5A1846', 
-                            name:   "83% - 100%"
+                            color: '#5A1846',
+                            name: '38% - 45%'
                             }
                             ]}
                            /> 
             }
+            { (votingMetric ==='pc_registered_democrat' || votingMetric === 'pc_registered_republican')&&
+                <p style={{color:'red'}}>We are aware that data is missing for Staten Island and are working to resolve this issue</p>
+            }
+
             <BoundarySelector
                 key="voting-bounday-selector"
                 selectedBoundary={selectedBoundary}

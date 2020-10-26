@@ -241,9 +241,12 @@ export default function MainPage() {
         <div className="main-page">
             <div className="map" ref={mapDiv} />
             <div className="info overlay">
-                <h2>ATLAS:VOTE NYC</h2>
+                <h2>ATLAS: VOTE NYC</h2>
                 <p>
-                    This open source platform is a tool to support community-focused ‘Get Out The Vote’ (GOTV) efforts for upcoming elections. Use this map to identify polling locations and visualize geographically relevant data for neighborhood outreach. 
+                   This platform is a tool to support community-focused 'Get Out The Vote' (GOTV) efforts for upcoming elections. Use this map to identify polling locations and visualize geographically relevant data for neighborhood outreach. 
+                </p>
+                <p>
+                    To learn how to use this map, please review the <a href='https://drive.google.com/file/d/1TBbgyKjF1wraygVncHCSNRdCh8qS2fkX/view?usp=sharing'>user guide</a>.
                 </p>
             </div>
             <div className="details overlay">
